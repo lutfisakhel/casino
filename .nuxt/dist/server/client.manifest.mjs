@@ -1,0 +1,1 @@
+export { default } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@nuxt+vite-builder@3.9.1_eslint@8.56.0_sass@1.69.7_typescript@5.3.3_vue@3.4.14/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

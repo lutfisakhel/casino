@@ -1,0 +1,17 @@
+{
+  "date": "2024-06-05T12:24:20.811Z",
+  "preset": "nitro-dev",
+  "framework": {
+    "name": "nuxt",
+    "version": "3.9.1"
+  },
+  "versions": {
+    "nitro": "2.8.1"
+  },
+  "dev": {
+    "pid": 45566,
+    "workerAddress": {
+      "socketPath": "/var/folders/4f/_8kkvr2d59l7r3rxrnd6pfvm0000gn/T/nitro/worker-45566-1.sock"
+    }
+  }
+}
