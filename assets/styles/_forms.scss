@@ -1,0 +1,46 @@
+// input[type="text"]:not([role="combobox"]),
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="week"],
+input[multiple],
+textarea[type="textarea"],
+textarea,
+select {
+  @apply block w-full text-base rounded-md shadow-sm transition-all duration-300 border-gray-400 placeholder-gray-500 focus:placeholder-gray-400 focus:border-indigo-400 focus:ring-indigo-400 text-gray-900 dark:text-gray-200 bg-white;
+
+  @apply dark:bg-slate-800 focus:dark:bg-slate-700;
+
+  &.input-lg {
+    @apply py-3 px-4;
+  }
+
+  &[disabled] {
+    @apply cursor-not-allowed opacity-70;
+    pointer-events: none !important;
+  }
+}
+
+input[type="checkbox"][disabled] {
+  @apply cursor-not-allowed bg-gray-400 hover:bg-gray-400;
+  pointer-events: none !important;
+}
+
+button[disabled] {
+  @apply cursor-not-allowed opacity-70;
+  pointer-events: none !important;
+}
+
+// error text
+.form-error,
+span[role="alert"] {
+  @apply text-red-600 text-sm dark:text-red-300;
+}

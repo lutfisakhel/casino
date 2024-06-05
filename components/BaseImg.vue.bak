@@ -1,0 +1,125 @@
+<template>
+  <NuxtPicture :provider="provider" :class="[{ bordered: bordered }, $attrs.class]" :preload="preload" :src="imgSrc"
+    :alt="altVal" :sizes="calculateSizes" :imgAttrs="imgAttrs" :width="width" :height="height" densities="x1 x2"
+    :loading="lazy ? 'lazy' : 'eager'" />
+</template>
+
+<script setup>
+import { computed } from "vue";
+
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = defineProps({
+  src: {
+    type: String,
+    required: true,
+  },
+  alt: {
+    type: String,
+  },
+  size: {
+    type: String,
+  },
+  bordered: {
+    type: Boolean,
+    default: false,
+  },
+  preload: {
+    type: Boolean,
+    default: false,
+  },
+  width: {
+    type: Number,
+  },
+  height: {
+    type: Number,
+  },
+  imgClass: {
+    type: String,
+  },
+  lazy: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const altVal = computed(() => {
+  return props.alt || props.src.replace("-", " ").replace("_", " ");
+});
+
+// if it's a uuid use directus regex 0c346b65-f10d-4448-bb03-3ca77ae5c861
+// otherwise use ipx
+const provider = computed(() => {
+  if (props.src.match(/^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/)) {
+    return "directus";
+  }
+});
+
+// if it doesn't start with /, and provider is not directus, then add /img/ to the beginning
+const imgSrc = computed(() => {
+  if (props.src.startsWith("/") || provider.value === "directus") {
+    return props.src;
+  } else {
+    // TODO, remove this
+    return `/img/${props.src}`;
+  }
+});
+
+const calculateSizes = computed(() => {
+  let sizes = {
+    default: "320px",
+    xs: "320px",
+    sm: "640px",
+    lg: null,
+  };
+
+  switch (props.size) {
+    case "xs":
+      sizes.default = "100px";
+      sizes.xs = null;
+      sizes.sm = null;
+      break;
+    case "sm":
+      sizes.sm = null;
+      break;
+    case "md":
+      break;
+    default:
+      sizes.lg = "1080px";
+      break;
+  }
+
+  // Format the sizes into the desired string format.
+  let result = sizes.default;
+  if (sizes.xs) result += ` xs:${sizes.xs}`;
+  if (sizes.sm) result += ` sm:${sizes.sm}`;
+  if (sizes.lg) result += ` lg:${sizes.lg}`;
+
+  return result;
+});
+
+const imgAttrs = computed(() => {
+  return {
+    class: props.imgClass,
+    width: props.width,
+    height: props.height,
+  };
+});
+</script>
+
+<style lang="scss" scoped>
+picture {
+  // image cropping, see https://codepen.io/mosbth/pen/KdQzKq
+  @apply overflow-hidden;
+
+  &.bordered {
+    @apply p-1 border rounded-sm border-slate-200;
+  }
+
+  img {
+    @apply min-w-full m-0 min-h-full w-full;
+  }
+}
+</style>
