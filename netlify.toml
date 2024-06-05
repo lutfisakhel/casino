@@ -1,0 +1,21 @@
+[build]
+# Command to build your site
+command = "pnpm generate"
+publish = "dist"
+
+# Define the Nuxt 3 version in the environment
+[build.environment]
+NODE_VERSION = "20"
+PNPM_FLAGS = "--shamefully-hoist"
+
+# [dev]                                          
+#    framework = "#custom"                                                    
+#    command = "pnpm dev"             
+#    targetPort = 3000
+#    debug = true
+#    port = 8888
+#    publish = "dist"
+
+[[plugins]]
+# docs https://github.com/Tom-Bonnike/netlify-plugin-inline-critical-css#readme
+package = "netlify-plugin-inline-critical-css"
