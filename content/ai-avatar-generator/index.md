@@ -42,18 +42,6 @@ Remember when creating a video meant hiring actors, setting up a studio, and spe
 
 ###  Cetaphil Oil Absorbing Moisturizer
 
-::LazyImageWithButtons
----
-description: .....
-imageSrc: /imgs/Article2/casino-logo.png
-imageAlt: add image alt
-reviewsAverage: 5
-price: 112
-buttons:
-      - text: أحصل عليه من أي هيرب 
-        link: "https://bit.ly/3QSjff6"
----
-::
 
 ::ImageWithButtons
 ---
