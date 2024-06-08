@@ -2,7 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Featured': typeof import("../components/content/Featured.vue")['default']
-    'ImageWithButtons': typeof import("../components/content/ImageWithButtons.vue")['default']
+    'ImageWithButtons': typeof import("../components/content/Imagewithbuttons.vue")['default']
     'ProseImg': typeof import("../components/content/ProseImg.vue")['default']
     'ProseTable': typeof import("../components/content/ProseTable.vue")['default']
     'ProseTh': typeof import("../components/content/ProseTh.vue")['default']
@@ -136,7 +136,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/.pnpm/nuxt@3.9.1_eslint@8.56.0_sass@1.69.7_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/.pnpm/nuxt@3.9.1_eslint@8.56.0_sass@1.69.7_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyFeatured': typeof import("../components/content/Featured.vue")['default']
-    'LazyImageWithButtons': typeof import("../components/content/ImageWithButtons.vue")['default']
+    'LazyImageWithButtons': typeof import("../components/content/Imagewithbuttons.vue")['default']
     'LazyProseImg': typeof import("../components/content/ProseImg.vue")['default']
     'LazyProseTable': typeof import("../components/content/ProseTable.vue")['default']
     'LazyProseTh': typeof import("../components/content/ProseTh.vue")['default']
@@ -273,7 +273,7 @@ declare module 'vue' {
 }
 
 export const Featured: typeof import("../components/content/Featured.vue")['default']
-export const ImageWithButtons: typeof import("../components/content/ImageWithButtons.vue")['default']
+export const ImageWithButtons: typeof import("../components/content/Imagewithbuttons.vue")['default']
 export const ProseImg: typeof import("../components/content/ProseImg.vue")['default']
 export const ProseTable: typeof import("../components/content/ProseTable.vue")['default']
 export const ProseTh: typeof import("../components/content/ProseTh.vue")['default']
@@ -407,7 +407,7 @@ export const Head: typeof import("../node_modules/.pnpm/nuxt@3.9.1_eslint@8.56.0
 export const Html: typeof import("../node_modules/.pnpm/nuxt@3.9.1_eslint@8.56.0_sass@1.69.7_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/.pnpm/nuxt@3.9.1_eslint@8.56.0_sass@1.69.7_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyFeatured: typeof import("../components/content/Featured.vue")['default']
-export const LazyImageWithButtons: typeof import("../components/content/ImageWithButtons.vue")['default']
+export const LazyImageWithButtons: typeof import("../components/content/Imagewithbuttons.vue")['default']
 export const LazyProseImg: typeof import("../components/content/ProseImg.vue")['default']
 export const LazyProseTable: typeof import("../components/content/ProseTable.vue")['default']
 export const LazyProseTh: typeof import("../components/content/ProseTh.vue")['default']

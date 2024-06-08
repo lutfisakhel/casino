@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-white">
+  <div class="p-4">
     <div class="py-2 mx-auto sm:py-2 lg:max-w-7xl">
       <!-- Product -->
       <div
@@ -9,7 +9,7 @@
         <div class="rounded-md lg:col-span-4 lg:row-end-1">
           <a
             :href="buttons[0].link"
-            class="block rounded-md ring-2 ring-offset-1 hover:ring-rose-300 ring-rose-100"
+            class="block rounded-md ring-2 ring-offset-1 hover:ring-red-300 ring-red-100"
           >
             <BaseImg
               v-if="imageSrc"
@@ -29,18 +29,18 @@
         >
           <div class="flex flex-col-reverse">
             <p
-              class="text-xl leading-8 tracking-tight text-gray-900 sm:text-xl"
+              class="text-xl leading-8 tracking-tight text-gray-900 dark:text-white sm:text-xl"
             >
               {{ description }}
             </p>
           </div>
           <div class="-mt-12">
-            <h3>{{ price }} ر.س</h3>
+            <h3>{{ offer }}</h3>
           </div>
           <div class="-mt-4">
             <h4>
-              تقييمنا
-              {{ reviewsAverage }} من 5 نجوم
+              Our rating is
+              {{ reviewsAverage }} out of 5 stars
             </h4>
             <div class="flex mb-6">
               <StarIcon
@@ -88,7 +88,7 @@ defineProps({
   imageSrc: String,
   imageAlt: String,
   reviewsAverage: Number,
-  price: Number,
+  offer: String,
   buttons: Array,
 });
 </script>

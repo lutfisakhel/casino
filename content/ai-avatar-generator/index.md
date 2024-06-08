@@ -10,6 +10,7 @@ products:
     feature: 'Best Offer'
     name: ' Casino 888 '
     offer: '112'
+    reviewsAverage: 5
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/3QSjff6"
@@ -19,6 +20,7 @@ products:
     feature: 'Top Rated'
     name: ' Casino 888 '
     offer: '58'
+    reviewsAverage: 5
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/3QV89pL"
@@ -28,6 +30,7 @@ products:
     feature: 'Most Games'
     name: ' Casino 888 '
     offer: '114'
+    reviewsAverage: 5
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/4bM6Z88"
@@ -43,20 +46,17 @@ Remember when creating a video meant hiring actors, setting up a studio, and spe
 ###  Cetaphil Oil Absorbing Moisturizer
 
 
-::ImageWithButtons
+::Imagewithbuttons
 ---
-description: كريم مرطب سيارفي مثالي للبشرة الجافة والأكزيما، يرطب ويغذي بعمق، مما يترك البشرة ناعمة وصحية. قوامه السميك يمنح ترطيبًا مكثفًا، ورغم بطء امتصاصه فهو مثالي للاستخدام الليلي.
-imageSrc: /imgs/article1/cerave-misturizing-cream.webp
+description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit inventore veritatis et quasi. 
+imageSrc: /imgs/Article2/casino-logo.png
 imageAlt: كريم مرطب سيارفي
 reviewsAverage: 5
-price: 116
+offer: include offer here
 buttons:
-      - text: أحصل عليه من لوك فانتاستيك 
-        link: "https://clk.omgt4.com/?AID=2049184&PID=51268&UID=albashra2&r=https%3A%2F%2Fwww.lookfantastic.ae%2Fcerave-moisturising-cream-340g%2F11798692.html"
-      - text: أحصل عليه من بشرة كير
-        link: "https://xqjeo.com/g/7oyzr9gnyz30ecfd64316c3d5eb5ce/?subid=albashra2&ulp=https%3A%2F%2Fwww.basharacare.com%2Far_sa%2Fcerave-moisturizing-cream-340g%3FqueryID%3D375acbe26e70dffdeb5029d2e39a5bf3"
-      - text: أحصل عليه من أمازون
-        link: "https://amzn.to/3UImBUp"
+      - text: Get this offer now!
+        link: "https://bit.ly/4bM6Z88"
+
 ---
 ::
 

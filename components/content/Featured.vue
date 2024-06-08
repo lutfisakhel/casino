@@ -33,6 +33,20 @@
               </span>
             </div>
           </div>
+          <div class="py-5 !my-0 text-center -mt-4">
+            <div class="flex mb-6 text-center">
+              <StarIcon
+                v-for="rating in [0, 1, 2, 3, 4]"
+                :key="rating"
+                :class="[
+                  product.review > rating
+                    ? 'text-yellow-400'
+                    : 'h-5 w-5 flex-shrink-0',
+                ]"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
           <div class="flex flex-col flex-1 p-4">
             <p
               class="py-5 !my-0 text-xl font-medium tracking-tight text-center text-slate-950 dark:text-white"
@@ -65,6 +79,8 @@
 </template>
   
   <script setup>
+import { StarIcon } from "@heroicons/vue/20/solid";
+
 // Props structure detail:
 // products: Array of objects representing products. Each product object should have the following properties:
 // - id: Number, a unique identifier for each product.
