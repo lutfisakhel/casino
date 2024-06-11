@@ -9,8 +9,8 @@ products:
   - id: 1
     feature: 'Best Offer'
     name: ' Casino 888 '
-    offer: '112'
-    reviewsAverage: 5
+    offer: 'Deposit £20 And Play with £50'
+    rating: 9.6
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/3QSjff6"
@@ -19,8 +19,8 @@ products:
   - id: 2
     feature: 'Top Rated'
     name: ' Casino 888 '
-    offer: '58'
-    reviewsAverage: 5
+    offer: '£100 Bonus + 100 Free Spins'
+    rating: 9.4
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/3QV89pL"
@@ -29,8 +29,8 @@ products:
   - id: 3
     feature: 'Most Games'
     name: ' Casino 888 '
-    offer: '114'
-    reviewsAverage: 5
+    offer: '100% up to £100 + 30 Bonus Spins'
+    rating: 9.3
     buttons:
       - text: Get this offer now!
         link: "https://bit.ly/4bM6Z88"
@@ -50,9 +50,9 @@ Remember when creating a video meant hiring actors, setting up a studio, and spe
 ---
 description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit inventore veritatis et quasi. 
 imageSrc: /imgs/Article2/casino-logo.png
-imageAlt: كريم مرطب سيارفي
-reviewsAverage: 5
-offer: include offer here
+imageAlt: insert alt here
+rated: 9.3
+offer: 100% up to £100 + 30 Bonus Spins
 buttons:
       - text: Get this offer now!
         link: "https://bit.ly/4bM6Z88"

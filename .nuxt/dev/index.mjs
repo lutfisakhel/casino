@@ -317,7 +317,7 @@ const _inlineRuntimeConfig = {
         "sitemapName": "sitemap.xml",
         "route": "sitemap.xml",
         "defaults": {
-          "lastmod": "2024-06-08T12:09:59Z"
+          "lastmod": "2024-06-11T22:26:44Z"
         },
         "include": [],
         "exclude": [

@@ -34,26 +34,18 @@
               {{ description }}
             </p>
           </div>
+          <div>
+            <span
+              class="mb-6 inline-flex text-3xl font-bold bg-white text-slate-700 dark:text-white dark:bg-slate-950"
+            >
+              {{ rated }}
+              <StarIcon class="text-yellow-400 h-6 w-6 mt-1" />
+            </span>
+          </div>
           <div class="-mt-12">
             <h3>{{ offer }}</h3>
           </div>
-          <div class="-mt-4">
-            <h4>
-              Our rating is
-              {{ reviewsAverage }} out of 5 stars
-            </h4>
-            <div class="flex mb-6">
-              <StarIcon
-                v-for="rating in [0, 1, 2, 3, 4]"
-                :key="rating"
-                :class="[
-                  reviewsAverage > rating ? 'text-yellow-400' : 'text-gray-300',
-                  'h-5 w-5 flex-shrink-0',
-                ]"
-                aria-hidden="true"
-              />
-            </div>
-          </div>
+
           <div
             v-for="(button, index) in buttons"
             :key="index"
@@ -87,7 +79,7 @@ defineProps({
   description: String,
   imageSrc: String,
   imageAlt: String,
-  reviewsAverage: Number,
+  rated: Number,
   offer: String,
   buttons: Array,
 });

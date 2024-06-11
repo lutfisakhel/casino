@@ -21,30 +21,19 @@
             :width="400"
           />
           <div
-            class="absolute inset-0 border-2 border-gray-600 rounded-lg pointer-events-none"
+            class="absolute inset-0 border-2 border-gray-500 rounded-lg pointer-events-none"
             aria-hidden="true"
           />
           <div class="absolute inset-x-0 top-0 transform translate-y-px">
             <div class="flex justify-center transform -translate-y-1/2">
               <span
-                class="z-10 inline-flex px-4 text-xl font-bold bg-white text-slate-950 dark:text-white dark:bg-slate-950 text-md"
+                class="z-10 inline-flex px-4 text-3xl font-bold bg-white text-slate-700 dark:text-white dark:bg-slate-950"
               >
-                {{ product.feature }}
+                {{ product.rating }}
+                <StarIcon
+                  class="text-yellow-400 h-6 w-6 ml-1 mt-1 flex-shrink-0"
+                />
               </span>
-            </div>
-          </div>
-          <div class="py-5 !my-0 text-center -mt-4">
-            <div class="flex mb-6 text-center">
-              <StarIcon
-                v-for="rating in [0, 1, 2, 3, 4]"
-                :key="rating"
-                :class="[
-                  product.review > rating
-                    ? 'text-yellow-400'
-                    : 'h-5 w-5 flex-shrink-0',
-                ]"
-                aria-hidden="true"
-              />
             </div>
           </div>
           <div class="flex flex-col flex-1 p-4">
