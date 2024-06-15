@@ -13,9 +13,9 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 
 useHead(
   metaFromNuxtContent({
-    title: "AIVidPro Home",
+    title: "theturkbet Home",
     description:
-      "Welcome To AIVidPro! Learn about the best and latest AI video tools to streamline your video content creation process for businesses and influencers.",
+      "Welcome To theturkbet! Learn about the best and latest AI video tools to streamline your video content creation process for businesses and influencers.",
   })
 );
 

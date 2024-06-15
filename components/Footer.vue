@@ -35,7 +35,7 @@
       <p
         class="mt-8 text-xs leading-5 text-center text-gray-500 dark:text-gray-300"
       >
-        &copy; 2024 AIVidPro.com &ndash; All rights reserved.
+        &copy; 2024 theturkbet.com &ndash; All rights reserved.
       </p>
     </div>
   </footer>
@@ -83,7 +83,7 @@ const navigation = {
     },
     {
       name: "X",
-      href: "https://twitter.com/aividpro",
+      href: "https://twitter.com/theturkbet",
       icon: defineComponent({
         render: () =>
           h("svg", { fill: "currentColor", viewBox: "0 0 24 24" }, [
@@ -109,7 +109,7 @@ const navigation = {
     // },
     {
       name: "YouTube",
-      href: "https://www.youtube.com/@Aividpro",
+      href: "https://www.youtube.com/@theturkbet",
       icon: defineComponent({
         render: () =>
           h("svg", { fill: "currentColor", viewBox: "0 0 24 24" }, [

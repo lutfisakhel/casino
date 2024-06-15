@@ -5,7 +5,7 @@
         <p
           class="text-lg font-semibold leading-8 tracking-tight text-indigo-500"
         >
-          Why AIVidPro?
+          Why theturkbet?
         </p>
         <h1
           class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-zinc-300 sm:text-4xl"

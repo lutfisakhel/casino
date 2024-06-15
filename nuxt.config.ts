@@ -16,11 +16,11 @@ export default defineNuxtConfig({
       charset: "utf-16",
       htmlAttrs: { lang: "en-US" },
       viewport: "width=device-width,initial-scale=1",
-      title: "AIVidPro",
-      titleTemplate: "%s - AIVidPro.com",
+      title: "theturkbet",
+      titleTemplate: "%s - theturkbet.com",
       meta: [
-        { name: "apple-mobile-web-app-title", content: "AIVidPro" },
-        { name: "application-name", content: "AIVidPro" },
+        { name: "apple-mobile-web-app-title", content: "theturkbet" },
+        { name: "application-name", content: "theturkbet" },
         { name: "msapplication-TileColor", content: "#2b67bb" },
         { name: "theme-color", content: "#ffffff" },
       ],
@@ -57,8 +57,8 @@ export default defineNuxtConfig({
 
   // docs https://nuxtseo.com/site-config/getting-started/background
   site: {
-    url: "https://aividpro.com",
-    name: "AIVidPro",
+    url: "https://theturkbet.com",
+    name: "theturkbet",
 
     identity: {
       type: "Person",
@@ -134,7 +134,7 @@ export default defineNuxtConfig({
     rules: {
       UserAgent: "*",
       Disallow: "/contact-success",
-      Sitemap: "https://aividpro.com/sitemap.xml",
+      Sitemap: "https://theturkbet.com/sitemap.xml",
     },
   },
 

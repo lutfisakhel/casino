@@ -30,12 +30,12 @@
       >
         <span v-if="error.statusCode == 404"
           >Sorry, the page you are looking for could not be found on
-          AIVidPro.com.</span
+          theturkbet.com.</span
         >
         <span v-else
           >Something went wrong! This should never happen. Please help us clean
           this mess by
-          <a href="https://ig.me/m/AIVidPro" target="_blank"
+          <a href="https://ig.me/m/theturkbet" target="_blank"
             >reporting this error</a
           >.</span
         >

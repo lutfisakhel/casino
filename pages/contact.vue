@@ -145,8 +145,8 @@
               <dd>
                 <a
                   class="hover:text-gray-900 dark:hover:text-white"
-                  href="mailto:support@aividpro.com"
-                  >support@aividpro.com</a
+                  href="mailto:support@theturkbet.com"
+                  >support@theturkbet.com</a
                 >
               </dd>
             </div>
@@ -169,7 +169,7 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 useHead(
   metaFromNuxtContent({
     title: "Contact Us",
-    description: "Contact AIVidPro. We'd love to hear from you!",
+    description: "Contact theturkbet. We'd love to hear from you!",
   })
 );
 </script>

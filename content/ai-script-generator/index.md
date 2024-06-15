@@ -19,28 +19,28 @@ These are the AI script generators we will be reviewing:
 
 2.  [BigVU](https://bigvu.tv/)
 
-3.  [Cohesive](https://cohesive.so/?fpr=aividpro)
+3.  [Cohesive](https://cohesive.so/?fpr=theturkbet)
 
 4.  [Scrip AI](https://scripai.com/)
 
 5.  [WriteCream](https://www.writecream.com/?gr_pk=zRLL&gr_uid=xoNm)
 
-6.  [Syllaby](https://syllaby.io/?via=aividpro)
+6.  [Syllaby](https://syllaby.io/?via=theturkbet)
 
 7.  [Writesonic](https://writesonic.com/)
 
-8.  [Rytr](https://rytr.me/?via=aividpro)
+8.  [Rytr](https://rytr.me/?via=theturkbet)
    
 |    Product   |                                                Key Features                                              |       Pricing      |     Free Trial    |  Rating |
 |------------|--------------------------------------------------------------------------------------------------------|------------------|-----------------|-------|
 |    [Jasper](https://www.jasper.ai/)| - Scripting automation<br>- Voice conversion<br>- Sentence Rephrasing<br>- Content Suggestions                  | From $49/month     | 7-day free trial  | 9.4     |
 |      [BigVU](https://bigvu.tv/)   | - Tailored Scripts<br>- Simple Video Editing<br>- Video Analytics<br>- Teleprompter<br>- Script Personalization  |  From $18.99/month | Yes               | 9.3     |
-|    [Cohesive](https://cohesive.so/?fpr=aividpro)  | - Tool Diversity<br>- Re-generate Text<br>- Scriptwriting Focused                                            | From $25/month     | Yes               | 9.1     |
+|    [Cohesive](https://cohesive.so/?fpr=theturkbet)  | - Tool Diversity<br>- Re-generate Text<br>- Scriptwriting Focused                                            | From $25/month     | Yes               | 9.1     |
 |    [Scrip AI](https://scripai.com/)  | - SM Content Ideas<br>- Blog Creation<br>- YouTube SEO<br>- Hashtag Generation                                 | Fully Free         | Yes               | 8.9     |
 |   [WriteCream](https://www.writecream.com/?gr_pk=zRLL&gr_uid=xoNm) | - Automated Dialogue<br>- Natural Writing Style<br>- Automated Editing<br>- Video Stat Analysis                | From $29/month     | Yes               | 8.5     |
-|     [Syllaby](https://syllaby.io/?via=aividpro)  | - Script integration<br>- Audio enhancement<br>- Multimedia Approach<br>- SEO Optimization                      | $49/month          | 7-day free trial  | 8.2     |
+|     [Syllaby](https://syllaby.io/?via=theturkbet)  | - Script integration<br>- Audio enhancement<br>- Multimedia Approach<br>- SEO Optimization                      | $49/month          | 7-day free trial  | 8.2     |
 |   [Writesonic](https://writesonic.com/) | - Natural Writing Style<br>- Content Customization<br>- Creation Assistance                                  | From $13/month     | Yes               | 7.6     |
-|      [Rytr](https://rytr.me/?via=aividpro)    | - User-Friendly Design<br>- Content Ideas<br>- Content Storage                                               | From $9/month      | 10,000 Free Words | 7.4     |
+|      [Rytr](https://rytr.me/?via=theturkbet)    | - User-Friendly Design<br>- Content Ideas<br>- Content Storage                                               | From $9/month      | 10,000 Free Words | 7.4     |
 
 ### 1\. [Jasper](https://www.jasper.ai/)
 
@@ -107,7 +107,7 @@ Try out their free version. Subscriptions starting at $18.99/month.
 
 “_Every time you want to start to recording the next take, you have to adjust the size of the text when the system should just remember which size you were using before._“
 
-### 3\. [Cohesive](https://cohesive.so/?fpr=aividpro)
+### 3\. [Cohesive](https://cohesive.so/?fpr=theturkbet)
 
 Meet Cohesive, your all-in-one AI writing toolbox. Whether you’re drafting a YouTube script, writing a bedtime story, or even crafting email templates, this tool has got you covered.
 
@@ -198,7 +198,7 @@ Experiment with their free plan or dive deeper with the unlimited option at $29/
 
 “_Poor customer service. I have been waiting for over 3 days for a reply from their support._“
 
-### 6\. [Syllaby](https://syllaby.io/?via=aividpro)
+### 6\. [Syllaby](https://syllaby.io/?via=theturkbet)
 
 Syllaby assists YouTube creators by developing engaging scripts with ease and is dedicated to producing scripts of varying lengths, tones, styles, and even AI-generated audio and video.
 
@@ -259,7 +259,7 @@ Kick things off with a free plan or delve deeper with for better features for $1
 
 “_Every time you generate a response your words/credits are used up. However, there’s no way of knowing in advance how many words/credits will be used._“
 
-### 8\. [Rytr](https://rytr.me/?via=aividpro)
+### 8\. [Rytr](https://rytr.me/?via=theturkbet)
 
 Craving simplicity? Rytr is your go-to. No fuss, just a straightforward tool that’s great for whipping up scripts and stories. This AI script generator utilizes an AI natural language process that is fantastic at generating captivating content with a simplified interface.
 

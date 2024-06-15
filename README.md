@@ -1,4 +1,4 @@
-# AIVidPro Nuxt Site (statically generated)
+# theturkbet Nuxt Site (statically generated)
 
 ### Built with
 
@@ -11,10 +11,10 @@ Nuxt Blog built with [Nuxt3](https://nuxt.com), [Nuxt-Content2](https://content.
 
 ```bash
 # clone the repo
-git clone git@github.com:amerkay/aividpro.git
+git clone git@github.com:amerkay/theturkbet.git
 
-# change the working directory to aividpro
-cd aividpro
+# change the working directory to theturkbet
+cd theturkbet
 
 # install dependencies
 pnpm install

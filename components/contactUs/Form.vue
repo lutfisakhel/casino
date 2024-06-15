@@ -1,24 +1,53 @@
 <template>
-  <Form id="contact-us" name="contact-us" data-netlify="true" data-netlify-honeypot="bot-field"
-    :validation-schema="schema" @submit="onFormSubmit" v-slot="{ meta, isSubmitting }" :validateOnMount="false">
+  <Form
+    id="contact-us"
+    name="contact-us"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    :validation-schema="schema"
+    @submit="onFormSubmit"
+    v-slot="{ meta, isSubmitting }"
+    :validateOnMount="false"
+  >
     <input type="hidden" name="form-name" value="contact-us" />
     <div>
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-3">
         <div class="sm:col-span-2">
-          <label for="name" class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">Your
-            name</label>
+          <label
+            for="name"
+            class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
+            >Your name</label
+          >
           <div class="mt-2.5">
-            <Field as="input" type="text" name="name" id="name" autocomplete="full-name" v-model="formData.name"
-              maxlength="40"></Field>
+            <Field
+              as="input"
+              type="text"
+              name="name"
+              id="name"
+              autocomplete="full-name"
+              v-model="formData.name"
+              maxlength="40"
+            ></Field>
             <ErrorMessage name="name" v-if="meta.touched" v-slot="{ message }">
               <span role="alert"> Please enter your name </span>
             </ErrorMessage>
           </div>
         </div>
         <div class="sm:col-span-3">
-          <label for="email" class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">Email</label>
+          <label
+            for="email"
+            class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
+            >Email</label
+          >
           <div class="mt-2.5">
-            <Field as="input" type="email" name="email" id="email" autocomplete="email" v-model="formData.email" />
+            <Field
+              as="input"
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+              v-model="formData.email"
+            />
             <ErrorMessage name="email" v-if="meta.touched" v-slot="{ message }">
               <span role="alert"> Please enter your email </span>
             </ErrorMessage>
@@ -26,38 +55,71 @@
         </div>
 
         <div class="sm:col-span-3">
-          <label for="message"
-            class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">Message</label>
+          <label
+            for="message"
+            class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
+            >Message</label
+          >
           <div class="mt-2.5">
-            <Field as="textarea" name="message" id="message" rows="5" v-model="formData.message" />
-            <ErrorMessage name="message" v-if="meta.touched" v-slot="{ message }">
+            <Field
+              as="textarea"
+              name="message"
+              id="message"
+              rows="5"
+              v-model="formData.message"
+            />
+            <ErrorMessage
+              name="message"
+              v-if="meta.touched"
+              v-slot="{ message }"
+            >
               <span role="alert"> Please enter your message </span>
             </ErrorMessage>
           </div>
         </div>
 
-        <BaseAlert variant="danger" v-if="errorMessage" class="!mb-0 sm:col-span-3">
+        <BaseAlert
+          variant="danger"
+          v-if="errorMessage"
+          class="!mb-0 sm:col-span-3"
+        >
           <ul>
             <li>
               Oops, something went wrong. Please email us at
-              <a href="mailto:laith@aividpro.com">
-                laith@aividpro.com </a>.
+              <a href="mailto:theturkbet@protonmail.com">
+                theturkbet@protonmail.com </a
+              >.
               <!-- {{ errorMessage }} -->
             </li>
           </ul>
         </BaseAlert>
-        <BaseAlert variant="success" v-else-if="isSuccess" class="!mb-0 sm:col-span-3">
+        <BaseAlert
+          variant="success"
+          v-else-if="isSuccess"
+          class="!mb-0 sm:col-span-3"
+        >
           <ul>
             <li>Success! Thanks for contacting us.</li>
           </ul>
         </BaseAlert>
       </div>
 
-      <div class="mt-8 flex justify-end">
-        <button type="submit" class="btn btn-primary" @click="isSuccess = false; errorMessage = null;"
-          :disabled="isSubmitting || !meta.valid || !meta.touched">
+      <div class="flex justify-end mt-8">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          @click="
+            isSuccess = false;
+            errorMessage = null;
+          "
+          :disabled="isSubmitting || !meta.valid || !meta.touched"
+        >
           Send message
-          <Icon name="lucide:loader-2" class="inline ml-1 animate-spin w-5 h-5 opacity-95" v-if="isSubmitting" />
+          <Icon
+            name="lucide:loader-2"
+            class="inline w-5 h-5 ml-1 animate-spin opacity-95"
+            v-if="isSubmitting"
+          />
         </button>
       </div>
     </div>
@@ -101,7 +163,7 @@ const isSuccess = ref(false);
 // Method to encode form data
 const encode = (data) => {
   return Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join("&");
 };
 
@@ -117,7 +179,7 @@ const onFormSubmit = async () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact-us",
-        ...formData
+        ...formData,
       }),
     });
 

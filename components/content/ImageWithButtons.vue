@@ -36,10 +36,10 @@
           </div>
           <div>
             <span
-              class="mb-6 inline-flex text-3xl font-bold bg-white text-slate-700 dark:text-white dark:bg-slate-950"
+              class="inline-flex mb-6 text-3xl font-bold bg-white text-slate-700 dark:text-white dark:bg-slate-950"
             >
               {{ rated }}
-              <StarIcon class="text-yellow-400 h-6 w-6 mt-1" />
+              <StarIcon class="w-6 h-6 mt-1 text-yellow-400" />
             </span>
           </div>
           <div class="-mt-12">

@@ -123,9 +123,9 @@ const metaFromNuxtContent = (doc) => {
     ],
     meta: [
       // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
-      { property: "og:site_name", content: "AIVidPro.com" },
+      { property: "og:site_name", content: "theturkbet.com" },
       { hid: "og:type", property: "og:type", content: "website" },
-      { property: "twitter:site", content: "@aividpro" }, // For the website's Twitter handle
+      { property: "twitter:site", content: "@theturkbet" }, // For the website's Twitter handle
 
       {
         hid: "title",

@@ -34,7 +34,7 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 useHead(
   metaFromNuxtContent({
     title: "Thank you for contacting us",
-    description: "Thank you for contacting AIVidPro!",
+    description: "Thank you for contacting theturkbet!",
   })
 );
 </script>

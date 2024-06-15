@@ -317,7 +317,7 @@ const _inlineRuntimeConfig = {
         "sitemapName": "sitemap.xml",
         "route": "sitemap.xml",
         "defaults": {
-          "lastmod": "2024-06-11T22:26:44Z"
+          "lastmod": "2024-06-15T12:31:49Z"
         },
         "include": [],
         "exclude": [
@@ -339,8 +339,8 @@ const _inlineRuntimeConfig = {
       {
         "_priority": -3,
         "_context": "nuxt-site-config:config",
-        "url": "https://aividpro.com",
-        "name": "AIVidPro",
+        "url": "https://theturkbet.com",
+        "name": "theturkbet",
         "identity": {
           "type": "Person"
         },
@@ -5274,15 +5274,15 @@ const sources$1 = [
             },
             {
                 "loc": "/contact-success",
-                "lastmod": "2024-06-05T12:22:20.939Z"
+                "lastmod": "2024-06-15T12:31:28.728Z"
             },
             {
                 "loc": "/contact",
-                "lastmod": "2024-06-05T12:22:20.939Z"
+                "lastmod": "2024-06-15T12:31:28.729Z"
             },
             {
                 "loc": "/",
-                "lastmod": "2024-06-05T12:22:20.940Z"
+                "lastmod": "2024-06-15T12:31:28.729Z"
             }
         ],
         "sourceType": "app"
@@ -5370,7 +5370,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width,initial-scale=1"},{"charset":"utf-16"},{"name":"apple-mobile-web-app-title","content":"AIVidPro"},{"name":"application-name","content":"AIVidPro"},{"name":"msapplication-TileColor","content":"#2b67bb"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"manifest","href":"/site.webmanifest"},{"rel":"mask-icon","href":"/safari-pinned-tab.svg","color":"#5bbad5"}],"style":[],"script":[],"noscript":[],"charset":"utf-16","htmlAttrs":{"lang":"en-US"},"viewport":"width=device-width,initial-scale=1","title":"AIVidPro","titleTemplate":"%s - AIVidPro.com"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width,initial-scale=1"},{"charset":"utf-16"},{"name":"apple-mobile-web-app-title","content":"theturkbet"},{"name":"application-name","content":"theturkbet"},{"name":"msapplication-TileColor","content":"#2b67bb"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"manifest","href":"/site.webmanifest"},{"rel":"mask-icon","href":"/safari-pinned-tab.svg","color":"#5bbad5"}],"style":[],"script":[],"noscript":[],"charset":"utf-16","htmlAttrs":{"lang":"en-US"},"viewport":"width=device-width,initial-scale=1","title":"theturkbet","titleTemplate":"%s - theturkbet.com"};
 
 const appRootId = "__nuxt";
 

@@ -29,11 +29,11 @@ In this article, we’ll dive deep into the best AI video generators, editors, a
 
 1.  [Pictory](https://pictory.ai/?ref=laith43)
 2.  [Runway](https://runwayml.com/)
-3.  [InVideo](https://invideo.sjv.io/aividpro)
+3.  [InVideo](https://invideo.sjv.io/theturkbet)
 4.  [Fliki](https://fliki.ai/)
 5.  [Lumen5](https://lumen5.com/)
 6.  [Veed.io](https://www.veed.io/)
-7.  [FlexClip](https://aividpro.com/best-ai-video-generator-tools-2023/flexclip.com)
+7.  [FlexClip](https://theturkbet.com/best-ai-video-generator-tools-2023/flexclip.com)
 8.  [Wave Video](https://wave.video/?ref=mde5mdg)
 9.  [Designs.AI](https://designs.ai/)
 10.  [Raw Shorts](https://www.rawshorts.com/)
@@ -42,11 +42,11 @@ In this article, we’ll dive deep into the best AI video generators, editors, a
 |------------|---------------------------------------------------------------------------------------------------|------------------|----------------------------|--------|
 | [Pictory](https://pictory.ai/?ref=laith43)    | – Blog Conversion – Text-based Editing – Accessibility Matters – Rich Media Library               | From $19/month   | Yes                        | 9      |
 | [Runway](https://runwayml.com/)     | – Generative AI Capabilities – Object Replacement – Innovative Features                           | From $12/month   | Yes                        | 8.7    |
-| [InVideo](https://invideo.sjv.io/aividpro)    | – Text to Video Ai – Professional Aesthetics – Social Media Integration                           | From $20/month   | Yes                        | 8.7    |
+| [InVideo](https://invideo.sjv.io/theturkbet)    | – Text to Video Ai – Professional Aesthetics – Social Media Integration                           | From $20/month   | Yes                        | 8.7    |
 | [Fliki](https://fliki.ai/)      | – Text to Video Ai – Voice Integration – Rhythm & Enunciation Controls – Diverse Content Creation | From $21/month   | Yes (with watermark)       | 8.5    |
 | [Lumen5](https://lumen5.com/)     | – Text to Video Ai – Voice Syncing – Formats & Brand Kits                                         | From $19/month   | Yes                        | 8.2    |
 | [Veed.io](https://www.veed.io/)    | – Auto Transcription – Eye Contact Correction                                                     | From $12/month   | Yes (videos under 10 mins) | 7.8    |
-| [FlexClip](https://aividpro.com/best-ai-video-generator-tools-2023/flexclip.com)   | – Video Templates – Auto Subtitles – Voice Conversion – Custom branding                           | From $9.99/month | Yes                        | 7.6    |
+| [FlexClip](https://theturkbet.com/best-ai-video-generator-tools-2023/flexclip.com)   | – Video Templates – Auto Subtitles – Voice Conversion – Custom branding                           | From $9.99/month | Yes                        | 7.6    |
 | [Wave Video](https://wave.video/?ref=mde5mdg) | – Format Versatility – Text Conversion & Narration – Video Thumbnail Maker                        | From $16/month   | Yes                        | 7.2    |
 | [Designs.AI](https://designs.ai/) | – AI text to video – Narration – Aesthetic Matching – Content Generation                          | From $19/month   | No                         | 7      |
 | [Raw Shorts](https://www.rawshorts.com/) | – Number of Templates – Social Media Export – AI Chat & Script Suggestions                        | From $20/month   | Yes                        | 7      |
@@ -117,7 +117,7 @@ If you’ve ever dabbled in AI art or just want to create unique video content f
 
 **Top negative review:** Runway restricts the use and generation of child imagery and any type of blood or violence. This makes it difficult to generate educational content, illustrated novels and short movies.
 
-### 3\. [InVideo](http://invideo.sjv.io/aividpro): The Social Media Maestro
+### 3\. [InVideo](http://invideo.sjv.io/theturkbet): The Social Media Maestro
 
 ![Screenshot of the Invideo video editor page presenting its features -- InVideo editor and features](/imgs/Article1/InVideo_editor_and_features.webp)
 
@@ -437,7 +437,7 @@ Yes there is! There are different types of ai generated videos.
 
 **Is There A Free Ai Video Generator?**
 
-There are several AI video generators that offer free versions or trials. Free tools include [Pictory](https://pictory.ai/?ref=laith43), [Runway](https://runwayml.com/), [InVideo](https://invideo.sjv.io/aividpro), [Lumen5](https://lumen5.com/) and [Veed.io](https://www.veed.io/). For the full list of free to use Ai video generation tools, please read the article.
+There are several AI video generators that offer free versions or trials. Free tools include [Pictory](https://pictory.ai/?ref=laith43), [Runway](https://runwayml.com/), [InVideo](https://invideo.sjv.io/theturkbet), [Lumen5](https://lumen5.com/) and [Veed.io](https://www.veed.io/). For the full list of free to use Ai video generation tools, please read the article.
 
 However, it’s important to note that while these platforms offer free versions, they might come with limitations, and premium features may require a subscription or payment.
 
