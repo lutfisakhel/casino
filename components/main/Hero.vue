@@ -28,7 +28,7 @@
         class="hidden pt-12 md:flex md:col-span-2 md:pt-0 md:items-start md:h-full"
       >
         <NuxtImg
-          src="/imgs/robot-in-red.webp"
+          src="/imgs/phonecasino.webp"
           alt="Hero Image"
           width="500"
           height="500"
