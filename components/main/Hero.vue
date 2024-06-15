@@ -24,9 +24,7 @@
         </p>
       </div>
 
-      <div
-        class="hidden pt-12 md:flex md:col-span-2 md:pt-0 md:items-start md:h-full"
-      >
+      <div class="pt-12 md:flex md:col-span-2 md:pt-0 md:items-start md:h-full">
         <NuxtImg
           src="/imgs/phonecasino.webp"
           alt="Hero Image"

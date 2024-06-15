@@ -35,10 +35,9 @@
                   <span
                     ><strong
                       class="font-semibold text-gray-900 dark:text-zinc-300"
-                      >Efficiency.</strong
-                    >
-                    Save time with the best AI audio and video editing and
-                    generation tools.</span
+                      >Verimlilik:</strong
+                    >TheTurkBet’in kullanıcı dostu arayüzü, en iyi bahis
+                    sitelerini hızla bulmanızı sağlar.</span
                   >
                 </li>
                 <li class="flex gap-x-3">
@@ -49,10 +48,10 @@
                   <span
                     ><strong
                       class="font-semibold text-gray-900 dark:text-zinc-300"
-                      >Creativity.</strong
-                    >
-                    Unlock new possibilities and ideas with innovative
-                    effects.</span
+                      >Yaratıcılık:
+                    </strong>
+                    Yenilikçi içeriklerimiz ve etkileyici incelemelerimizle
+                    TheTurkBet öne çıkar.</span
                   >
                 </li>
                 <li class="flex gap-x-3">
@@ -63,10 +62,10 @@
                   <span
                     ><strong
                       class="font-semibold text-gray-900 dark:text-zinc-300"
-                      >Quality.</strong
+                      >Kalite:</strong
                     >
-                    Enhance visuals using advanced AI algorithms for
-                    professional results.</span
+                    TheTurkBet, güvenilir ve yüksek kaliteli incelemeler
+                    sunar.</span
                   >
                 </li>
                 <li class="flex gap-x-3">
@@ -78,9 +77,10 @@
                     ><strong
                       class="font-semibold text-gray-900 dark:text-zinc-300"
                     >
-                      Competitive Edge.</strong
+                      Rekabetçi Üstünlük:</strong
                     >
-                    Stay ahead by using the latest trends and techniques.</span
+                    Özel bonuslar ve güncel bilgilerle TheTurkBet size avantaj
+                    sağlar.</span
                   >
                 </li>
               </ul>
@@ -91,22 +91,21 @@
           class="max-w-xl text-base leading-7 text-gray-700 dark:text-zinc-100 lg:col-span-7"
         >
           <p>
-            Our purposed is to help you leveraging AI video editors and
-            generators to creating captivating and visually stunning videos.
-            Discover how these powerful tools can revolutionize your video
-            production process. AI video generators unleash a world of
-            creativity, transforming ideas into eye-catching visuals,
-            animations, and scenes effortlessly.
+            TheTurkBet'e hoş geldiniz, en iyi çevrimiçi bahis siteleri için
+            nihai rehberiniz. Web sitemiz, en üst düzey bahis platformları
+            hakkında kapsamlı incelemeler ve uzman görüşleri sunarak oyun
+            deneyiminizi ön planda tutar. Her siteyi adalet, güvenlik ve
+            çeşitlilik açısından titizlikle değerlendirir, yalnızca en saygın
+            platformlara erişmenizi sağlarız.
           </p>
           <br />
           <p>
-            By incorporating these tools, your videos will benefit from enhanced
-            quality, refined visuals, and many more features, resulting in an
-            engaging viewer experience. Embracing these video editors and
-            generators not only saves time but also enables content creators to
-            produce high-quality videos efficiently. Stay ahead of the
-            competition and unlock the potential of AI video for your video
-            production needs.
+            Kullanıcı dostu arayüzümüz, gezinmeyi kolay ve sorunsuz hale
+            getirirken, özel bonuslarımız ve promosyonlarımız kazanç
+            potansiyelinizi en üst düzeye çıkarır. TheTurkBet'e güvenin, güncel
+            bilgi ve ipuçları sunarak bilinçli kararlar almanıza ve güvenli,
+            ödüllendirici bir bahis deneyimi yaşamanıza yardımcı olalım.
+            Benzersiz uzmanlık ve rakipsiz fırsatlar için TheTurkBet'i seçin.
           </p>
         </div>
       </div>

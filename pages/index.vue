@@ -13,9 +13,9 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 
 useHead(
   metaFromNuxtContent({
-    title: "theturkbet Home",
+    title: "Theturkbet Home",
     description:
-      "Welcome To theturkbet! Learn about the best and latest AI video tools to streamline your video content creation process for businesses and influencers.",
+      "Welcome To Theturkbet! Learn about the best and latest casino offers and how to access them from turkey.",
   })
 );
 
