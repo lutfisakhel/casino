@@ -69,7 +69,7 @@ const navigation = {
     // },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/ai.vidpro/",
+      href: "https://www.instagram.com/theturkbet/",
       icon: defineComponent({
         render: () =>
           h("svg", { fill: "currentColor", viewBox: "0 0 24 24" }, [
