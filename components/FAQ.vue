@@ -52,24 +52,24 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/vue/24/outline";
 
 const faqs = [
   {
-    question: "What Is An AI Video?",
+    question: "Çevrimiçi casinolar oynamak güvenli mi?",
     answer:
-      "An AI video is a video that was created by using artificial intelligence, either from scratch, or by using the most suitable stock video and/or images that fit the script.",
+      "Evet, lisanslı ve düzenlenmiş çevrimiçi casinolarda oynamak genellikle güvenlidir. Casinonun SSL şifreleme kullandığından ve iyi yorumlar aldığından emin olun.",
   },
   {
-    question: "How can AI be used in video?",
+    question: "Çevrimiçi casinolarda gerçek para kazanabilir misiniz?",
     answer:
-      "AI can be used in many ways for video editing and generation. Many tools offer features specifically for video and audio including text-based editing, text to video AI, automatic voice syncing, eye contact correction and object replacement.",
+      "Evet, çevrimiçi casinolarda gerçek para kazanabilirsiniz. Ancak, sorumlu bir şekilde oynamak ve ilgili risklerin farkında olmak önemlidir.",
   },
   {
-    question: "Can AI Create Video Content?",
+    question: "En iyi çevrimiçi casinolar hangileridir?",
     answer:
-      "Yes you can! There are many tools that provide features like text to video or text to speech to generate videos for you. These tools typically require a script to generate the video or the audio. Most tools provide an AI script writing assistant to help you generate written content.",
+      "En iyi çevrimiçi casinolar, uygun lisanslara sahip, geniş oyun yelpazesi sunan, güvenli ödeme yöntemleri olan ve olumlu kullanıcı yorumlarına sahip olanlardır.",
   },
   {
-    question: "Can I Monetize AI-Generated Content?",
+    question: "Çevrimiçi casino bonusları nasıl çalışır?",
     answer:
-      "The short answer is yes. You can make money from Ai generated videos. But, be sure to first read the guidelines of the platform you are sharing this content on. For example, Youtube allows you to monetize Ai generated content on your channel if it isn’t “redundant”.",
+      "Çevrimiçi casino bonusları, yeni oyuncuları çekmek için tasarlanmış promosyon teklifleri, örneğin ücretsiz döndürmeler veya depozito eşleşmeleri gibi, tekliflerdir. Her zaman şartlar ve koşulları okuyun.",
   },
   // More questions...
 ];
