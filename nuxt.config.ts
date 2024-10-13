@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: "utf-16",
-      htmlAttrs: { lang: "en-US" },
+      htmlAttrs: { lang: "ar-SA", dir: "rtl" },
       viewport: "width=device-width,initial-scale=1",
       title: "theturkbet",
       titleTemplate: "%s - theturkbet.com",

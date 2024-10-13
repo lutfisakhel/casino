@@ -1,368 +1,612 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};import { Server } from 'node:http';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { mkdirSync } from 'node:fs';
-import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHost, getRequestProtocol, getRequestHeaders, lazyEventHandler, getQuery as getQuery$1, setHeader, getCookie, getHeader, createError, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getResponseStatusText } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/h3@1.10.0/node_modules/h3/dist/index.mjs';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue-bundle-renderer@2.0.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/devalue@4.3.2/node_modules/devalue/index.js';
-import { renderToString } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue@3.4.14_typescript@5.3.3/node_modules/vue/server-renderer/index.mjs';
-import { renderSSRHead } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@unhead+ssr@1.8.9/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ofetch@1.3.3/node_modules/ofetch/dist/node.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/destr@2.0.2/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
-import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/scule@1.2.0/node_modules/scule/dist/index.mjs';
-import { klona } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
-import defu, { defuFn, defu as defu$1, createDefu } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, hasProtocol, withHttps, withoutProtocol, withLeadingSlash, withBase, withTrailingSlash, withoutTrailingSlash, isRelative } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ufo@1.3.2/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/radix3@1.1.0/node_modules/radix3/dist/index.mjs';
-import devalue from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@nuxt+devalue@2.0.2/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import { toValue, version, unref } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue@3.4.14_typescript@5.3.3/node_modules/vue/index.mjs';
-import { defineNitroPlugin as defineNitroPlugin$1 } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/nitropack@2.8.1/node_modules/nitropack/dist/runtime/plugin.mjs';
-import { packString } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/packrup@0.1.0/node_modules/packrup/dist/index.mjs';
-import { addClassToHast, getHighlighter, loadWasm } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/index.mjs';
-import { transformerNotationDiff, transformerNotationFocus, transformerNotationHighlight, transformerNotationErrorLevel } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji-transformers@0.9.19/node_modules/shikiji-transformers/dist/index.mjs';
-import robots from 'file:///Users/laithkawar/Dev/casino/.nuxt/robots.mjs';
-import { extname, isAbsolute } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/pathe@1.1.2/node_modules/pathe/dist/index.mjs';
-import { unified } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unified@11.0.4/node_modules/unified/index.js';
-import { toString as toString$1 } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/mdast-util-to-string@4.0.0/node_modules/mdast-util-to-string/index.js';
-import { postprocess, preprocess } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark@4.0.0/node_modules/micromark/dev/index.js';
-import { stringifyPosition } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unist-util-stringify-position@4.0.0/node_modules/unist-util-stringify-position/index.js';
-import { markdownLineEnding, markdownSpace } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-character@2.0.1/node_modules/micromark-util-character/dev/index.js';
-import { push, splice } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-chunked@2.0.0/node_modules/micromark-util-chunked/dev/index.js';
-import { resolveAll } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-resolve-all@2.0.0/node_modules/micromark-util-resolve-all/index.js';
-import { normalizeUri } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-sanitize-uri@2.0.0/node_modules/micromark-util-sanitize-uri/dev/index.js';
-import slugify from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/slugify@1.6.6/node_modules/slugify/slugify.js';
-import remarkParse from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-parse@11.0.0/node_modules/remark-parse/index.js';
-import remark2rehype from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-rehype@11.1.0/node_modules/remark-rehype/index.js';
-import remarkMDC, { parseFrontMatter } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-mdc@3.0.0/node_modules/remark-mdc/dist/index.mjs';
-import { toString } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/hast-util-to-string@3.0.0/node_modules/hast-util-to-string/index.js';
-import Slugger from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/github-slugger@2.0.0/node_modules/github-slugger/index.js';
-import { detab } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/detab@3.0.2/node_modules/detab/index.js';
-import remarkEmoji from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-emoji@4.0.1/node_modules/remark-emoji/index.js';
-import remarkGFM from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-gfm@4.0.0/node_modules/remark-gfm/index.js';
-import rehypeExternalLinks from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-external-links@3.0.0/node_modules/rehype-external-links/index.js';
-import rehypeSortAttributeValues from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-sort-attribute-values@5.0.0/node_modules/rehype-sort-attribute-values/index.js';
-import rehypeSortAttributes from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-sort-attributes@5.0.0/node_modules/rehype-sort-attributes/index.js';
-import rehypeRaw from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-raw@7.0.0/node_modules/rehype-raw/index.js';
-import { fileURLToPath } from 'node:url';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ipx@2.1.0/node_modules/ipx/dist/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unhead@1.8.9/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@unhead+shared@1.8.9/node_modules/@unhead/shared/dist/index.mjs';
+globalThis._importMeta_ = { url: import.meta.url, env: process.env };
+import { Server } from "node:http";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { mkdirSync } from "node:fs";
+import { parentPort, threadId } from "node:worker_threads";
+import {
+  defineEventHandler,
+  handleCacheHeaders,
+  splitCookiesString,
+  isEvent,
+  createEvent,
+  getRequestHeader,
+  eventHandler,
+  setHeaders,
+  sendRedirect,
+  proxyRequest,
+  setResponseHeader,
+  send,
+  getResponseStatus,
+  setResponseStatus,
+  setResponseHeaders,
+  getRequestHost,
+  getRequestProtocol,
+  getRequestHeaders,
+  lazyEventHandler,
+  getQuery as getQuery$1,
+  setHeader,
+  getCookie,
+  getHeader,
+  createError,
+  useBase,
+  createApp,
+  createRouter as createRouter$1,
+  toNodeListener,
+  fetchWithEvent,
+  getResponseStatusText,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/h3@1.10.0/node_modules/h3/dist/index.mjs";
+import {
+  getRequestDependencies,
+  getPreloadLinks,
+  getPrefetchLinks,
+  createRenderer,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue-bundle-renderer@2.0.0/node_modules/vue-bundle-renderer/dist/runtime.mjs";
+import {
+  stringify,
+  uneval,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/devalue@4.3.2/node_modules/devalue/index.js";
+import { renderToString } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue@3.4.14_typescript@5.3.3/node_modules/vue/server-renderer/index.mjs";
+import { renderSSRHead } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@unhead+ssr@1.8.9/node_modules/@unhead/ssr/dist/index.mjs";
+import {
+  createFetch as createFetch$1,
+  Headers as Headers$1,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ofetch@1.3.3/node_modules/ofetch/dist/node.mjs";
+import destr, {
+  destr as destr$1,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/destr@2.0.2/node_modules/destr/dist/index.mjs";
+import {
+  createCall,
+  createFetch,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs";
+import { createHooks } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs";
+import {
+  snakeCase,
+  kebabCase,
+  pascalCase,
+  camelCase,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/scule@1.2.0/node_modules/scule/dist/index.mjs";
+import { klona } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs";
+import defu, {
+  defuFn,
+  defu as defu$1,
+  createDefu,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs";
+import { hash } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs";
+import {
+  parseURL,
+  withoutBase,
+  joinURL,
+  getQuery,
+  withQuery,
+  hasProtocol,
+  withHttps,
+  withoutProtocol,
+  withLeadingSlash,
+  withBase,
+  withTrailingSlash,
+  withoutTrailingSlash,
+  isRelative,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ufo@1.3.2/node_modules/ufo/dist/index.mjs";
+import {
+  createStorage,
+  prefixStorage,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/dist/index.mjs";
+import unstorage_47drivers_47fs from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/drivers/fs.mjs";
+import {
+  toRouteMatcher,
+  createRouter,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/radix3@1.1.0/node_modules/radix3/dist/index.mjs";
+import devalue from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@nuxt+devalue@2.0.2/node_modules/@nuxt/devalue/dist/devalue.mjs";
+import {
+  toValue,
+  version,
+  unref,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/vue@3.4.14_typescript@5.3.3/node_modules/vue/index.mjs";
+import { defineNitroPlugin as defineNitroPlugin$1 } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/nitropack@2.8.1/node_modules/nitropack/dist/runtime/plugin.mjs";
+import { packString } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/packrup@0.1.0/node_modules/packrup/dist/index.mjs";
+import {
+  addClassToHast,
+  getHighlighter,
+  loadWasm,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/index.mjs";
+import {
+  transformerNotationDiff,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+  transformerNotationErrorLevel,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji-transformers@0.9.19/node_modules/shikiji-transformers/dist/index.mjs";
+import robots from "file:///Users/laithkawar/Dev/casino/.nuxt/robots.mjs";
+import {
+  extname,
+  isAbsolute,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/pathe@1.1.2/node_modules/pathe/dist/index.mjs";
+import { unified } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unified@11.0.4/node_modules/unified/index.js";
+import { toString as toString$1 } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/mdast-util-to-string@4.0.0/node_modules/mdast-util-to-string/index.js";
+import {
+  postprocess,
+  preprocess,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark@4.0.0/node_modules/micromark/dev/index.js";
+import { stringifyPosition } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unist-util-stringify-position@4.0.0/node_modules/unist-util-stringify-position/index.js";
+import {
+  markdownLineEnding,
+  markdownSpace,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-character@2.0.1/node_modules/micromark-util-character/dev/index.js";
+import {
+  push,
+  splice,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-chunked@2.0.0/node_modules/micromark-util-chunked/dev/index.js";
+import { resolveAll } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-resolve-all@2.0.0/node_modules/micromark-util-resolve-all/index.js";
+import { normalizeUri } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/micromark-util-sanitize-uri@2.0.0/node_modules/micromark-util-sanitize-uri/dev/index.js";
+import slugify from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/slugify@1.6.6/node_modules/slugify/slugify.js";
+import remarkParse from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-parse@11.0.0/node_modules/remark-parse/index.js";
+import remark2rehype from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-rehype@11.1.0/node_modules/remark-rehype/index.js";
+import remarkMDC, {
+  parseFrontMatter,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-mdc@3.0.0/node_modules/remark-mdc/dist/index.mjs";
+import { toString } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/hast-util-to-string@3.0.0/node_modules/hast-util-to-string/index.js";
+import Slugger from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/github-slugger@2.0.0/node_modules/github-slugger/index.js";
+import { detab } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/detab@3.0.2/node_modules/detab/index.js";
+import remarkEmoji from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-emoji@4.0.1/node_modules/remark-emoji/index.js";
+import remarkGFM from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/remark-gfm@4.0.0/node_modules/remark-gfm/index.js";
+import rehypeExternalLinks from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-external-links@3.0.0/node_modules/rehype-external-links/index.js";
+import rehypeSortAttributeValues from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-sort-attribute-values@5.0.0/node_modules/rehype-sort-attribute-values/index.js";
+import rehypeSortAttributes from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-sort-attributes@5.0.0/node_modules/rehype-sort-attributes/index.js";
+import rehypeRaw from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/rehype-raw@7.0.0/node_modules/rehype-raw/index.js";
+import { fileURLToPath } from "node:url";
+import {
+  ipxFSStorage,
+  ipxHttpStorage,
+  createIPX,
+  createIPXH3Handler,
+} from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/ipx@2.1.0/node_modules/ipx/dist/index.mjs";
+import { createServerHead as createServerHead$1 } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/unhead@1.8.9/node_modules/unhead/dist/index.mjs";
+import { defineHeadPlugin } from "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/@unhead+shared@1.8.9/node_modules/@unhead/shared/dist/index.mjs";
 
-const r=Object.create(null),E=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return E()[o]??r[o]},has(e,o){const i=E();return o in i||o in r},set(e,o,i){const g=E(!0);return g[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=E(!0);return delete i[o],!0},ownKeys(){const e=E(!0);return Object.keys(e)}}),t=typeof process<"u"&&process.env&&"development"||"",p=[["APPVEYOR"],["AWS_AMPLIFY","AWS_APP_ID",{ci:!0}],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"],["ZEABUR"],["CODESPHERE","CODESPHERE_APP_ID",{ci:!0}],["RAILWAY","RAILWAY_PROJECT_ID"],["RAILWAY","RAILWAY_SERVICE_ID"]];function B(){if(globalThis.process?.env)for(const e of p){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const l=B(),d=l.name;function n(e){return e?e!=="false":!1}const I=globalThis.process?.platform||"",T=n(s.CI)||l.ci!==!1,R=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const C=t==="test"||n(s.TEST);n(s.MINIMAL)||T||C||!R;const a=/^win/i.test(I);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||(R||a)&&s.TERM!=="dumb"||T);const _=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(_?.split(".")[0])||null;const W=globalThis.process||Object.create(null),c={versions:{}};new Proxy(W,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in c)return c[o]}});const A=globalThis.process?.release?.name==="node",L=!!globalThis.Bun||!!globalThis.process?.versions?.bun,D=!!globalThis.Deno,O=!!globalThis.fastly,S=!!globalThis.Netlify,N=!!globalThis.EdgeRuntime,u=globalThis.navigator?.userAgent==="Cloudflare-Workers",b=!!globalThis.__lagon__,F=[[S,"netlify"],[N,"edge-light"],[u,"workerd"],[O,"fastly"],[D,"deno"],[L,"bun"],[A,"node"],[b,"lagon"]];function G(){const e=F.find(o=>o[0]);if(e)return {name:e[1]}}const P=G();P?.name||"";
+const r = Object.create(null),
+  E = (e) =>
+    globalThis.process?.env ||
+    globalThis._importMeta_.env ||
+    globalThis.Deno?.env.toObject() ||
+    globalThis.__env__ ||
+    (e ? r : globalThis),
+  s = new Proxy(r, {
+    get(e, o) {
+      return E()[o] ?? r[o];
+    },
+    has(e, o) {
+      const i = E();
+      return o in i || o in r;
+    },
+    set(e, o, i) {
+      const g = E(!0);
+      return (g[o] = i), !0;
+    },
+    deleteProperty(e, o) {
+      if (!o) return !1;
+      const i = E(!0);
+      return delete i[o], !0;
+    },
+    ownKeys() {
+      const e = E(!0);
+      return Object.keys(e);
+    },
+  }),
+  t = (typeof process < "u" && process.env && "development") || "",
+  p = [
+    ["APPVEYOR"],
+    ["AWS_AMPLIFY", "AWS_APP_ID", { ci: !0 }],
+    ["AZURE_PIPELINES", "SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],
+    ["AZURE_STATIC", "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],
+    ["APPCIRCLE", "AC_APPCIRCLE"],
+    ["BAMBOO", "bamboo_planKey"],
+    ["BITBUCKET", "BITBUCKET_COMMIT"],
+    ["BITRISE", "BITRISE_IO"],
+    ["BUDDY", "BUDDY_WORKSPACE_ID"],
+    ["BUILDKITE"],
+    ["CIRCLE", "CIRCLECI"],
+    ["CIRRUS", "CIRRUS_CI"],
+    ["CLOUDFLARE_PAGES", "CF_PAGES", { ci: !0 }],
+    ["CODEBUILD", "CODEBUILD_BUILD_ARN"],
+    ["CODEFRESH", "CF_BUILD_ID"],
+    ["DRONE"],
+    ["DRONE", "DRONE_BUILD_EVENT"],
+    ["DSARI"],
+    ["GITHUB_ACTIONS"],
+    ["GITLAB", "GITLAB_CI"],
+    ["GITLAB", "CI_MERGE_REQUEST_ID"],
+    ["GOCD", "GO_PIPELINE_LABEL"],
+    ["LAYERCI"],
+    ["HUDSON", "HUDSON_URL"],
+    ["JENKINS", "JENKINS_URL"],
+    ["MAGNUM"],
+    ["NETLIFY"],
+    ["NETLIFY", "NETLIFY_LOCAL", { ci: !1 }],
+    ["NEVERCODE"],
+    ["RENDER"],
+    ["SAIL", "SAILCI"],
+    ["SEMAPHORE"],
+    ["SCREWDRIVER"],
+    ["SHIPPABLE"],
+    ["SOLANO", "TDDIUM"],
+    ["STRIDER"],
+    ["TEAMCITY", "TEAMCITY_VERSION"],
+    ["TRAVIS"],
+    ["VERCEL", "NOW_BUILDER"],
+    ["VERCEL", "VERCEL", { ci: !1 }],
+    ["VERCEL", "VERCEL_ENV", { ci: !1 }],
+    ["APPCENTER", "APPCENTER_BUILD_ID"],
+    ["CODESANDBOX", "CODESANDBOX_SSE", { ci: !1 }],
+    ["STACKBLITZ"],
+    ["STORMKIT"],
+    ["CLEAVR"],
+    ["ZEABUR"],
+    ["CODESPHERE", "CODESPHERE_APP_ID", { ci: !0 }],
+    ["RAILWAY", "RAILWAY_PROJECT_ID"],
+    ["RAILWAY", "RAILWAY_SERVICE_ID"],
+  ];
+function B() {
+  if (globalThis.process?.env)
+    for (const e of p) {
+      const o = e[1] || e[0];
+      if (globalThis.process?.env[o])
+        return { name: e[0].toLowerCase(), ...e[2] };
+    }
+  return globalThis.process?.env?.SHELL === "/bin/jsh" &&
+    globalThis.process?.versions?.webcontainer
+    ? { name: "stackblitz", ci: !1 }
+    : { name: "", ci: !1 };
+}
+const l = B(),
+  d = l.name;
+function n(e) {
+  return e ? e !== "false" : !1;
+}
+const I = globalThis.process?.platform || "",
+  T = n(s.CI) || l.ci !== !1,
+  R = n(globalThis.process?.stdout && globalThis.process?.stdout.isTTY);
+n(s.DEBUG);
+const C = t === "test" || n(s.TEST);
+n(s.MINIMAL) || T || C || !R;
+const a = /^win/i.test(I);
+!n(s.NO_COLOR) && (n(s.FORCE_COLOR) || ((R || a) && s.TERM !== "dumb") || T);
+const _ = (globalThis.process?.versions?.node || "").replace(/^v/, "") || null;
+Number(_?.split(".")[0]) || null;
+const W = globalThis.process || Object.create(null),
+  c = { versions: {} };
+new Proxy(W, {
+  get(e, o) {
+    if (o === "env") return s;
+    if (o in e) return e[o];
+    if (o in c) return c[o];
+  },
+});
+const A = globalThis.process?.release?.name === "node",
+  L = !!globalThis.Bun || !!globalThis.process?.versions?.bun,
+  D = !!globalThis.Deno,
+  O = !!globalThis.fastly,
+  S = !!globalThis.Netlify,
+  N = !!globalThis.EdgeRuntime,
+  u = globalThis.navigator?.userAgent === "Cloudflare-Workers",
+  b = !!globalThis.__lagon__,
+  F = [
+    [S, "netlify"],
+    [N, "edge-light"],
+    [u, "workerd"],
+    [O, "fastly"],
+    [D, "deno"],
+    [L, "bun"],
+    [A, "node"],
+    [b, "lagon"],
+  ];
+function G() {
+  const e = F.find((o) => o[0]);
+  if (e) return { name: e[1] };
+}
+const P = G();
+P?.name || "";
 
 const inlineAppConfig = {
-  "nuxt": {
-    "buildId": "dev"
-  }
+  nuxt: {
+    buildId: "dev",
+  },
 };
-
-
 
 const appConfig = defuFn(inlineAppConfig);
 
 const _inlineRuntimeConfig = {
-  "app": {
-    "baseURL": "/",
-    "buildAssetsDir": "/_nuxt/",
-    "cdnURL": ""
+  app: {
+    baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
+    cdnURL: "",
   },
-  "nitro": {
-    "envPrefix": "NUXT_",
-    "routeRules": {
+  nitro: {
+    envPrefix: "NUXT_",
+    routeRules: {
       "/__nuxt_error": {
-        "cache": false
+        cache: false,
       },
       "/sitemap.xsl": {
-        "headers": {
-          "Content-Type": "application/xslt+xml"
-        }
+        headers: {
+          "Content-Type": "application/xslt+xml",
+        },
       },
       "/sitemap.xml": {},
       "/_nuxt/builds/meta/**": {
-        "headers": {
-          "cache-control": "public, max-age=31536000, immutable"
-        }
+        headers: {
+          "cache-control": "public, max-age=31536000, immutable",
+        },
       },
       "/_nuxt/builds/**": {
-        "headers": {
-          "cache-control": "public, max-age=1, immutable"
-        }
-      }
-    }
+        headers: {
+          "cache-control": "public, max-age=1, immutable",
+        },
+      },
+    },
   },
-  "public": {
-    "mdc": {
-      "components": {
-        "prose": true,
-        "map": {
-          "p": "prose-p",
-          "a": "prose-a",
-          "blockquote": "prose-blockquote",
+  public: {
+    mdc: {
+      components: {
+        prose: true,
+        map: {
+          p: "prose-p",
+          a: "prose-a",
+          blockquote: "prose-blockquote",
           "code-inline": "prose-code-inline",
-          "code": "ProseCodeInline",
-          "em": "prose-em",
-          "h1": "prose-h1",
-          "h2": "prose-h2",
-          "h3": "prose-h3",
-          "h4": "prose-h4",
-          "h5": "prose-h5",
-          "h6": "prose-h6",
-          "hr": "prose-hr",
-          "img": "prose-img",
-          "ul": "prose-ul",
-          "ol": "prose-ol",
-          "li": "prose-li",
-          "strong": "prose-strong",
-          "table": "prose-table",
-          "thead": "prose-thead",
-          "tbody": "prose-tbody",
-          "td": "prose-td",
-          "th": "prose-th",
-          "tr": "prose-tr"
-        }
-      },
-      "headings": {
-        "anchorLinks": {
-          "h1": false,
-          "h2": false,
-          "h3": false,
-          "h4": false,
-          "h5": false,
-          "h6": false
-        }
-      }
-    },
-    "content": {
-      "locales": [],
-      "defaultLocale": "",
-      "integrity": "",
-      "experimental": {
-        "stripQueryParameters": false,
-        "advanceQuery": false,
-        "clientDB": false
-      },
-      "respectPathCase": false,
-      "api": {
-        "baseURL": "/api/_content"
-      },
-      "navigation": {
-        "fields": []
-      },
-      "tags": {
-        "p": "prose-p",
-        "a": "prose-a",
-        "blockquote": "prose-blockquote",
-        "code-inline": "prose-code-inline",
-        "code": "ProseCodeInline",
-        "em": "prose-em",
-        "h1": "prose-h1",
-        "h2": "prose-h2",
-        "h3": "prose-h3",
-        "h4": "prose-h4",
-        "h5": "prose-h5",
-        "h6": "prose-h6",
-        "hr": "prose-hr",
-        "img": "prose-img",
-        "ul": "prose-ul",
-        "ol": "prose-ol",
-        "li": "prose-li",
-        "strong": "prose-strong",
-        "table": "prose-table",
-        "thead": "prose-thead",
-        "tbody": "prose-tbody",
-        "td": "prose-td",
-        "th": "prose-th",
-        "tr": "prose-tr"
-      },
-      "highlight": {
-        "theme": "dracula"
-      },
-      "wsUrl": "ws://localhost:4000/",
-      "documentDriven": false,
-      "host": "",
-      "trailingSlash": false,
-      "search": "",
-      "contentHead": true,
-      "anchorLinks": false
-    }
-  },
-  "mdc": {
-    "highlight": {
-      "theme": "dracula",
-      "preload": "",
-      "wrapperStyle": ""
-    }
-  },
-  "content": {
-    "cacheVersion": 2,
-    "cacheIntegrity": "A8NKsTwwDJ",
-    "transformers": [],
-    "base": "",
-    "api": {
-      "baseURL": "/api/_content"
-    },
-    "watch": {
-      "ws": {
-        "port": {
-          "port": 4000,
-          "portRange": [
-            4000,
-            4040
-          ]
+          code: "ProseCodeInline",
+          em: "prose-em",
+          h1: "prose-h1",
+          h2: "prose-h2",
+          h3: "prose-h3",
+          h4: "prose-h4",
+          h5: "prose-h5",
+          h6: "prose-h6",
+          hr: "prose-hr",
+          img: "prose-img",
+          ul: "prose-ul",
+          ol: "prose-ol",
+          li: "prose-li",
+          strong: "prose-strong",
+          table: "prose-table",
+          thead: "prose-thead",
+          tbody: "prose-tbody",
+          td: "prose-td",
+          th: "prose-th",
+          tr: "prose-tr",
         },
-        "hostname": "localhost",
-        "showURL": false
-      }
+      },
+      headings: {
+        anchorLinks: {
+          h1: false,
+          h2: false,
+          h3: false,
+          h4: false,
+          h5: false,
+          h6: false,
+        },
+      },
     },
-    "sources": {},
-    "ignores": [],
-    "locales": [],
-    "defaultLocale": "",
-    "highlight": {
-      "theme": "dracula"
-    },
-    "markdown": {
-      "tags": {
-        "p": "prose-p",
-        "a": "prose-a",
-        "blockquote": "prose-blockquote",
+    content: {
+      locales: [],
+      defaultLocale: "",
+      integrity: "",
+      experimental: {
+        stripQueryParameters: false,
+        advanceQuery: false,
+        clientDB: false,
+      },
+      respectPathCase: false,
+      api: {
+        baseURL: "/api/_content",
+      },
+      navigation: {
+        fields: [],
+      },
+      tags: {
+        p: "prose-p",
+        a: "prose-a",
+        blockquote: "prose-blockquote",
         "code-inline": "prose-code-inline",
-        "code": "ProseCodeInline",
-        "em": "prose-em",
-        "h1": "prose-h1",
-        "h2": "prose-h2",
-        "h3": "prose-h3",
-        "h4": "prose-h4",
-        "h5": "prose-h5",
-        "h6": "prose-h6",
-        "hr": "prose-hr",
-        "img": "prose-img",
-        "ul": "prose-ul",
-        "ol": "prose-ol",
-        "li": "prose-li",
-        "strong": "prose-strong",
-        "table": "prose-table",
-        "thead": "prose-thead",
-        "tbody": "prose-tbody",
-        "td": "prose-td",
-        "th": "prose-th",
-        "tr": "prose-tr"
+        code: "ProseCodeInline",
+        em: "prose-em",
+        h1: "prose-h1",
+        h2: "prose-h2",
+        h3: "prose-h3",
+        h4: "prose-h4",
+        h5: "prose-h5",
+        h6: "prose-h6",
+        hr: "prose-hr",
+        img: "prose-img",
+        ul: "prose-ul",
+        ol: "prose-ol",
+        li: "prose-li",
+        strong: "prose-strong",
+        table: "prose-table",
+        thead: "prose-thead",
+        tbody: "prose-tbody",
+        td: "prose-td",
+        th: "prose-th",
+        tr: "prose-tr",
       },
-      "anchorLinks": {
-        "depth": 0,
-        "exclude": []
+      highlight: {
+        theme: "dracula",
       },
-      "remarkPlugins": {},
-      "rehypePlugins": {}
+      wsUrl: "ws://localhost:4000/",
+      documentDriven: false,
+      host: "",
+      trailingSlash: false,
+      search: "",
+      contentHead: true,
+      anchorLinks: false,
     },
-    "yaml": {},
-    "csv": {
-      "delimeter": ",",
-      "json": true
-    },
-    "navigation": {
-      "fields": []
-    },
-    "contentHead": true,
-    "documentDriven": false,
-    "respectPathCase": false,
-    "experimental": {
-      "clientDB": false,
-      "cacheContents": true,
-      "stripQueryParameters": false,
-      "advanceQuery": false,
-      "search": ""
-    }
   },
-  "sitemap": {
-    "isI18nMapped": false,
-    "sitemapName": "sitemap.xml",
-    "isMultiSitemap": false,
-    "excludeAppSources": [],
-    "cacheMaxAgeSeconds": 0,
-    "autoLastmod": true,
-    "defaultSitemapsChunkSize": 1000,
-    "sortEntries": true,
-    "debug": false,
-    "discoverImages": true,
-    "isNuxtContentDocumentDriven": true,
-    "xsl": "/__sitemap__/style.xsl",
-    "xslTips": true,
-    "xslColumns": [
+  mdc: {
+    highlight: {
+      theme: "dracula",
+      preload: "",
+      wrapperStyle: "",
+    },
+  },
+  content: {
+    cacheVersion: 2,
+    cacheIntegrity: "A8NKsTwwDJ",
+    transformers: [],
+    base: "",
+    api: {
+      baseURL: "/api/_content",
+    },
+    watch: {
+      ws: {
+        port: {
+          port: 4000,
+          portRange: [4000, 4040],
+        },
+        hostname: "localhost",
+        showURL: false,
+      },
+    },
+    sources: {},
+    ignores: [],
+    locales: [],
+    defaultLocale: "",
+    highlight: {
+      theme: "dracula",
+    },
+    markdown: {
+      tags: {
+        p: "prose-p",
+        a: "prose-a",
+        blockquote: "prose-blockquote",
+        "code-inline": "prose-code-inline",
+        code: "ProseCodeInline",
+        em: "prose-em",
+        h1: "prose-h1",
+        h2: "prose-h2",
+        h3: "prose-h3",
+        h4: "prose-h4",
+        h5: "prose-h5",
+        h6: "prose-h6",
+        hr: "prose-hr",
+        img: "prose-img",
+        ul: "prose-ul",
+        ol: "prose-ol",
+        li: "prose-li",
+        strong: "prose-strong",
+        table: "prose-table",
+        thead: "prose-thead",
+        tbody: "prose-tbody",
+        td: "prose-td",
+        th: "prose-th",
+        tr: "prose-tr",
+      },
+      anchorLinks: {
+        depth: 0,
+        exclude: [],
+      },
+      remarkPlugins: {},
+      rehypePlugins: {},
+    },
+    yaml: {},
+    csv: {
+      delimeter: ",",
+      json: true,
+    },
+    navigation: {
+      fields: [],
+    },
+    contentHead: true,
+    documentDriven: false,
+    respectPathCase: false,
+    experimental: {
+      clientDB: false,
+      cacheContents: true,
+      stripQueryParameters: false,
+      advanceQuery: false,
+      search: "",
+    },
+  },
+  sitemap: {
+    isI18nMapped: false,
+    sitemapName: "sitemap.xml",
+    isMultiSitemap: false,
+    excludeAppSources: [],
+    cacheMaxAgeSeconds: 0,
+    autoLastmod: true,
+    defaultSitemapsChunkSize: 1000,
+    sortEntries: true,
+    debug: false,
+    discoverImages: true,
+    isNuxtContentDocumentDriven: true,
+    xsl: "/__sitemap__/style.xsl",
+    xslTips: true,
+    xslColumns: [
       {
-        "label": "URL",
-        "width": "50%"
+        label: "URL",
+        width: "50%",
       },
       {
-        "label": "Images",
-        "width": "25%",
-        "select": "count(image:image)"
+        label: "Images",
+        width: "25%",
+        select: "count(image:image)",
       },
       {
-        "label": "Last Updated",
-        "width": "25%",
-        "select": "concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))"
-      }
+        label: "Last Updated",
+        width: "25%",
+        select:
+          "concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))",
+      },
     ],
-    "credits": true,
-    "version": "5.0.3",
-    "sitemaps": {
+    credits: true,
+    version: "5.0.3",
+    sitemaps: {
       "sitemap.xml": {
-        "sitemapName": "sitemap.xml",
-        "route": "sitemap.xml",
-        "defaults": {
-          "lastmod": "2024-10-13T15:06:36Z"
+        sitemapName: "sitemap.xml",
+        route: "sitemap.xml",
+        defaults: {
+          lastmod: "2024-10-13T15:06:36Z",
         },
-        "include": [],
-        "exclude": [
-          "/_nuxt/**",
-          "/api/**"
-        ],
-        "includeAppSources": true
-      }
-    }
+        include: [],
+        exclude: ["/_nuxt/**", "/api/**"],
+        includeAppSources: true,
+      },
+    },
   },
   "nuxt-site-config": {
-    "stack": [
+    stack: [
       {
-        "_context": "system",
-        "_priority": -15,
-        "name": "casino",
-        "env": "development"
+        _context: "system",
+        _priority: -15,
+        name: "casino",
+        env: "development",
       },
       {
-        "_priority": -3,
-        "_context": "nuxt-site-config:config",
-        "url": "https://theturkbet.com",
-        "name": "theturkbet",
-        "identity": {
-          "type": "Person"
+        _priority: -3,
+        _context: "nuxt-site-config:config",
+        url: "https://theturkbet.com",
+        name: "theturkbet",
+        identity: {
+          type: "Person",
         },
-        "indexable": false
-      }
+        indexable: false,
+      },
     ],
-    "version": "2.2.5",
-    "debug": false
+    version: "2.2.5",
+    debug: false,
   },
-  "ipx": {
-    "baseURL": "/_ipx",
-    "alias": {},
-    "fs": {
-      "dir": "/Users/laithkawar/Dev/casino/public"
+  ipx: {
+    baseURL: "/_ipx",
+    alias: {},
+    fs: {
+      dir: "/Users/laithkawar/Dev/casino/public",
     },
-    "http": {
-      "domains": []
-    }
-  }
+    http: {
+      domains: [],
+    },
+  },
 };
 const ENV_PREFIX = "NITRO_";
-const ENV_PREFIX_ALT = _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
+const ENV_PREFIX_ALT =
+  _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 const _sharedRuntimeConfig = _deepFreeze(
   _applyEnv(klona(_inlineRuntimeConfig))
 );
@@ -434,10 +678,12 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
       return runtimeConfig[prop];
     }
     return void 0;
-  }
+  },
 });
 
-const serverAssets = [{"baseName":"server","dir":"/Users/laithkawar/Dev/casino/server/assets"}];
+const serverAssets = [
+  { baseName: "server", dir: "/Users/laithkawar/Dev/casino/server/assets" },
+];
 
 const assets = createStorage();
 
@@ -447,15 +693,69 @@ for (const asset of serverAssets) {
 
 const storage = createStorage({});
 
-storage.mount('/assets', assets);
+storage.mount("/assets", assets);
 
-storage.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/Users/laithkawar/Dev/casino/content","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/laithkawar/Dev/casino/.nuxt/content-cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/laithkawar/Dev/casino","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/laithkawar/Dev/casino/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/laithkawar/Dev/casino/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/laithkawar/Dev/casino/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/laithkawar/Dev/casino/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount(
+  "content:source:content",
+  unstorage_47drivers_47fs({
+    name: "content:source:content",
+    driver: "fs",
+    base: "/Users/laithkawar/Dev/casino/content",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "cache:content",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    base: "/Users/laithkawar/Dev/casino/.nuxt/content-cache",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "root",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    readOnly: true,
+    base: "/Users/laithkawar/Dev/casino",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "src",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    readOnly: true,
+    base: "/Users/laithkawar/Dev/casino/server",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "build",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    readOnly: false,
+    base: "/Users/laithkawar/Dev/casino/.nuxt",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "cache",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    readOnly: false,
+    base: "/Users/laithkawar/Dev/casino/.nuxt/cache",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
+storage.mount(
+  "data",
+  unstorage_47drivers_47fs({
+    driver: "fs",
+    base: "/Users/laithkawar/Dev/casino/.data/kv",
+    ignore: ["**/node_modules/**", "**/.git/**"],
+  })
+);
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -465,7 +765,7 @@ const defaultCacheOptions = {
   name: "_",
   base: "/cache",
   swr: true,
-  maxAge: 1
+  maxAge: 1,
 };
 function defineCachedFunction(fn, opts = {}) {
   opts = { ...defaultCacheOptions, ...opts };
@@ -475,17 +775,28 @@ function defineCachedFunction(fn, opts = {}) {
   const integrity = opts.integrity || hash([fn, opts]);
   const validate = opts.validate || ((entry) => entry.value !== void 0);
   async function get(key, resolver, shouldInvalidateCache, event) {
-    const cacheKey = [opts.base, group, name, key + ".json"].filter(Boolean).join(":").replace(/:\/$/, ":index");
-    const entry = await useStorage().getItem(cacheKey) || {};
+    const cacheKey = [opts.base, group, name, key + ".json"]
+      .filter(Boolean)
+      .join(":")
+      .replace(/:\/$/, ":index");
+    const entry = (await useStorage().getItem(cacheKey)) || {};
     const ttl = (opts.maxAge ?? opts.maxAge ?? 0) * 1e3;
     if (ttl) {
       entry.expires = Date.now() + ttl;
     }
-    const expired = shouldInvalidateCache || entry.integrity !== integrity || ttl && Date.now() - (entry.mtime || 0) > ttl || validate(entry) === false;
+    const expired =
+      shouldInvalidateCache ||
+      entry.integrity !== integrity ||
+      (ttl && Date.now() - (entry.mtime || 0) > ttl) ||
+      validate(entry) === false;
     const _resolve = async () => {
       const isPending = pending[key];
       if (!isPending) {
-        if (entry.value !== void 0 && (opts.staleMaxAge || 0) >= 0 && opts.swr === false) {
+        if (
+          entry.value !== void 0 &&
+          (opts.staleMaxAge || 0) >= 0 &&
+          opts.swr === false
+        ) {
           entry.value = void 0;
           entry.integrity = void 0;
           entry.mtime = void 0;
@@ -506,10 +817,12 @@ function defineCachedFunction(fn, opts = {}) {
         entry.integrity = integrity;
         delete pending[key];
         if (validate(entry) !== false) {
-          const promise = useStorage().setItem(cacheKey, entry).catch((error) => {
-            console.error(`[nitro] [cache] Cache write error.`, error);
-            useNitroApp().captureError(error, { event, tags: ["cache"] });
-          });
+          const promise = useStorage()
+            .setItem(cacheKey, entry)
+            .catch((error) => {
+              console.error(`[nitro] [cache] Cache write error.`, error);
+              useNitroApp().captureError(error, { event, tags: ["cache"] });
+            });
           if (event && event.waitUntil) {
             event.waitUntil(promise);
           }
@@ -546,7 +859,7 @@ function defineCachedFunction(fn, opts = {}) {
     );
     let value = entry.value;
     if (opts.transform) {
-      value = await opts.transform(entry, ...args) || value;
+      value = (await opts.transform(entry, ...args)) || value;
     }
     return value;
   };
@@ -559,7 +872,10 @@ function escapeKey(key) {
   return String(key).replace(/\W/g, "");
 }
 function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
-  const variableHeaderNames = (opts.varies || []).filter(Boolean).map((h) => h.toLowerCase()).sort();
+  const variableHeaderNames = (opts.varies || [])
+    .filter(Boolean)
+    .map((h) => h.toLowerCase())
+    .sort();
   const _opts = {
     ...opts,
     getKey: async (event) => {
@@ -567,10 +883,14 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
       if (customKey) {
         return escapeKey(customKey);
       }
-      const _path = event.node.req.originalUrl || event.node.req.url || event.path;
-      const _pathname = escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
+      const _path =
+        event.node.req.originalUrl || event.node.req.url || event.path;
+      const _pathname =
+        escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
       const _hashedPath = `${_pathname}.${hash(_path)}`;
-      const _headers = variableHeaderNames.map((header) => [header, event.node.req.headers[header]]).map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
+      const _headers = variableHeaderNames
+        .map((header) => [header, event.node.req.headers[header]])
+        .map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
       return [_hashedPath, ..._headers].join(":");
     },
     validate: (entry) => {
@@ -583,119 +903,119 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
       if (entry.value.body === void 0) {
         return false;
       }
-      if (entry.value.headers.etag === "undefined" || entry.value.headers["last-modified"] === "undefined") {
+      if (
+        entry.value.headers.etag === "undefined" ||
+        entry.value.headers["last-modified"] === "undefined"
+      ) {
         return false;
       }
       return true;
     },
     group: opts.group || "nitro/handlers",
-    integrity: opts.integrity || hash([handler, opts])
+    integrity: opts.integrity || hash([handler, opts]),
   };
-  const _cachedHandler = cachedFunction(
-    async (incomingEvent) => {
-      const variableHeaders = {};
-      for (const header of variableHeaderNames) {
-        variableHeaders[header] = incomingEvent.node.req.headers[header];
-      }
-      const reqProxy = cloneWithProxy(incomingEvent.node.req, {
-        headers: variableHeaders
-      });
-      const resHeaders = {};
-      let _resSendBody;
-      const resProxy = cloneWithProxy(incomingEvent.node.res, {
-        statusCode: 200,
-        writableEnded: false,
-        writableFinished: false,
-        headersSent: false,
-        closed: false,
-        getHeader(name) {
-          return resHeaders[name];
-        },
-        setHeader(name, value) {
-          resHeaders[name] = value;
-          return this;
-        },
-        getHeaderNames() {
-          return Object.keys(resHeaders);
-        },
-        hasHeader(name) {
-          return name in resHeaders;
-        },
-        removeHeader(name) {
-          delete resHeaders[name];
-        },
-        getHeaders() {
-          return resHeaders;
-        },
-        end(chunk, arg2, arg3) {
-          if (typeof chunk === "string") {
-            _resSendBody = chunk;
-          }
-          if (typeof arg2 === "function") {
-            arg2();
-          }
-          if (typeof arg3 === "function") {
-            arg3();
-          }
-          return this;
-        },
-        write(chunk, arg2, arg3) {
-          if (typeof chunk === "string") {
-            _resSendBody = chunk;
-          }
-          if (typeof arg2 === "function") {
-            arg2();
-          }
-          if (typeof arg3 === "function") {
-            arg3();
-          }
-          return this;
-        },
-        writeHead(statusCode, headers2) {
-          this.statusCode = statusCode;
-          if (headers2) {
-            for (const header in headers2) {
-              this.setHeader(header, headers2[header]);
-            }
-          }
-          return this;
+  const _cachedHandler = cachedFunction(async (incomingEvent) => {
+    const variableHeaders = {};
+    for (const header of variableHeaderNames) {
+      variableHeaders[header] = incomingEvent.node.req.headers[header];
+    }
+    const reqProxy = cloneWithProxy(incomingEvent.node.req, {
+      headers: variableHeaders,
+    });
+    const resHeaders = {};
+    let _resSendBody;
+    const resProxy = cloneWithProxy(incomingEvent.node.res, {
+      statusCode: 200,
+      writableEnded: false,
+      writableFinished: false,
+      headersSent: false,
+      closed: false,
+      getHeader(name) {
+        return resHeaders[name];
+      },
+      setHeader(name, value) {
+        resHeaders[name] = value;
+        return this;
+      },
+      getHeaderNames() {
+        return Object.keys(resHeaders);
+      },
+      hasHeader(name) {
+        return name in resHeaders;
+      },
+      removeHeader(name) {
+        delete resHeaders[name];
+      },
+      getHeaders() {
+        return resHeaders;
+      },
+      end(chunk, arg2, arg3) {
+        if (typeof chunk === "string") {
+          _resSendBody = chunk;
         }
-      });
-      const event = createEvent(reqProxy, resProxy);
-      event.context = incomingEvent.context;
-      const body = await handler(event) || _resSendBody;
-      const headers = event.node.res.getHeaders();
-      headers.etag = String(
-        headers.Etag || headers.etag || `W/"${hash(body)}"`
-      );
-      headers["last-modified"] = String(
-        headers["Last-Modified"] || headers["last-modified"] || (/* @__PURE__ */ new Date()).toUTCString()
-      );
-      const cacheControl = [];
-      if (opts.swr) {
-        if (opts.maxAge) {
-          cacheControl.push(`s-maxage=${opts.maxAge}`);
+        if (typeof arg2 === "function") {
+          arg2();
         }
-        if (opts.staleMaxAge) {
-          cacheControl.push(`stale-while-revalidate=${opts.staleMaxAge}`);
-        } else {
-          cacheControl.push("stale-while-revalidate");
+        if (typeof arg3 === "function") {
+          arg3();
         }
-      } else if (opts.maxAge) {
-        cacheControl.push(`max-age=${opts.maxAge}`);
+        return this;
+      },
+      write(chunk, arg2, arg3) {
+        if (typeof chunk === "string") {
+          _resSendBody = chunk;
+        }
+        if (typeof arg2 === "function") {
+          arg2();
+        }
+        if (typeof arg3 === "function") {
+          arg3();
+        }
+        return this;
+      },
+      writeHead(statusCode, headers2) {
+        this.statusCode = statusCode;
+        if (headers2) {
+          for (const header in headers2) {
+            this.setHeader(header, headers2[header]);
+          }
+        }
+        return this;
+      },
+    });
+    const event = createEvent(reqProxy, resProxy);
+    event.context = incomingEvent.context;
+    const body = (await handler(event)) || _resSendBody;
+    const headers = event.node.res.getHeaders();
+    headers.etag = String(headers.Etag || headers.etag || `W/"${hash(body)}"`);
+    headers["last-modified"] = String(
+      headers["Last-Modified"] ||
+        headers["last-modified"] ||
+        /* @__PURE__ */ new Date().toUTCString()
+    );
+    const cacheControl = [];
+    if (opts.swr) {
+      if (opts.maxAge) {
+        cacheControl.push(`s-maxage=${opts.maxAge}`);
       }
-      if (cacheControl.length > 0) {
-        headers["cache-control"] = cacheControl.join(", ");
+      if (opts.staleMaxAge) {
+        cacheControl.push(`stale-while-revalidate=${opts.staleMaxAge}`);
+      } else {
+        cacheControl.push("stale-while-revalidate");
       }
-      const cacheEntry = {
-        code: event.node.res.statusCode,
-        headers,
-        body
-      };
-      return cacheEntry;
-    },
-    _opts
-  );
+    } else if (opts.maxAge) {
+      cacheControl.push(`max-age=${opts.maxAge}`);
+    }
+    if (cacheControl.length > 0) {
+      headers["cache-control"] = cacheControl.join(", ");
+    }
+    const cacheEntry = {
+      code: event.node.res.statusCode,
+      headers,
+      body,
+    };
+    return cacheEntry;
+  }, _opts);
   return defineEventHandler(async (event) => {
     if (opts.headersOnly) {
       if (handleCacheHeaders(event, { maxAge: opts.maxAge })) {
@@ -707,21 +1027,20 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
     if (event.node.res.headersSent || event.node.res.writableEnded) {
       return response.body;
     }
-    if (handleCacheHeaders(event, {
-      modifiedTime: new Date(response.headers["last-modified"]),
-      etag: response.headers.etag,
-      maxAge: opts.maxAge
-    })) {
+    if (
+      handleCacheHeaders(event, {
+        modifiedTime: new Date(response.headers["last-modified"]),
+        etag: response.headers.etag,
+        maxAge: opts.maxAge,
+      })
+    ) {
       return;
     }
     event.node.res.statusCode = response.code;
     for (const name in response.headers) {
       const value = response.headers[name];
       if (name === "set-cookie") {
-        event.node.res.appendHeader(
-          name,
-          splitCookiesString(value)
-        );
+        event.node.res.appendHeader(name, splitCookiesString(value));
       } else {
         event.node.res.setHeader(name, value);
       }
@@ -743,38 +1062,59 @@ function cloneWithProxy(obj, overrides) {
         return true;
       }
       return Reflect.set(target, property, value, receiver);
-    }
+    },
   });
 }
 const cachedEventHandler = defineCachedEventHandler;
 
 function hasReqHeader(event, name, includes) {
   const value = getRequestHeader(event, name);
-  return value && typeof value === "string" && value.toLowerCase().includes(includes);
+  return (
+    value && typeof value === "string" && value.toLowerCase().includes(includes)
+  );
 }
 function isJsonRequest(event) {
   if (hasReqHeader(event, "accept", "text/html")) {
     return false;
   }
-  return hasReqHeader(event, "accept", "application/json") || hasReqHeader(event, "user-agent", "curl/") || hasReqHeader(event, "user-agent", "httpie/") || hasReqHeader(event, "sec-fetch-mode", "cors") || event.path.startsWith("/api/") || event.path.endsWith(".json");
+  return (
+    hasReqHeader(event, "accept", "application/json") ||
+    hasReqHeader(event, "user-agent", "curl/") ||
+    hasReqHeader(event, "user-agent", "httpie/") ||
+    hasReqHeader(event, "sec-fetch-mode", "cors") ||
+    event.path.startsWith("/api/") ||
+    event.path.endsWith(".json")
+  );
 }
 function normalizeError(error) {
   const cwd = typeof process.cwd === "function" ? process.cwd() : "/";
-  const stack = (error.stack || "").split("\n").splice(1).filter((line) => line.includes("at ")).map((line) => {
-    const text = line.replace(cwd + "/", "./").replace("webpack:/", "").replace("file://", "").trim();
-    return {
-      text,
-      internal: line.includes("node_modules") && !line.includes(".cache") || line.includes("internal") || line.includes("new Promise")
-    };
-  });
+  const stack = (error.stack || "")
+    .split("\n")
+    .splice(1)
+    .filter((line) => line.includes("at "))
+    .map((line) => {
+      const text = line
+        .replace(cwd + "/", "./")
+        .replace("webpack:/", "")
+        .replace("file://", "")
+        .trim();
+      return {
+        text,
+        internal:
+          (line.includes("node_modules") && !line.includes(".cache")) ||
+          line.includes("internal") ||
+          line.includes("new Promise"),
+      };
+    });
   const statusCode = error.statusCode || 500;
-  const statusMessage = error.statusMessage ?? (statusCode === 404 ? "Not Found" : "");
+  const statusMessage =
+    error.statusMessage ?? (statusCode === 404 ? "Not Found" : "");
   const message = error.message || error.toString();
   return {
     stack,
     statusCode,
     statusMessage,
-    message
+    message,
   };
 }
 function _captureError(error, type) {
@@ -782,13 +1122,11 @@ function _captureError(error, type) {
   useNitroApp().captureError(error, { tags: [type] });
 }
 function trapUnhandledNodeErrors() {
-  process.on(
-    "unhandledRejection",
-    (error) => _captureError(error, "unhandledRejection")
+  process.on("unhandledRejection", (error) =>
+    _captureError(error, "unhandledRejection")
   );
-  process.on(
-    "uncaughtException",
-    (error) => _captureError(error, "uncaughtException")
+  process.on("uncaughtException", (error) =>
+    _captureError(error, "uncaughtException")
   );
 }
 function joinHeaders(value) {
@@ -801,7 +1139,7 @@ function normalizeFetchResponse(response) {
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
-    headers: normalizeCookieHeaders(response.headers)
+    headers: normalizeCookieHeaders(response.headers),
   });
 }
 function normalizeCookieHeader(header = "") {
@@ -853,7 +1191,7 @@ function createRouteRulesHandler(ctx) {
       }
       return proxyRequest(event, target, {
         fetch: ctx.localFetch,
-        ...routeRules.proxy
+        ...routeRules.proxy,
       });
     }
   });
@@ -882,11 +1220,11 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _EIClniVAFe = (function(nitro) {
+const _EIClniVAFe = function (nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$2}<\/script>`);
   });
-});
+};
 
 function defineNitroPlugin(def) {
   return def;
@@ -927,12 +1265,14 @@ function normalizeSiteConfig(config) {
     config.indexable = String(config.indexable) !== "false";
   if (typeof config.trailingSlash !== "undefined" && !config.trailingSlash)
     config.trailingSlash = String(config.trailingSlash) !== "false";
-  if (config.url && !hasProtocol(config.url, { acceptRelative: true, strict: false }))
+  if (
+    config.url &&
+    !hasProtocol(config.url, { acceptRelative: true, strict: false })
+  )
     config.url = withHttps(config.url);
   const keys = Object.keys(config).sort((a, b) => a.localeCompare(b));
   const newConfig = {};
-  for (const k of keys)
-    newConfig[k] = config[k];
+  for (const k of keys) newConfig[k] = config[k];
   return newConfig;
 }
 function createSiteConfigStack(options) {
@@ -942,49 +1282,67 @@ function createSiteConfigStack(options) {
     if (!input || typeof input !== "object" || Object.keys(input).length === 0)
       return;
     if (!input._context && debug) {
-      let lastFunctionName = new Error("tmp").stack?.split("\n")[2].split(" ")[5];
-      if (lastFunctionName?.includes("/"))
-        lastFunctionName = "anonymous";
+      let lastFunctionName = new Error("tmp").stack
+        ?.split("\n")[2]
+        .split(" ")[5];
+      if (lastFunctionName?.includes("/")) lastFunctionName = "anonymous";
       input._context = lastFunctionName;
     }
     const entry = {};
     for (const k in input) {
       const val = input[k];
-      if (typeof val !== "undefined" && val !== "")
-        entry[k] = val;
+      if (typeof val !== "undefined" && val !== "") entry[k] = val;
     }
     if (Object.keys(entry).filter((k) => !k.startsWith("_")).length > 0)
       stack.push(entry);
   }
   function get(options2) {
     const siteConfig = {};
-    if (options2?.debug)
-      siteConfig._context = {};
-    for (const o in stack.sort((a, b) => (a._priority || 0) - (b._priority || 0))) {
+    if (options2?.debug) siteConfig._context = {};
+    for (const o in stack.sort(
+      (a, b) => (a._priority || 0) - (b._priority || 0)
+    )) {
       for (const k in stack[o]) {
         const key = k;
         const val = options2?.resolveRefs ? toValue(stack[o][k]) : stack[o][k];
         if (!k.startsWith("_") && typeof val !== "undefined") {
           siteConfig[k] = val;
           if (options2?.debug)
-            siteConfig._context[key] = stack[o]._context?.[key] || stack[o]._context || "anonymous";
+            siteConfig._context[key] =
+              stack[o]._context?.[key] || stack[o]._context || "anonymous";
         }
       }
     }
-    return options2?.skipNormalize ? siteConfig : normalizeSiteConfig(siteConfig);
+    return options2?.skipNormalize
+      ? siteConfig
+      : normalizeSiteConfig(siteConfig);
   }
   return {
     stack,
     push,
-    get
+    get,
   };
 }
 
 function envSiteConfig(env) {
-  return Object.fromEntries(Object.entries(env).filter(([k]) => k.startsWith("NUXT_SITE_") || k.startsWith("NUXT_PUBLIC_SITE_")).map(([k, v]) => [
-    k.replace(/^NUXT_(PUBLIC_)?SITE_/, "").split("_").map((s, i) => i === 0 ? s.toLowerCase() : s[0].toUpperCase() + s.slice(1).toLowerCase()).join(""),
-    v
-  ]));
+  return Object.fromEntries(
+    Object.entries(env)
+      .filter(
+        ([k]) => k.startsWith("NUXT_SITE_") || k.startsWith("NUXT_PUBLIC_SITE_")
+      )
+      .map(([k, v]) => [
+        k
+          .replace(/^NUXT_(PUBLIC_)?SITE_/, "")
+          .split("_")
+          .map((s, i) =>
+            i === 0
+              ? s.toLowerCase()
+              : s[0].toUpperCase() + s.slice(1).toLowerCase()
+          )
+          .join(""),
+        v,
+      ])
+  );
 }
 
 function buildAssetsDir() {
@@ -1002,10 +1360,12 @@ function publicAssetsURL(...path) {
 const useProcessorPlugins = async (processor, plugins = {}) => {
   const toUse = Object.entries(plugins).filter((p) => p[1] !== false);
   for (const plugin of toUse) {
-    const instance = plugin[1].instance || await import(
-      /* @vite-ignore */
-      plugin[0]
-    ).then((m) => m.default || m);
+    const instance =
+      plugin[1].instance ||
+      (await import(
+        /* @vite-ignore */
+        plugin[0]
+      ).then((m) => m.default || m));
     processor.use(instance, plugin[1].options);
   }
 };
@@ -1018,14 +1378,16 @@ const unsafeLinkPrefix = [
   "data:text/vbscript",
   "data:text/css",
   "data:text/plain",
-  "data:text/xml"
+  "data:text/xml",
 ];
 const validateProp = (attribute, value) => {
   if (attribute.startsWith("on")) {
     return false;
   }
   if (attribute === "href" || attribute === "src") {
-    return !unsafeLinkPrefix.some((prefix) => value.toLowerCase().startsWith(prefix));
+    return !unsafeLinkPrefix.some((prefix) =>
+      value.toLowerCase().startsWith(prefix)
+    );
   }
   return true;
 };
@@ -1037,7 +1399,9 @@ const validateProps = (type, props) => {
     Object.entries(props).filter(([name, value]) => {
       const isValid = validateProp(name, value);
       if (!isValid) {
-        console.warn(`[@nuxtjs/mdc] removing unsafe attribute: ${name}="${value}"`);
+        console.warn(
+          `[@nuxtjs/mdc] removing unsafe attribute: ${name}="${value}"`
+        );
       }
       return isValid;
     })
@@ -1056,11 +1420,18 @@ function compileHast() {
     if (node.type === "root") {
       return {
         type: "root",
-        children: node.children.map((child) => compileToJSON(child, node)).filter(Boolean)
+        children: node.children
+          .map((child) => compileToJSON(child, node))
+          .filter(Boolean),
       };
     }
     if (node.type === "element") {
-      if (node.tagName === "p" && node.children.every((child) => child.type === "text" && /^\s*$/.test(child.value))) {
+      if (
+        node.tagName === "p" &&
+        node.children.every(
+          (child) => child.type === "text" && /^\s*$/.test(child.value)
+        )
+      ) {
         return null;
       }
       if (node.tagName === "li") {
@@ -1072,7 +1443,7 @@ function compileHast() {
                 type: "element",
                 tagName: "br",
                 properties: {},
-                children: []
+                children: [],
               });
             }
             hasPreviousParagraph = true;
@@ -1083,7 +1454,12 @@ function compileHast() {
       }
       if (node.tagName?.match(/^h\d$/)) {
         node.properties = node.properties || {};
-        node.properties.id = String(node.properties?.id || slugs.slug(toString(node))).replace(/-+/g, "-").replace(/^-|-$/g, "").replace(/^(\d)/, "_$1");
+        node.properties.id = String(
+          node.properties?.id || slugs.slug(toString(node))
+        )
+          .replace(/-+/g, "-")
+          .replace(/^-|-$/g, "")
+          .replace(/^(\d)/, "_$1");
       }
       if (node.tagName === "component-slot") {
         node.tagName = "template";
@@ -1092,14 +1468,16 @@ function compileHast() {
         type: "element",
         tag: node.tagName,
         props: validateProps(node.tagName, node.properties),
-        children: node.children.map((child) => compileToJSON(child, node)).filter(Boolean)
+        children: node.children
+          .map((child) => compileToJSON(child, node))
+          .filter(Boolean),
       };
     }
     if (node.type === "text") {
       if (node.value !== "\n" || parent?.properties?.emptyLinePlaceholder) {
         return {
           type: "text",
-          value: node.value
+          value: node.value,
         };
       }
     }
@@ -1108,13 +1486,19 @@ function compileHast() {
   this.Compiler = (tree) => {
     const body = compileToJSON(tree);
     let excerpt = void 0;
-    const excerptIndex = tree.children.findIndex((node) => node.type === "comment" && node.value?.trim() === "more");
+    const excerptIndex = tree.children.findIndex(
+      (node) => node.type === "comment" && node.value?.trim() === "more"
+    );
     if (excerptIndex !== -1) {
       excerpt = compileToJSON({
         type: "root",
-        children: tree.children.slice(0, excerptIndex)
+        children: tree.children.slice(0, excerptIndex),
       });
-      if (excerpt.children.find((node) => node.type === "element" && node.tag === "pre")) {
+      if (
+        excerpt.children.find(
+          (node) => node.type === "element" && node.tag === "pre"
+        )
+      ) {
         const lastChild = body.children[body.children.length - 1];
         if (lastChild.type === "element" && lastChild.tag === "style") {
           excerpt.children.push(lastChild);
@@ -1123,7 +1507,7 @@ function compileHast() {
     }
     return {
       body,
-      excerpt
+      excerpt,
     };
   };
 }
@@ -1133,7 +1517,7 @@ function emphasis(state, node) {
     type: "element",
     tagName: "em",
     properties: node.attributes || {},
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -1145,26 +1529,40 @@ function parseThematicBlock(lang) {
       language: void 0,
       highlights: void 0,
       filename: void 0,
-      meta: void 0
+      meta: void 0,
     };
   }
-  const languageMatches = lang.replace(/[{|[](.+)/, "").match(/^[^ \t]+(?=[ \t]|$)/);
+  const languageMatches = lang
+    .replace(/[{|[](.+)/, "")
+    .match(/^[^ \t]+(?=[ \t]|$)/);
   const highlightTokensMatches = lang.match(/{([^}]*)}/);
   const filenameMatches = lang.match(/\[((\\]|[^\]])*)\]/);
-  const meta = lang.replace(languageMatches?.[0] ?? "", "").replace(highlightTokensMatches?.[0] ?? "", "").replace(filenameMatches?.[0] ?? "", "").trim();
+  const meta = lang
+    .replace(languageMatches?.[0] ?? "", "")
+    .replace(highlightTokensMatches?.[0] ?? "", "")
+    .replace(filenameMatches?.[0] ?? "", "")
+    .trim();
   return {
     language: languageMatches?.[0] || void 0,
     highlights: parseHighlightedLines(highlightTokensMatches?.[1] || void 0),
     // https://github.com/nuxt/content/pull/2169
     filename: filenameMatches?.[1].replace(/\\]/g, "]") || void 0,
-    meta
+    meta,
   };
 }
 function parseHighlightedLines(lines) {
-  const lineArray = String(lines || "").split(",").filter(Boolean).flatMap((line) => {
-    const [start, end] = line.trim().split("-").map((a) => Number(a.trim()));
-    return Array.from({ length: (end || start) - start + 1 }).map((_, i) => start + i);
-  });
+  const lineArray = String(lines || "")
+    .split(",")
+    .filter(Boolean)
+    .flatMap((line) => {
+      const [start, end] = line
+        .trim()
+        .split("-")
+        .map((a) => Number(a.trim()));
+      return Array.from({ length: (end || start) - start + 1 }).map(
+        (_, i) => start + i
+      );
+    });
   return lineArray.length ? lineArray : void 0;
 }
 const TAG_NAME_REGEXP = /^<\/?([A-Za-z0-9-_]+) ?[^>]*>/;
@@ -1181,12 +1579,12 @@ const code = (state, node) => {
     type: "element",
     tagName: "code",
     properties: { __ignoreMap: "" },
-    children: [{ type: "text", value }]
+    children: [{ type: "text", value }],
   };
   if (meta) {
     result.data = {
       // @ts-ignore
-      meta
+      meta,
     };
   }
   state.patch(node, result);
@@ -1196,7 +1594,7 @@ const code = (state, node) => {
     filename,
     highlights,
     meta,
-    code: value
+    code: value,
   };
   if (language) {
     properties.className = ["language-" + language];
@@ -1221,8 +1619,8 @@ function html(state, node) {
 
 function link$1(state, node) {
   const properties = {
-    ...node.attributes || {},
-    href: normalizeUri(node.url)
+    ...(node.attributes || {}),
+    href: normalizeUri(node.url),
   };
   if (node.title !== null && node.title !== void 0) {
     properties.title = node.title;
@@ -1231,7 +1629,7 @@ function link$1(state, node) {
     type: "element",
     tagName: "a",
     properties,
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -1246,19 +1644,27 @@ function list(state, node) {
   }
   while (++index < results.length) {
     const child = results[index];
-    if (child.type === "element" && child.tagName === "li" && child.properties && Array.isArray(child.properties.className) && child.properties.className.includes("task-list-item")) {
+    if (
+      child.type === "element" &&
+      child.tagName === "li" &&
+      child.properties &&
+      Array.isArray(child.properties.className) &&
+      child.properties.className.includes("task-list-item")
+    ) {
       properties.className = ["contains-task-list"];
       break;
     }
   }
-  if ((node.children || []).some((child) => typeof child.checked === "boolean")) {
+  if (
+    (node.children || []).some((child) => typeof child.checked === "boolean")
+  ) {
     properties.className = ["contains-task-list"];
   }
   const result = {
     type: "element",
     tagName: node.ordered ? "ol" : "ul",
     properties,
-    children: state.wrap(results, true)
+    children: state.wrap(results, true),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -1381,7 +1787,7 @@ const htmlTags = [
   "ul",
   "var",
   "video",
-  "wbr"
+  "wbr",
 ];
 
 function paragraph(state, node) {
@@ -1395,7 +1801,7 @@ function paragraph(state, node) {
     type: "element",
     tagName: "p",
     properties: {},
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -1419,7 +1825,7 @@ function strong(state, node) {
     type: "element",
     tagName: "strong",
     properties: node.attributes || {},
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -1433,7 +1839,7 @@ function inlineCode(state, node) {
     type: "element",
     tagName: "code",
     properties: node.attributes || {},
-    children: [text]
+    children: [text],
   };
   const classes = (result.properties.class || "").split(" ");
   delete result.properties.class;
@@ -1453,9 +1859,9 @@ function containerComponent(state, node) {
     tagName: node.name,
     properties: {
       ...node.attributes,
-      ...node.data?.hProperties
+      ...node.data?.hProperties,
     },
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   result.attributes = node.attributes;
@@ -1473,52 +1879,52 @@ const handlers$1 = {
   image,
   strong,
   inlineCode,
-  containerComponent
+  containerComponent,
 };
 
 const defaults = {
   remark: {
     plugins: {
       "remark-mdc": {
-        instance: remarkMDC
+        instance: remarkMDC,
       },
       "remark-emoji": {
-        instance: remarkEmoji
+        instance: remarkEmoji,
       },
       "remark-gfm": {
-        instance: remarkGFM
-      }
-    }
+        instance: remarkGFM,
+      },
+    },
   },
   rehype: {
     options: {
       // @ts-ignore
       handlers: handlers$1,
-      allowDangerousHtml: true
+      allowDangerousHtml: true,
     },
     plugins: {
       "rehype-external-links": {
-        instance: rehypeExternalLinks
+        instance: rehypeExternalLinks,
       },
       "rehype-sort-attribute-values": {
-        instance: rehypeSortAttributeValues
+        instance: rehypeSortAttributeValues,
       },
       "rehype-sort-attributes": {
-        instance: rehypeSortAttributes
+        instance: rehypeSortAttributes,
       },
       "rehype-raw": {
         instance: rehypeRaw,
         options: {
-          passThrough: ["element"]
-        }
-      }
-    }
+          passThrough: ["element"],
+        },
+      },
+    },
   },
   highlight: false,
   toc: {
     searchDepth: 2,
-    depth: 2
-  }
+    depth: 2,
+  },
 };
 
 function flattenNodeText(node) {
@@ -1536,7 +1942,10 @@ function flattenNode(node, maxDepth = 2, _depth = 0) {
   }
   return [
     node,
-    ...node.children.reduce((acc, child) => acc.concat(flattenNode(child, maxDepth, _depth + 1)), [])
+    ...node.children.reduce(
+      (acc, child) => acc.concat(flattenNode(child, maxDepth, _depth + 1)),
+      []
+    ),
   ];
 }
 
@@ -1548,7 +1957,9 @@ const TOC_TAGS_DEPTH = TOC_TAGS.reduce((tags, tag) => {
 const getHeaderDepth = (node) => TOC_TAGS_DEPTH[node.tag];
 const getTocTags = (depth) => {
   if (depth < 1 || depth > 5) {
-    console.log(`\`toc.depth\` is set to ${depth}. It should be a number between 1 and 5. `);
+    console.log(
+      `\`toc.depth\` is set to ${depth}. It should be a number between 1 and 5. `
+    );
     depth = 1;
   }
   return TOC_TAGS.slice(0, depth);
@@ -1580,17 +1991,19 @@ function nestHeaders(headers) {
 function generateFlatToc(body, options) {
   const { searchDepth, depth, title = "" } = options;
   const tags = getTocTags(depth);
-  const headers = flattenNode(body, searchDepth).filter((node) => tags.includes(node.tag || ""));
+  const headers = flattenNode(body, searchDepth).filter((node) =>
+    tags.includes(node.tag || "")
+  );
   const links = headers.map((node) => ({
     id: node.props?.id,
     depth: getHeaderDepth(node),
-    text: flattenNodeText(node)
+    text: flattenNodeText(node),
   }));
   return {
     title,
     searchDepth,
     depth,
-    links
+    links,
   };
 }
 function generateToc(body, options) {
@@ -1644,15 +2057,19 @@ let moduleOptions;
 const parseMarkdown = async (md, opts = {}) => {
   if (!moduleOptions) {
     moduleOptions = await import(
-      'file:///Users/laithkawar/Dev/casino/.nuxt/mdc-imports.mjs'
+      "file:///Users/laithkawar/Dev/casino/.nuxt/mdc-imports.mjs"
       /* @vite-ignore */
     ).catch(() => ({}));
   }
-  const options = defu$1(opts, {
-    remark: { plugins: moduleOptions?.remarkPlugins },
-    rehype: { plugins: moduleOptions?.rehypePlugins },
-    highlight: moduleOptions?.highlight
-  }, defaults);
+  const options = defu$1(
+    opts,
+    {
+      remark: { plugins: moduleOptions?.remarkPlugins },
+      rehype: { plugins: moduleOptions?.rehypePlugins },
+      highlight: moduleOptions?.highlight,
+    },
+    defaults
+  );
   if (options.rehype?.plugins?.highlight) {
     options.rehype.plugins.highlight.options = options.highlight || {};
   }
@@ -1663,7 +2080,10 @@ const parseMarkdown = async (md, opts = {}) => {
   processor.use(remark2rehype, options.rehype?.options);
   await useProcessorPlugins(processor, options.rehype?.plugins);
   processor.use(compileHast);
-  const processedFile = await processor.process({ value: content, data: frontmatter });
+  const processedFile = await processor.process({
+    value: content,
+    data: frontmatter,
+  });
   const result = processedFile.result;
   const data = Object.assign(
     contentHeading(result.body),
@@ -1679,13 +2099,15 @@ const parseMarkdown = async (md, opts = {}) => {
     data,
     body: result.body,
     excerpt: result.excerpt,
-    toc
+    toc,
   };
 };
 function contentHeading(body) {
   let title = "";
   let description = "";
-  const children = body.children.filter((node) => node.type !== "text" && node.tag !== "hr");
+  const children = body.children.filter(
+    (node) => node.type !== "text" && node.tag !== "hr"
+  );
   if (children.length && children[0].tag === "h1") {
     const node = children.shift();
     title = nodeTextContent(node);
@@ -1696,13 +2118,15 @@ function contentHeading(body) {
   }
   return {
     title,
-    description
+    description,
   };
 }
 
 function useSiteConfig(e, _options) {
   e.context.siteConfig = e.context.siteConfig || createSiteConfigStack();
-  const options = defu$1(_options, useRuntimeConfig(e)["nuxt-site-config"], { debug: false });
+  const options = defu$1(_options, useRuntimeConfig(e)["nuxt-site-config"], {
+    debug: false,
+  });
   return e.context.siteConfig.get(options);
 }
 
@@ -1712,10 +2136,12 @@ function useNitroOrigin(e) {
   let host = process.env.NITRO_HOST || process.env.HOST || false;
   let port = false;
   port = process.env.NITRO_PORT || process.env.PORT || "3000";
-  let protocol = cert && key || !true ? "https" : "http";
+  let protocol = (cert && key) || !true ? "https" : "http";
   if (!e) {
     if (process.env.NUXT_VITE_NODE_OPTIONS) {
-      const origin = JSON.parse(process.env.NUXT_VITE_NODE_OPTIONS).baseURL.replace("/__nuxt_vite_node__", "");
+      const origin = JSON.parse(
+        process.env.NUXT_VITE_NODE_OPTIONS
+      ).baseURL.replace("/__nuxt_vite_node__", "");
       host = withoutProtocol(origin);
       protocol = origin.includes("https") ? "https" : "http";
     }
@@ -1742,17 +2168,24 @@ function resolveSitePath(pathOrUrl, options) {
     path = path.slice(base.length);
   }
   const origin = options.absolute ? options.siteUrl : "";
-  const baseWithOrigin = options.withBase ? withBase(base, origin || "/") : origin;
+  const baseWithOrigin = options.withBase
+    ? withBase(base, origin || "/")
+    : origin;
   const resolvedUrl = withBase(path, baseWithOrigin);
-  return path === "/" && !options.withBase ? withTrailingSlash(resolvedUrl) : fixSlashes(options.trailingSlash, resolvedUrl);
+  return path === "/" && !options.withBase
+    ? withTrailingSlash(resolvedUrl)
+    : fixSlashes(options.trailingSlash, resolvedUrl);
 }
 function fixSlashes(trailingSlash, pathOrUrl) {
   const $url = parseURL(pathOrUrl);
   const isFileUrl = $url.pathname.includes(".");
-  if (isFileUrl)
-    return pathOrUrl;
-  const fixedPath = trailingSlash ? withTrailingSlash($url.pathname) : withoutTrailingSlash($url.pathname);
-  return `${$url.protocol ? `${$url.protocol}//` : ""}${$url.host || ""}${fixedPath}${$url.search || ""}${$url.hash || ""}`;
+  if (isFileUrl) return pathOrUrl;
+  const fixedPath = trailingSlash
+    ? withTrailingSlash($url.pathname)
+    : withoutTrailingSlash($url.pathname);
+  return `${$url.protocol ? `${$url.protocol}//` : ""}${
+    $url.host || ""
+  }${fixedPath}${$url.search || ""}${$url.hash || ""}`;
 }
 
 function createSitePathResolver(e, options = {}) {
@@ -1762,9 +2195,10 @@ function createSitePathResolver(e, options = {}) {
   return (path) => {
     return resolveSitePath(path, {
       ...options,
-      siteUrl: options.canonical !== false || false ? siteConfig.url : nitroOrigin,
+      siteUrl:
+        options.canonical !== false || false ? siteConfig.url : nitroOrigin,
       trailingSlash: siteConfig.trailingSlash,
-      base: nuxtBase
+      base: nuxtBase,
     });
   };
 }
@@ -1772,14 +2206,19 @@ function createSitePathResolver(e, options = {}) {
 const _J4RLfLmvFg = defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook("render:html", async (ctx, { event }) => {
     const routeOptions = getRouteRules(event);
-    const isIsland = false ;
+    const isIsland = false;
     event.path;
-    const noSSR = event.context.nuxt?.noSSR || routeOptions.ssr === false && !isIsland || (false);
+    const noSSR =
+      event.context.nuxt?.noSSR ||
+      (routeOptions.ssr === false && !isIsland) ||
+      false;
     if (noSSR) {
       const siteConfig = Object.fromEntries(
         Object.entries(useSiteConfig(event)).map(([k, v]) => [k, toValue(v)])
       );
-      ctx.body.push(`<script>window.__NUXT_SITE_CONFIG__=${devalue(siteConfig)}<\/script>`);
+      ctx.body.push(
+        `<script>window.__NUXT_SITE_CONFIG__=${devalue(siteConfig)}<\/script>`
+      );
     }
   });
 });
@@ -1799,20 +2238,19 @@ function mergeOnKey(arr, key) {
 }
 function splitForLocales(path, locales) {
   const prefix = withLeadingSlash(path).split("/")[1];
-  if (locales.includes(prefix))
-    return [prefix, path.replace(`/${prefix}`, "")];
+  if (locales.includes(prefix)) return [prefix, path.replace(`/${prefix}`, "")];
   return [null, path];
 }
 const StringifiedRegExpPattern = /\/(.*?)\/([gimsuy]*)$/;
 function normalizeRuntimeFilters(input) {
-  return (input || []).map((rule) => {
-    if (rule instanceof RegExp || typeof rule === "string")
-      return rule;
-    const match = rule.regex.match(StringifiedRegExpPattern);
-    if (match)
-      return new RegExp(match[1], match[2]);
-    return false;
-  }).filter(Boolean);
+  return (input || [])
+    .map((rule) => {
+      if (rule instanceof RegExp || typeof rule === "string") return rule;
+      const match = rule.regex.match(StringifiedRegExpPattern);
+      if (match) return new RegExp(match[1], match[2]);
+      return false;
+    })
+    .filter(Boolean);
 }
 
 function useSimpleSitemapRuntimeConfig(e) {
@@ -1827,37 +2265,51 @@ function useSimpleSitemapRuntimeConfig(e) {
 }
 
 const _PdNKrHfX6N = defineNitroPlugin$1((nitroApp) => {
-  const { discoverImages, isNuxtContentDocumentDriven } = useSimpleSitemapRuntimeConfig();
+  const { discoverImages, isNuxtContentDocumentDriven } =
+    useSimpleSitemapRuntimeConfig();
   nitroApp.hooks.hook("content:file:afterParse", async (content) => {
-    if (content.sitemap === false || content._draft || content._extension !== "md" || content._partial || content.indexable === false || content.index === false)
+    if (
+      content.sitemap === false ||
+      content._draft ||
+      content._extension !== "md" ||
+      content._partial ||
+      content.indexable === false ||
+      content.index === false
+    )
       return;
     let images = [];
     if (discoverImages) {
-      images = content.body?.children?.filter(
-        (c) => c.tag && c.props?.src && ["image", "img", "nuxtimg", "nuxt-img"].includes(c.tag.toLowerCase())
-      ).map((i) => ({ loc: i.props.src })) || [];
+      images =
+        content.body?.children
+          ?.filter(
+            (c) =>
+              c.tag &&
+              c.props?.src &&
+              ["image", "img", "nuxtimg", "nuxt-img"].includes(
+                c.tag.toLowerCase()
+              )
+          )
+          .map((i) => ({ loc: i.props.src })) || [];
     }
-    const sitemapConfig = typeof content.sitemap === "object" ? content.sitemap : {};
+    const sitemapConfig =
+      typeof content.sitemap === "object" ? content.sitemap : {};
     const lastmod = content.modifiedAt || content.updatedAt;
     const defaults = {};
-    if (isNuxtContentDocumentDriven)
-      defaults.loc = content._path;
-    if (content.path)
-      defaults.loc = content.path;
-    if (images.length > 0)
-      defaults.images = images;
-    if (lastmod)
-      defaults.lastmod = lastmod;
+    if (isNuxtContentDocumentDriven) defaults.loc = content._path;
+    if (content.path) defaults.loc = content.path;
+    if (images.length > 0) defaults.images = images;
+    if (lastmod) defaults.lastmod = lastmod;
     const definition = defu$1(sitemapConfig, defaults);
     if (!definition.loc) {
       if (content.path && content.path && content.path.startsWith("/"))
         definition.loc = content.path;
       if (Object.keys(sitemapConfig).length > 0 && true)
-        console.warn(`[@nuxtjs/content] The @nuxt/content file \`${content._path}\` is missing a sitemap \`loc\`.`);
+        console.warn(
+          `[@nuxtjs/content] The @nuxt/content file \`${content._path}\` is missing a sitemap \`loc\`.`
+        );
     }
     content.sitemap = definition;
-    if (!definition.loc)
-      delete content.sitemap;
+    if (!definition.loc) delete content.sitemap;
     return content;
   });
 });
@@ -1865,20 +2317,23 @@ const _PdNKrHfX6N = defineNitroPlugin$1((nitroApp) => {
 function createFilter$1(options = {}) {
   const include = options.include || [];
   const exclude = options.exclude || [];
-  return function(path) {
-    for (const v of [{ rules: exclude, result: false }, { rules: include, result: true }]) {
+  return function (path) {
+    for (const v of [
+      { rules: exclude, result: false },
+      { rules: include, result: true },
+    ]) {
       const regexRules = v.rules.filter((r) => r instanceof RegExp);
-      if (regexRules.some((r) => r.test(path)))
-        return v.result;
+      if (regexRules.some((r) => r.test(path))) return v.result;
       const stringRules = v.rules.filter((r) => typeof r === "string");
       if (stringRules.length > 0) {
         const routes = {};
         for (const r of stringRules) {
-          if (r === path)
-            return v.result;
+          if (r === path) return v.result;
           routes[r] = true;
         }
-        const routeRulesMatcher = toRouteMatcher(createRouter({ routes, ...options }));
+        const routeRulesMatcher = toRouteMatcher(
+          createRouter({ routes, ...options })
+        );
         if (routeRulesMatcher.matchAll(path).length > 0)
           return Boolean(v.result);
       }
@@ -1887,11 +2342,13 @@ function createFilter$1(options = {}) {
   };
 }
 
-const script$1 = "if (!(\"requestIdleCallback\" in w) || !(\"requestAnimationFrame\" in w))\n  return new Promise((resolve) => resolve(\"not supported\"));\nfunction eventListeners() {\n  const c = new AbortController();\n  const p = new Promise((resolve) => {\n    const hydrateOnEvents = \"mousemove,scroll,keydown,click,touchstart,wheel\".split(\",\");\n    function handler(e) {\n      hydrateOnEvents.forEach((e2) => w.removeEventListener(e2, handler));\n      requestAnimationFrame(() => resolve(e));\n    }\n    hydrateOnEvents.forEach((e) => {\n      w.addEventListener(e, handler, {\n        capture: true,\n        once: true,\n        passive: true,\n        signal: c.signal\n      });\n    });\n  });\n  return { c: () => c.abort(), p };\n}\nfunction idleListener() {\n  let id;\n  const p = new Promise((resolve) => {\n    const isMobile = w.innerWidth < 640;\n    const timeout = isMobile ? Number.parseInt(\"5000\") : Number.parseInt(\"4000\");\n    const timeoutDelay = () => setTimeout(\n      () => requestAnimationFrame(() => resolve(\"timeout\")),\n      timeout\n    );\n    id = w.requestIdleCallback(timeoutDelay, { timeout: Number.parseInt(\"1000\") });\n  });\n  return { c: () => window.cancelIdleCallback(id), p };\n}\nconst triggers = [idleListener(), eventListeners()];\nconst hydrationPromise = Promise.race(\n  triggers.map((t) => t.p)\n).finally(() => {\n  triggers.forEach((t) => t.c());\n});\nreturn hydrationPromise;\n";
-const replayScript = "(() => {\n  w._$delayHydration.then((e) => {\n    if (!(e instanceof PointerEvent) && !(e instanceof MouseEvent) && !(window.TouchEvent && e instanceof TouchEvent))\n      return;\n    if (e instanceof MouseEvent && e.type !== \"click\")\n      return;\n    setTimeout(() => w.requestIdleCallback(\n      () => setTimeout(() => e.target?.click(), 500)\n    ), 50);\n  });\n})();\n";
+const script$1 =
+  'if (!("requestIdleCallback" in w) || !("requestAnimationFrame" in w))\n  return new Promise((resolve) => resolve("not supported"));\nfunction eventListeners() {\n  const c = new AbortController();\n  const p = new Promise((resolve) => {\n    const hydrateOnEvents = "mousemove,scroll,keydown,click,touchstart,wheel".split(",");\n    function handler(e) {\n      hydrateOnEvents.forEach((e2) => w.removeEventListener(e2, handler));\n      requestAnimationFrame(() => resolve(e));\n    }\n    hydrateOnEvents.forEach((e) => {\n      w.addEventListener(e, handler, {\n        capture: true,\n        once: true,\n        passive: true,\n        signal: c.signal\n      });\n    });\n  });\n  return { c: () => c.abort(), p };\n}\nfunction idleListener() {\n  let id;\n  const p = new Promise((resolve) => {\n    const isMobile = w.innerWidth < 640;\n    const timeout = isMobile ? Number.parseInt("5000") : Number.parseInt("4000");\n    const timeoutDelay = () => setTimeout(\n      () => requestAnimationFrame(() => resolve("timeout")),\n      timeout\n    );\n    id = w.requestIdleCallback(timeoutDelay, { timeout: Number.parseInt("1000") });\n  });\n  return { c: () => window.cancelIdleCallback(id), p };\n}\nconst triggers = [idleListener(), eventListeners()];\nconst hydrationPromise = Promise.race(\n  triggers.map((t) => t.p)\n).finally(() => {\n  triggers.forEach((t) => t.c());\n});\nreturn hydrationPromise;\n';
+const replayScript =
+  '(() => {\n  w._$delayHydration.then((e) => {\n    if (!(e instanceof PointerEvent) && !(e instanceof MouseEvent) && !(window.TouchEvent && e instanceof TouchEvent))\n      return;\n    if (e instanceof MouseEvent && e.type !== "click")\n      return;\n    setTimeout(() => w.requestIdleCallback(\n      () => setTimeout(() => e.target?.click(), 500)\n    ), 50);\n  });\n})();\n';
 const mode = "mount";
 const include = [];
-const exclude = ["/","/_nuxt/**","/api/**"];
+const exclude = ["/", "/_nuxt/**", "/api/**"];
 
 const SCRIPT_REGEX = /<script(.*?)>/gm;
 const _DosBEJ62eQ = defineNitroPlugin$1((nitro) => {
@@ -1901,39 +2358,45 @@ const _DosBEJ62eQ = defineNitroPlugin$1((nitro) => {
     createRouter({ routes: config.nitro?.routeRules })
   );
   nitro.hooks.hook("render:html", (htmlContext, { event }) => {
-    if (!filter(event.path))
-      return;
-    const routeRules = defu({}, ..._routeRulesMatcher.matchAll(
-      withoutBase(event.path.split("?")[0], useRuntimeConfig().app.baseURL)
-    ).reverse());
+    if (!filter(event.path)) return;
+    const routeRules = defu(
+      {},
+      ..._routeRulesMatcher
+        .matchAll(
+          withoutBase(event.path.split("?")[0], useRuntimeConfig().app.baseURL)
+        )
+        .reverse()
+    );
     let currentMode = mode;
     if (typeof routeRules.delayHydration !== "undefined")
       currentMode = routeRules.delayHydration;
-    if (!currentMode)
-      return;
+    if (!currentMode) return;
     let extraScripts = "";
     if (currentMode === "init") {
-      const ASSET_RE = new RegExp(`<script[^>]*src="${config.app.buildAssetsDir}[^>]+><\\/script>`);
-      const LINK_ASSET_RE = new RegExp(`<link rel="modulepreload" as="script" [^>]*href="${config.app.buildAssetsDir}[^>]+>`, "g");
-      htmlContext.head = htmlContext.head.map((head) => head.replaceAll(LINK_ASSET_RE, ""));
-      const toLoad = [];
-      const isPageSSR = htmlContext.bodyAppend.some((b) => b.includes("$snuxt-delay-hydration-mode"));
-      if (!isPageSSR)
-        return;
-      htmlContext.bodyAppend = htmlContext.bodyAppend.filter(
-        (b) => {
-          if (b.includes("window.__NUXT__") || !ASSET_RE.test(b))
-            return true;
-          let match;
-          while ((match = SCRIPT_REGEX.exec(b)) !== null) {
-            if (match.index === SCRIPT_REGEX.lastIndex)
-              SCRIPT_REGEX.lastIndex++;
-            if (match)
-              toLoad.push(packString(match[1]));
-          }
-          return false;
-        }
+      const ASSET_RE = new RegExp(
+        `<script[^>]*src="${config.app.buildAssetsDir}[^>]+><\\/script>`
       );
+      const LINK_ASSET_RE = new RegExp(
+        `<link rel="modulepreload" as="script" [^>]*href="${config.app.buildAssetsDir}[^>]+>`,
+        "g"
+      );
+      htmlContext.head = htmlContext.head.map((head) =>
+        head.replaceAll(LINK_ASSET_RE, "")
+      );
+      const toLoad = [];
+      const isPageSSR = htmlContext.bodyAppend.some((b) =>
+        b.includes("$snuxt-delay-hydration-mode")
+      );
+      if (!isPageSSR) return;
+      htmlContext.bodyAppend = htmlContext.bodyAppend.filter((b) => {
+        if (b.includes("window.__NUXT__") || !ASSET_RE.test(b)) return true;
+        let match;
+        while ((match = SCRIPT_REGEX.exec(b)) !== null) {
+          if (match.index === SCRIPT_REGEX.lastIndex) SCRIPT_REGEX.lastIndex++;
+          if (match) toLoad.push(packString(match[1]));
+        }
+        return false;
+      });
       extraScripts = `_$delayHydration.then(e => {
   ;(${JSON.stringify(toLoad)}).forEach(s => {
     const script = document.createElement('script')
@@ -1949,39 +2412,50 @@ const _DosBEJ62eQ = defineNitroPlugin$1((nitro) => {
   w._$delayHydration = (() => {
     ${script$1}}
   )();
-  ${"w._$delayHydration.then((e) => { console.log('[nuxt-delay-hydration] Hydration event', e) })" }
+  ${"w._$delayHydration.then((e) => { console.log('[nuxt-delay-hydration] Hydration event', e) })"}
   ${extraScripts}
 })();
 <\/script>`);
   });
 });
 
-const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,m=[\"dark\",\"light\"],c=window&&window.localStorage&&window.localStorage.getItem&&window.localStorage.getItem(\"nuxt-color-mode\")||\"system\";let n=c===\"system\"?d():c;const l=e.getAttribute(\"data-color-mode-forced\");l&&(n=l),i(n),a[\"__NUXT_COLOR_MODE__\"]={preference:c,value:n,getColorScheme:d,addColorScheme:i,removeColorScheme:f};function i(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function f(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function r(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function d(){if(a.matchMedia&&r(\"\").media!==\"not all\"){for(const o of m)if(r(\":\"+o).matches)return o}return\"light\"}})();\n";
+const script =
+  '"use strict";(()=>{const a=window,e=document.documentElement,m=["dark","light"],c=window&&window.localStorage&&window.localStorage.getItem&&window.localStorage.getItem("nuxt-color-mode")||"system";let n=c==="system"?d():c;const l=e.getAttribute("data-color-mode-forced");l&&(n=l),i(n),a["__NUXT_COLOR_MODE__"]={preference:c,value:n,getColorScheme:d,addColorScheme:i,removeColorScheme:f};function i(o){const t=""+o+"",s="";e.classList?e.classList.add(t):e.className+=" "+t,s&&e.setAttribute("data-"+s,o)}function f(o){const t=""+o+"",s="";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,"g"),""),s&&e.removeAttribute("data-"+s)}function r(o){return a.matchMedia("(prefers-color-scheme"+o+")")}function d(){if(a.matchMedia&&r("").media!=="not all"){for(const o of m)if(r(":"+o).matches)return o}return"light"}})();\n';
 
-const _rfN6fx1J4S = (function(nitro) {
+const _rfN6fx1J4S = function (nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
-});
+};
 
 const plugins = [
   _EIClniVAFe,
-_J4RLfLmvFg,
-_PdNKrHfX6N,
-_DosBEJ62eQ,
-_rfN6fx1J4S
+  _J4RLfLmvFg,
+  _PdNKrHfX6N,
+  _DosBEJ62eQ,
+  _rfN6fx1J4S,
 ];
 
-const errorHandler = (async function errorhandler(error, event) {
+const errorHandler = async function errorhandler(error, event) {
   const { stack, statusCode, statusMessage, message } = normalizeError(error);
   const errorObject = {
     url: event.path,
     statusCode,
     statusMessage,
     message,
-    stack: statusCode !== 404 ? `<pre>${stack.map((i) => `<span class="stack${i.internal ? " internal" : ""}">${i.text}</span>`).join("\n")}</pre>` : "",
+    stack:
+      statusCode !== 404
+        ? `<pre>${stack
+            .map(
+              (i) =>
+                `<span class="stack${i.internal ? " internal" : ""}">${
+                  i.text
+                }</span>`
+            )
+            .join("\n")}</pre>`
+        : "",
     // TODO: check and validate error.data for serialisation into query
-    data: error.data
+    data: error.data,
   };
   if (error.unhandled || error.fatal) {
     const tags = [
@@ -1989,29 +2463,48 @@ const errorHandler = (async function errorhandler(error, event) {
       "[request error]",
       error.unhandled && "[unhandled]",
       error.fatal && "[fatal]",
-      Number(errorObject.statusCode) !== 200 && `[${errorObject.statusCode}]`
-    ].filter(Boolean).join(" ");
-    console.error(tags, errorObject.message + "\n" + stack.map((l) => "  " + l.text).join("  \n"));
+      Number(errorObject.statusCode) !== 200 && `[${errorObject.statusCode}]`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    console.error(
+      tags,
+      errorObject.message + "\n" + stack.map((l) => "  " + l.text).join("  \n")
+    );
   }
   if (event.handled) {
     return;
   }
-  setResponseStatus(event, errorObject.statusCode !== 200 && errorObject.statusCode || 500, errorObject.statusMessage);
+  setResponseStatus(
+    event,
+    (errorObject.statusCode !== 200 && errorObject.statusCode) || 500,
+    errorObject.statusMessage
+  );
   if (isJsonRequest(event)) {
     setResponseHeader(event, "Content-Type", "application/json");
     return send(event, JSON.stringify(errorObject));
   }
   const reqHeaders = getRequestHeaders(event);
-  const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
-  const res = isRenderingError ? null : await useNitroApp().localFetch(
-    withQuery(joinURL(useRuntimeConfig().app.baseURL, "/__nuxt_error"), errorObject),
-    {
-      headers: { ...reqHeaders, "x-nuxt-error": "true" },
-      redirect: "manual"
-    }
-  ).catch(() => null);
+  const isRenderingError =
+    event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
+  const res = isRenderingError
+    ? null
+    : await useNitroApp()
+        .localFetch(
+          withQuery(
+            joinURL(useRuntimeConfig().app.baseURL, "/__nuxt_error"),
+            errorObject
+          ),
+          {
+            headers: { ...reqHeaders, "x-nuxt-error": "true" },
+            redirect: "manual",
+          }
+        )
+        .catch(() => null);
   if (!res) {
-    const { template } = await Promise.resolve().then(function () { return errorDev; }) ;
+    const { template } = await Promise.resolve().then(function () {
+      return errorDev;
+    });
     {
       errorObject.description = errorObject.message;
     }
@@ -2028,9 +2521,13 @@ const errorHandler = (async function errorhandler(error, event) {
   for (const [header, value] of res.headers.entries()) {
     setResponseHeader(event, header, value);
   }
-  setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
+  setResponseStatus(
+    event,
+    res.status && res.status !== 200 ? res.status : void 0,
+    res.statusText
+  );
   return send(event, html);
-});
+};
 
 const useShikiHighlighter = createSingleton((opts) => {
   const { theme, preload, wrapperStyle } = opts || {};
@@ -2038,11 +2535,9 @@ const useShikiHighlighter = createSingleton((opts) => {
   const getShikiHighlighter = () => {
     if (!promise) {
       promise = getHighlighter({
-        themes: [
-          theme?.default || theme || "dark-plus"
-        ],
+        themes: [theme?.default || theme || "dark-plus"],
         langs: [
-          ...preload || [],
+          ...(preload || []),
           "diff",
           "json",
           "js",
@@ -2053,12 +2548,16 @@ const useShikiHighlighter = createSingleton((opts) => {
           "md",
           "yaml",
           "vue",
-          "mdc"
-        ]
+          "mdc",
+        ],
       }).then((highlighter) => {
-        const themes = Object.values(typeof theme === "string" ? { default: theme } : theme || {});
+        const themes = Object.values(
+          typeof theme === "string" ? { default: theme } : theme || {}
+        );
         if (themes.length) {
-          return Promise.all(themes.map((theme2) => highlighter.loadTheme(theme2))).then(() => highlighter);
+          return Promise.all(
+            themes.map((theme2) => highlighter.loadTheme(theme2))
+          ).then(() => highlighter);
         }
         return highlighter;
       });
@@ -2069,26 +2568,31 @@ const useShikiHighlighter = createSingleton((opts) => {
     transformerNotationDiff(),
     transformerNotationFocus(),
     transformerNotationHighlight(),
-    transformerNotationErrorLevel()
+    transformerNotationErrorLevel(),
   ];
   const getHighlightedAST = async (code, lang, theme2, opts2) => {
     try {
       const highlighter = await getShikiHighlighter();
       const { highlights = [] } = opts2 || {};
-      const themesObject = typeof theme2 === "string" ? { default: theme2 } : theme2 || {};
+      const themesObject =
+        typeof theme2 === "string" ? { default: theme2 } : theme2 || {};
       const themeNames = Object.values(themesObject);
       if (themeNames.length) {
-        await Promise.all(themeNames.map((theme3) => highlighter.loadTheme(theme3)));
+        await Promise.all(
+          themeNames.map((theme3) => highlighter.loadTheme(theme3))
+        );
       }
       if (lang && !highlighter.getLoadedLanguages().includes(lang)) {
         try {
           await highlighter.loadLanguage(lang);
         } catch (error) {
           if (highlights.length) {
-            console.warn("[@nuxtjs/mdc] Defaulting to no language to be able to highlight lines:", error.message);
+            console.warn(
+              "[@nuxtjs/mdc] Defaulting to no language to be able to highlight lines:",
+              error.message
+            );
             lang = "";
-          } else
-            throw error;
+          } else throw error;
         }
       }
       const root = highlighter.codeToHast(code.trimEnd(), {
@@ -2100,40 +2604,51 @@ const useShikiHighlighter = createSingleton((opts) => {
           {
             name: "mdc:highlight",
             line(node, line) {
-              if (highlights.includes(line))
-                addClassToHast(node, "highlight");
+              if (highlights.includes(line)) addClassToHast(node, "highlight");
               node.properties.line = line;
-            }
+            },
           },
           {
             name: "mdc:newline",
             line(node) {
               if (code?.includes("\n")) {
-                if (node.children.length === 0 || node.children.length === 1 && node.children[0].type === "element" && node.children[0].children.length === 1 && node.children[0].children[0].type === "text" && node.children[0].children[0].value === "") {
-                  node.children = [{
-                    type: "element",
-                    tagName: "span",
-                    properties: {
-                      emptyLinePlaceholder: true
+                if (
+                  node.children.length === 0 ||
+                  (node.children.length === 1 &&
+                    node.children[0].type === "element" &&
+                    node.children[0].children.length === 1 &&
+                    node.children[0].children[0].type === "text" &&
+                    node.children[0].children[0].value === "")
+                ) {
+                  node.children = [
+                    {
+                      type: "element",
+                      tagName: "span",
+                      properties: {
+                        emptyLinePlaceholder: true,
+                      },
+                      children: [{ type: "text", value: "\n" }],
                     },
-                    children: [{ type: "text", value: "\n" }]
-                  }];
+                  ];
                   return;
                 }
                 const last = node.children.at(-1);
                 if (last?.type === "element" && last.tagName === "span") {
                   const text = last.children.at(-1);
-                  if (text?.type === "text")
-                    text.value += "\n";
+                  if (text?.type === "text") text.value += "\n";
                 }
               }
-            }
-          }
-        ]
+            },
+          },
+        ],
       });
       const preEl = root.children[0];
       const codeEl = preEl.children[0];
-      preEl.properties.style = wrapperStyle ? typeof wrapperStyle === "string" ? wrapperStyle : preEl.properties.style : "";
+      preEl.properties.style = wrapperStyle
+        ? typeof wrapperStyle === "string"
+          ? wrapperStyle
+          : preEl.properties.style
+        : "";
       const styles = [];
       Object.keys(themesObject).forEach((color) => {
         const colorScheme = color !== "default" ? `.${color}` : "";
@@ -2159,22 +2674,27 @@ const useShikiHighlighter = createSingleton((opts) => {
       });
       return {
         tree: codeEl.children,
-        className: Array.isArray(preEl.properties.class) ? preEl.properties.class.join(" ") : preEl.properties.class,
+        className: Array.isArray(preEl.properties.class)
+          ? preEl.properties.class.join(" ")
+          : preEl.properties.class,
         inlineStyle: preEl.properties.style,
-        style: styles.join("")
+        style: styles.join(""),
       };
     } catch (error) {
-      console.warn("[@nuxtjs/mdc] Failed to highlight code block:", error.message);
+      console.warn(
+        "[@nuxtjs/mdc] Failed to highlight code block:",
+        error.message
+      );
       return {
         tree: [{ type: "text", value: code }],
         className: "",
         inlineStyle: "",
-        style: ""
+        style: "",
       };
     }
   };
   return {
-    getHighlightedAST
+    getHighlightedAST,
   };
 });
 function createSingleton(fn) {
@@ -2190,14 +2710,27 @@ function createSingleton(fn) {
 const _f9rY9O = lazyEventHandler(async () => {
   const { highlight } = useRuntimeConfig().mdc;
   try {
-    const wasm = await import('file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/onig.wasm').then((r) => r.default);
+    const wasm = await import(
+      "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/onig.wasm"
+    ).then((r) => r.default);
     await loadWasm(async (obj) => WebAssembly.instantiate(wasm, obj));
   } catch {
-    await loadWasm({ data: await import('file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/wasm.mjs').then((r) => r.getWasmInlined()).then((r) => r.data) });
+    await loadWasm({
+      data: await import(
+        "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/wasm.mjs"
+      )
+        .then((r) => r.getWasmInlined())
+        .then((r) => r.data),
+    });
   }
   const shiki = useShikiHighlighter(highlight);
   return eventHandler(async (event) => {
-    const { code, lang, theme: themeString, highlights: highlightsString } = getQuery$1(event);
+    const {
+      code,
+      lang,
+      theme: themeString,
+      highlights: highlightsString,
+    } = getQuery$1(event);
     const theme = JSON.parse(themeString);
     const highlights = highlightsString ? JSON.parse(highlightsString) : void 0;
     return await shiki.getHighlightedAST(code, lang, theme, { highlights });
@@ -2209,29 +2742,31 @@ const _AC3p6p = defineEventHandler(async (event) => {
   return render(await getRules(robots, event.req));
 });
 var Correspondence = /* @__PURE__ */ ((Correspondence2) => {
-  Correspondence2[Correspondence2["User-agent"] = 0] = "User-agent";
-  Correspondence2[Correspondence2["Crawl-delay"] = 1] = "Crawl-delay";
-  Correspondence2[Correspondence2["Disallow"] = 2] = "Disallow";
-  Correspondence2[Correspondence2["Allow"] = 3] = "Allow";
-  Correspondence2[Correspondence2["Host"] = 4] = "Host";
-  Correspondence2[Correspondence2["Sitemap"] = 5] = "Sitemap";
-  Correspondence2[Correspondence2["Clean-param"] = 6] = "Clean-param";
-  Correspondence2[Correspondence2["Comment"] = 7] = "Comment";
-  Correspondence2[Correspondence2["BlankLine"] = 8] = "BlankLine";
+  Correspondence2[(Correspondence2["User-agent"] = 0)] = "User-agent";
+  Correspondence2[(Correspondence2["Crawl-delay"] = 1)] = "Crawl-delay";
+  Correspondence2[(Correspondence2["Disallow"] = 2)] = "Disallow";
+  Correspondence2[(Correspondence2["Allow"] = 3)] = "Allow";
+  Correspondence2[(Correspondence2["Host"] = 4)] = "Host";
+  Correspondence2[(Correspondence2["Sitemap"] = 5)] = "Sitemap";
+  Correspondence2[(Correspondence2["Clean-param"] = 6)] = "Clean-param";
+  Correspondence2[(Correspondence2["Comment"] = 7)] = "Comment";
+  Correspondence2[(Correspondence2["BlankLine"] = 8)] = "BlankLine";
   return Correspondence2;
 })(Correspondence || {});
 function render(rules) {
-  return rules.map((rule) => {
-    const value = String(rule.value).trim();
-    switch (rule.key.toString()) {
-      case Correspondence[7 /* Comment */]:
-        return `# ${value}`;
-      case Correspondence[8 /* BlankLine */]:
-        return "";
-      default:
-        return `${rule.key}: ${value}`;
-    }
-  }).join("\n");
+  return rules
+    .map((rule) => {
+      const value = String(rule.value).trim();
+      switch (rule.key.toString()) {
+        case Correspondence[7 /* Comment */]:
+          return `# ${value}`;
+        case Correspondence[8 /* BlankLine */]:
+          return "";
+        default:
+          return `${rule.key}: ${value}`;
+      }
+    })
+    .join("\n");
 }
 async function getRules(options, req) {
   const correspondences = {
@@ -2243,23 +2778,30 @@ async function getRules(options, req) {
     sitemap: "Sitemap",
     cleanparam: "Clean-param",
     comment: "Comment",
-    blankline: "BlankLine"
+    blankline: "BlankLine",
   };
   const rules = [];
   const parseRule = (rule) => {
     const parsed = {};
     for (const [key, value] of Object.entries(rule)) {
-      parsed[String(key).toLowerCase().replace(/[\W_]+/g, "")] = value;
+      parsed[
+        String(key)
+          .toLowerCase()
+          .replace(/[\W_]+/g, "")
+      ] = value;
     }
     return parsed;
   };
   for (const rule of Array.isArray(options) ? options : [options]) {
     const parsed = parseRule(rule);
-    const keys = Object.keys(correspondences).filter((key) => typeof parsed[key] !== "undefined");
+    const keys = Object.keys(correspondences).filter(
+      (key) => typeof parsed[key] !== "undefined"
+    );
     for (const key of keys) {
       const parsedKey = parsed[key];
       let values;
-      values = typeof parsedKey === "function" ? await parsedKey(req) : parsedKey;
+      values =
+        typeof parsedKey === "function" ? await parsedKey(req) : parsedKey;
       values = Array.isArray(values) ? values : [values];
       for (const value of values) {
         const v = typeof value === "function" ? await value(req) : value;
@@ -2268,7 +2810,7 @@ async function getRules(options, req) {
         }
         rules.push({
           key: correspondences[key],
-          value: v
+          value: v,
         });
       }
     }
@@ -2277,13 +2819,12 @@ async function getRules(options, req) {
 }
 
 const _GnJobB = defineEventHandler(async (e) => {
-  if (e.context.siteConfig)
-    return;
+  if (e.context.siteConfig) return;
   const runtimeConfig = useRuntimeConfig(e);
   const config = runtimeConfig["nuxt-site-config"];
   const nitroApp = useNitroApp();
   const siteConfig = createSiteConfigStack({
-    debug: config.debug
+    debug: config.debug,
   });
   const appConfig = useAppConfig(e);
   const nitroOrigin = useNitroOrigin(e);
@@ -2291,15 +2832,15 @@ const _GnJobB = defineEventHandler(async (e) => {
   siteConfig.push({
     _context: "nitro:init",
     _priority: -4,
-    url: nitroOrigin
+    url: nitroOrigin,
   });
   siteConfig.push({
     _context: "runtimeEnv",
     _priority: 0,
-    ...runtimeConfig.site || {},
-    ...runtimeConfig.public.site || {},
+    ...(runtimeConfig.site || {}),
+    ...(runtimeConfig.public.site || {}),
     // @ts-expect-error untyped
-    ...envSiteConfig(globalThis._importMeta_.env)
+    ...envSiteConfig(globalThis._importMeta_.env),
     // just in-case, shouldn't be needed
   });
   const buildStack = config.stack || [];
@@ -2308,13 +2849,13 @@ const _GnJobB = defineEventHandler(async (e) => {
     siteConfig.push({
       _priority: -2,
       _context: "app:config",
-      ...appConfig.site
+      ...appConfig.site,
     });
   }
   if (e.context._nitro.routeRules.site) {
     siteConfig.push({
       _context: "route-rules",
-      ...e.context._nitro.routeRules.site
+      ...e.context._nitro.routeRules.site,
     });
   }
   const ctx = { siteConfig, event: e };
@@ -2332,14 +2873,20 @@ const _zyh2uX = defineEventHandler(async (e) => {
     config: siteConfig,
     stack,
     nitroOrigin,
-    version: runtimeConfig["nuxt-site-config"].version
+    version: runtimeConfig["nuxt-site-config"].version,
   };
 });
 
-const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
-const _pick = (obj, condition) => Object.keys(obj).filter(condition).reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
-const omit = (keys) => (obj) => keys && keys.length ? _pick(obj, (key) => !keys.includes(key)) : obj;
-const apply = (fn) => (data) => Array.isArray(data) ? data.map((item) => fn(item)) : fn(data);
+const get = (obj, path) =>
+  path.split(".").reduce((acc, part) => acc && acc[part], obj);
+const _pick = (obj, condition) =>
+  Object.keys(obj)
+    .filter(condition)
+    .reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
+const omit = (keys) => (obj) =>
+  keys && keys.length ? _pick(obj, (key) => !keys.includes(key)) : obj;
+const apply = (fn) => (data) =>
+  Array.isArray(data) ? data.map((item) => fn(item)) : fn(data);
 const detectProperties = (keys) => {
   const prefixes = [];
   const properties = [];
@@ -2352,25 +2899,35 @@ const detectProperties = (keys) => {
   }
   return { prefixes, properties };
 };
-const withoutKeys = (keys = []) => (obj) => {
-  if (keys.length === 0 || !obj) {
-    return obj;
-  }
-  const { prefixes, properties } = detectProperties(keys);
-  return _pick(obj, (key) => !properties.includes(key) && !prefixes.includes(key[0]));
-};
-const withKeys = (keys = []) => (obj) => {
-  if (keys.length === 0 || !obj) {
-    return obj;
-  }
-  const { prefixes, properties } = detectProperties(keys);
-  return _pick(obj, (key) => properties.includes(key) || prefixes.includes(key[0]));
-};
+const withoutKeys =
+  (keys = []) =>
+  (obj) => {
+    if (keys.length === 0 || !obj) {
+      return obj;
+    }
+    const { prefixes, properties } = detectProperties(keys);
+    return _pick(
+      obj,
+      (key) => !properties.includes(key) && !prefixes.includes(key[0])
+    );
+  };
+const withKeys =
+  (keys = []) =>
+  (obj) => {
+    if (keys.length === 0 || !obj) {
+      return obj;
+    }
+    const { prefixes, properties } = detectProperties(keys);
+    return _pick(
+      obj,
+      (key) => properties.includes(key) || prefixes.includes(key[0])
+    );
+  };
 const sortList = (data, params) => {
   const comperable = new Intl.Collator(params.$locale, {
     numeric: params.$numeric,
     caseFirst: params.$caseFirst,
-    sensitivity: params.$sensitivity
+    sensitivity: params.$sensitivity,
   });
   const keys = Object.keys(params).filter((key) => !key.startsWith("$"));
   for (const key of keys) {
@@ -2398,14 +2955,20 @@ const assertArray = (value, message = "Expected an array") => {
   }
 };
 const ensureArray = (value) => {
-  return Array.isArray(value) ? value : [void 0, null].includes(value) ? [] : [value];
+  return Array.isArray(value)
+    ? value
+    : [void 0, null].includes(value)
+    ? []
+    : [value];
 };
 
 const arrayParams = ["sort", "where", "only", "without"];
 function createQuery(fetcher, opts = {}) {
   const queryParams = {};
   for (const key of Object.keys(opts.initialParams || {})) {
-    queryParams[key] = arrayParams.includes(key) ? ensureArray(opts.initialParams[key]) : opts.initialParams[key];
+    queryParams[key] = arrayParams.includes(key)
+      ? ensureArray(opts.initialParams[key])
+      : opts.initialParams[key];
   }
   const $set = (key, fn = (v) => v) => {
     return (...values) => {
@@ -2425,23 +2988,35 @@ function createQuery(fetcher, opts = {}) {
         result.result = {
           _path: result.dirConfig?._path,
           ...result.result,
-          _dir: result.dirConfig
+          _dir: result.dirConfig,
         };
       }
-      return result?._path || Array.isArray(result) || !Object.prototype.hasOwnProperty.call(result, "result") ? result : result?.result;
+      return result?._path ||
+        Array.isArray(result) ||
+        !Object.prototype.hasOwnProperty.call(result, "result")
+        ? result
+        : result?.result;
     }
     return result;
   };
   const query = {
     params: () => ({
       ...queryParams,
-      ...queryParams.where ? { where: [...ensureArray(queryParams.where)] } : {},
-      ...queryParams.sort ? { sort: [...ensureArray(queryParams.sort)] } : {}
+      ...(queryParams.where
+        ? { where: [...ensureArray(queryParams.where)] }
+        : {}),
+      ...(queryParams.sort ? { sort: [...ensureArray(queryParams.sort)] } : {}),
     }),
     only: $set("only", ensureArray),
     without: $set("without", ensureArray),
-    where: $set("where", (q) => [...ensureArray(queryParams.where), ...ensureArray(q)]),
-    sort: $set("sort", (sort) => [...ensureArray(queryParams.sort), ...ensureArray(sort)]),
+    where: $set("where", (q) => [
+      ...ensureArray(queryParams.where),
+      ...ensureArray(q),
+    ]),
+    sort: $set("sort", (sort) => [
+      ...ensureArray(queryParams.sort),
+      ...ensureArray(sort),
+    ]),
     limit: $set("limit", (v) => parseInt(String(v), 10)),
     skip: $set("skip", (v) => parseInt(String(v), 10)),
     // find
@@ -2450,12 +3025,18 @@ function createQuery(fetcher, opts = {}) {
     count: () => fetcher($set("count")(true)).then(resolveResult),
     // locale
     locale: (_locale) => query.where({ _locale }),
-    withSurround: $set("surround", (surroundQuery, options) => ({ query: surroundQuery, ...options })),
-    withDirConfig: () => $set("dirConfig")(true)
+    withSurround: $set("surround", (surroundQuery, options) => ({
+      query: surroundQuery,
+      ...options,
+    })),
+    withDirConfig: () => $set("dirConfig")(true),
   };
   if (opts.legacy) {
     query.findSurround = (surroundQuery, options) => {
-      return query.withSurround(surroundQuery, options).find().then(resolveResult);
+      return query
+        .withSurround(surroundQuery, options)
+        .find()
+        .then(resolveResult);
     };
     return query;
   }
@@ -2468,14 +3049,16 @@ const defineTransformer = (transformer) => {
 
 function createTokenizer(parser, initialize, from) {
   let point = Object.assign(
-    from ? Object.assign({}, from) : {
-      line: 1,
-      column: 1,
-      offset: 0
-    },
+    from
+      ? Object.assign({}, from)
+      : {
+          line: 1,
+          column: 1,
+          offset: 0,
+        },
     {
       _index: 0,
-      _bufferIndex: -1
+      _bufferIndex: -1,
     }
   );
   const columnStart = {};
@@ -2489,8 +3072,8 @@ function createTokenizer(parser, initialize, from) {
     attempt: constructFactory(onsuccessfulconstruct),
     check: constructFactory(onsuccessfulcheck),
     interrupt: constructFactory(onsuccessfulcheck, {
-      interrupt: true
-    })
+      interrupt: true,
+    }),
   };
   const context = {
     previous: null,
@@ -2502,7 +3085,7 @@ function createTokenizer(parser, initialize, from) {
     sliceSerialize,
     now,
     defineSkip,
-    write
+    write,
   };
   let state = initialize.tokenize.call(context, effects);
   if (initialize.resolveAll) {
@@ -2541,7 +3124,10 @@ function createTokenizer(parser, initialize, from) {
         if (point._bufferIndex < 0) {
           point._bufferIndex = 0;
         }
-        while (point._index === chunkIndex && point._bufferIndex < chunk.length) {
+        while (
+          point._index === chunkIndex &&
+          point._bufferIndex < chunk.length
+        ) {
           go(chunk.charCodeAt(point._bufferIndex));
         }
       } else {
@@ -2600,10 +3186,12 @@ function createTokenizer(parser, initialize, from) {
       let constructIndex;
       let currentConstruct;
       let info;
-      return Array.isArray(constructs) ? (
-        /* c8 ignore next 1 */
-        handleListOfConstructs(constructs)
-      ) : "tokenize" in constructs ? handleListOfConstructs([constructs]) : handleMapOfConstructs(constructs);
+      return Array.isArray(constructs)
+        ? /* c8 ignore next 1 */
+          handleListOfConstructs(constructs)
+        : "tokenize" in constructs
+        ? handleListOfConstructs([constructs])
+        : handleMapOfConstructs(constructs);
       function handleMapOfConstructs(map) {
         return start;
         function start(code) {
@@ -2612,8 +3200,8 @@ function createTokenizer(parser, initialize, from) {
           const list = [
             // To do: add more extension tests.
             /* c8 ignore next 2 */
-            ...Array.isArray(def) ? def : def ? [def] : [],
-            ...Array.isArray(all) ? all : all ? [all] : []
+            ...(Array.isArray(def) ? def : def ? [def] : []),
+            ...(Array.isArray(all) ? all : all ? [all] : []),
           ];
           return handleListOfConstructs(list)(code);
         }
@@ -2634,7 +3222,10 @@ function createTokenizer(parser, initialize, from) {
           if (!construct.partial) {
             context.currentConstruct = construct;
           }
-          if (construct.name && context.parser.constructs.disable.null.includes(construct.name)) {
+          if (
+            construct.name &&
+            context.parser.constructs.disable.null.includes(construct.name)
+          ) {
             return nok();
           }
           return construct.tokenize.call(
@@ -2685,7 +3276,7 @@ function createTokenizer(parser, initialize, from) {
     const startStack = Array.from(stack);
     return {
       restore,
-      from: startEventsIndex
+      from: startEventsIndex,
     };
     function restore() {
       point = startPoint;
@@ -2750,8 +3341,7 @@ function serializeChunks(chunks, expandTabs) {
           break;
         }
         case -1: {
-          if (!expandTabs && atTab)
-            continue;
+          if (!expandTabs && atTab) continue;
           value = " ";
           break;
         }
@@ -2797,7 +3387,11 @@ function initializeDocument(effects) {
       return quotedData(code);
     }
     if (code === delimiter) {
-      if (self.previous === delimiter || markdownLineEnding(self.previous) || self.previous === null) {
+      if (
+        self.previous === delimiter ||
+        markdownLineEnding(self.previous) ||
+        self.previous === null
+      ) {
         effects.enter("data");
         effects.exit("data");
       }
@@ -2835,7 +3429,7 @@ function initializeDocument(effects) {
   }
   function escapeCharacter(code) {
     effects.consume(code);
-    return function(code2) {
+    return function (code2) {
       effects.consume(code2);
       return content;
     };
@@ -2922,17 +3516,15 @@ const own = {}.hasOwnProperty;
 const initialPoint = {
   line: 1,
   column: 1,
-  offset: 0
+  offset: 0,
 };
-const fromCSV = function(value, encoding, options) {
+const fromCSV = function (value, encoding, options) {
   if (typeof encoding !== "string") {
     options = encoding;
     encoding = void 0;
   }
   return compiler()(
-    postprocess(
-      parse(options).write(preprocess()(value, encoding, true))
-    )
+    postprocess(parse(options).write(preprocess()(value, encoding, true)))
   );
 };
 function compiler() {
@@ -2941,20 +3533,20 @@ function compiler() {
       column: opener(openColumn),
       row: opener(openRow),
       data: onenterdata,
-      quotedData: onenterdata
+      quotedData: onenterdata,
     },
     exit: {
       row: closer(),
       column: closer(),
       data: onexitdata,
-      quotedData: onexitQuotedData
-    }
+      quotedData: onexitQuotedData,
+    },
   };
   return compile;
   function compile(events) {
     const tree = {
       type: "root",
-      children: []
+      children: [],
     };
     const stack = [tree];
     const tokenStack = [];
@@ -2964,7 +3556,7 @@ function compiler() {
       config,
       enter,
       exit,
-      resume
+      resume,
     };
     let index = -1;
     while (++index < events.length) {
@@ -2973,7 +3565,7 @@ function compiler() {
         handler[events[index][1].type].call(
           Object.assign(
             {
-              sliceSerialize: events[index][2].sliceSerialize
+              sliceSerialize: events[index][2].sliceSerialize,
             },
             context
           ),
@@ -2987,12 +3579,10 @@ function compiler() {
       handler.call(context, void 0, tail[0]);
     }
     tree.position = {
-      start: point(
-        events.length > 0 ? events[0][1].start : initialPoint
-      ),
+      start: point(events.length > 0 ? events[0][1].start : initialPoint),
       end: point(
         events.length > 0 ? events[events.length - 2][1].end : initialPoint
-      )
+      ),
     };
     return tree;
   }
@@ -3000,7 +3590,7 @@ function compiler() {
     return {
       line: d.line,
       column: d.column,
-      offset: d.offset
+      offset: d.offset,
     };
   }
   function opener(create, and) {
@@ -3018,7 +3608,7 @@ function compiler() {
     this.stack.push(node);
     this.tokenStack.push([token, errorHandler]);
     node.position = {
-      start: point(token.start)
+      start: point(token.start),
     };
     return node;
   }
@@ -3036,10 +3626,14 @@ function compiler() {
     const open = this.tokenStack.pop();
     if (!open) {
       throw new Error(
-        "Cannot close `" + token.type + "` (" + stringifyPosition({
-          start: token.start,
-          end: token.end
-        }) + "): it\u2019s not open"
+        "Cannot close `" +
+          token.type +
+          "` (" +
+          stringifyPosition({
+            start: token.start,
+            end: token.end,
+          }) +
+          "): it\u2019s not open"
       );
     } else if (open[0].type !== token.type) {
       if (onExitError) {
@@ -3061,7 +3655,7 @@ function compiler() {
     if (!tail || tail.type !== "text") {
       tail = text();
       tail.position = {
-        start: point(token.start)
+        start: point(token.start),
       };
       parent.children.push(tail);
     }
@@ -3075,45 +3669,60 @@ function compiler() {
   function onexitQuotedData(token) {
     const tail = this.stack.pop();
     const value = this.sliceSerialize(token);
-    tail.value += this.sliceSerialize(token).trim().substring(1, value.length - 1).replace(/""/g, '"');
+    tail.value += this.sliceSerialize(token)
+      .trim()
+      .substring(1, value.length - 1)
+      .replace(/""/g, '"');
     tail.position.end = point(token.end);
   }
   function text() {
     return {
       type: "text",
-      value: ""
+      value: "",
     };
   }
   function openColumn() {
     return {
       type: "column",
-      children: []
+      children: [],
     };
   }
   function openRow() {
     return {
       type: "row",
-      children: []
+      children: [],
     };
   }
 }
 function defaultOnError(left, right) {
   if (left) {
     throw new Error(
-      "Cannot close `" + left.type + "` (" + stringifyPosition({
-        start: left.start,
-        end: left.end
-      }) + "): a different token (`" + right.type + "`, " + stringifyPosition({
-        start: right.start,
-        end: right.end
-      }) + ") is open"
+      "Cannot close `" +
+        left.type +
+        "` (" +
+        stringifyPosition({
+          start: left.start,
+          end: left.end,
+        }) +
+        "): a different token (`" +
+        right.type +
+        "`, " +
+        stringifyPosition({
+          start: right.start,
+          end: right.end,
+        }) +
+        ") is open"
     );
   } else {
     throw new Error(
-      "Cannot close document, a token (`" + right.type + "`, " + stringifyPosition({
-        start: right.start,
-        end: right.end
-      }) + ") is still open"
+      "Cannot close document, a token (`" +
+        right.type +
+        "`, " +
+        stringifyPosition({
+          start: right.start,
+          end: right.end,
+        }) +
+        ") is still open"
     );
   }
 }
@@ -3155,21 +3764,22 @@ const csv = defineTransformer({
     const stream = unified().use(csvParse, {
       delimiter: ",",
       json: true,
-      ...options
+      ...options,
     });
     const { result } = await stream.process(content);
     return {
       _id,
       _type: "csv",
-      body: result
+      body: result,
     };
-  }
+  },
 });
 
 const SEMVER_REGEX = /^(\d+)(\.\d+)*(\.x)?$/;
 const describeId = (id) => {
   const [_source, ...parts] = id.split(":");
-  const [, filename, _extension] = parts[parts.length - 1]?.match(/(.*)\.([^.]+)$/) || [];
+  const [, filename, _extension] =
+    parts[parts.length - 1]?.match(/(.*)\.([^.]+)$/) || [];
   if (filename) {
     parts[parts.length - 1] = filename;
   }
@@ -3178,14 +3788,18 @@ const describeId = (id) => {
     _source,
     _path,
     _extension,
-    _file: _extension ? `${_path}.${_extension}` : _path
+    _file: _extension ? `${_path}.${_extension}` : _path,
   };
 };
 const pathMeta = defineTransformer({
   name: "path-meta",
   extensions: [".*"],
   transform(content, options = {}) {
-    const { locales = [], defaultLocale = "en", respectPathCase = false } = options;
+    const {
+      locales = [],
+      defaultLocale = "en",
+      respectPathCase = false,
+    } = options;
     const { _source, _file, _path, _extension } = describeId(content._id);
     const parts = _path.split("/");
     const _locale = locales.includes(parts[0]) ? parts.shift() : defaultLocale;
@@ -3198,18 +3812,28 @@ const pathMeta = defineTransformer({
       _locale,
       ...content,
       // TODO: move title to Markdown parser
-      title: content.title || generateTitle(refineUrlPart(parts[parts.length - 1])),
+      title:
+        content.title || generateTitle(refineUrlPart(parts[parts.length - 1])),
       _source,
       _file,
-      _extension
+      _extension,
     };
-  }
+  },
 });
 const isDraft = (path) => !!path.match(/\.draft(\/|\.|$)/);
-const isPartial = (path) => path.split(/[:/]/).some((part) => part.match(/^_.*/));
-const generatePath = (path, { forceLeadingSlash = true, respectPathCase = false } = {}) => {
-  path = path.split("/").map((part) => slugify(refineUrlPart(part), { lower: !respectPathCase })).join("/");
-  return forceLeadingSlash ? withLeadingSlash(withoutTrailingSlash(path)) : path;
+const isPartial = (path) =>
+  path.split(/[:/]/).some((part) => part.match(/^_.*/));
+const generatePath = (
+  path,
+  { forceLeadingSlash = true, respectPathCase = false } = {}
+) => {
+  path = path
+    .split("/")
+    .map((part) => slugify(refineUrlPart(part), { lower: !respectPathCase }))
+    .join("/");
+  return forceLeadingSlash
+    ? withLeadingSlash(withoutTrailingSlash(path))
+    : path;
 };
 const generateTitle = (path) => path.split(/[\s-]/g).map(pascalCase).join(" ");
 function refineUrlPart(name) {
@@ -3217,7 +3841,10 @@ function refineUrlPart(name) {
   if (SEMVER_REGEX.test(name)) {
     return name;
   }
-  return name.replace(/(\d+\.)?(.*)/, "$2").replace(/^index(\.draft)?$/, "").replace(/\.draft$/, "");
+  return name
+    .replace(/(\d+\.)?(.*)/, "$2")
+    .replace(/^index(\.draft)?$/, "")
+    .replace(/\.draft$/, "");
 }
 
 const markdown = defineTransformer({
@@ -3230,40 +3857,42 @@ const markdown = defineTransformer({
     const parsed = await parseMarkdown(content, {
       highlight: options.highlight,
       remark: {
-        plugins: config.remarkPlugins
+        plugins: config.remarkPlugins,
       },
       rehype: {
         options: {
           handlers: {
-            link
-          }
+            link,
+          },
         },
-        plugins: config.rehypePlugins
+        plugins: config.rehypePlugins,
       },
-      toc: config.toc
+      toc: config.toc,
     });
     return {
       ...parsed.data,
       excerpt: parsed.excerpt,
       body: {
         ...parsed.body,
-        toc: parsed.toc
+        toc: parsed.toc,
       },
       _type: "markdown",
-      _id
+      _id,
     };
-  }
+  },
 });
 async function importPlugins(plugins = {}) {
   const resolvedPlugins = {};
   for (const [name, plugin] of Object.entries(plugins)) {
     if (plugin) {
       resolvedPlugins[name] = {
-        instance: plugin.instance || await import(
-          /* @vite-ignore */
-          name
-        ).then((m) => m.default || m),
-        options: plugin
+        instance:
+          plugin.instance ||
+          (await import(
+            /* @vite-ignore */
+            name
+          ).then((m) => m.default || m)),
+        options: plugin,
       };
     } else {
       resolvedPlugins[name] = false;
@@ -3273,8 +3902,8 @@ async function importPlugins(plugins = {}) {
 }
 function link(state, node) {
   const properties = {
-    ...node.attributes || {},
-    href: normalizeUri(normalizeLink(node.url))
+    ...(node.attributes || {}),
+    href: normalizeUri(normalizeLink(node.url)),
   };
   if (node.title !== null && node.title !== void 0) {
     properties.title = node.title;
@@ -3283,7 +3912,7 @@ function link(state, node) {
     type: "element",
     tagName: "a",
     properties,
-    children: state.all(node)
+    children: state.all(node),
   };
   state.patch(node, result);
   return state.applyData(node, result);
@@ -3291,8 +3920,15 @@ function link(state, node) {
 function normalizeLink(link2) {
   const match = link2.match(/#.+$/);
   const hash = match ? match[0] : "";
-  if (link2.replace(/#.+$/, "").endsWith(".md") && (isRelative(link2) || !/^https?/.test(link2) && !link2.startsWith("/"))) {
-    return generatePath(link2.replace(".md" + hash, ""), { forceLeadingSlash: false }) + hash;
+  if (
+    link2.replace(/#.+$/, "").endsWith(".md") &&
+    (isRelative(link2) || (!/^https?/.test(link2) && !link2.startsWith("/")))
+  ) {
+    return (
+      generatePath(link2.replace(".md" + hash, ""), {
+        forceLeadingSlash: false,
+      }) + hash
+    );
   } else {
     return link2;
   }
@@ -3307,15 +3943,17 @@ ${content}
 ---`);
     let parsed = data;
     if (Array.isArray(data)) {
-      console.warn(`YAML array is not supported in ${_id}, moving the array into the \`body\` key`);
+      console.warn(
+        `YAML array is not supported in ${_id}, moving the array into the \`body\` key`
+      );
       parsed = { body: data };
     }
     return {
       ...parsed,
       _id,
-      _type: "yaml"
+      _type: "yaml",
     };
-  }
+  },
 });
 
 const json = defineTransformer({
@@ -3325,7 +3963,11 @@ const json = defineTransformer({
     let parsed;
     if (typeof content === "string") {
       if (_id.endsWith("json5")) {
-        parsed = (await import('file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/json5@2.2.3/node_modules/json5/lib/index.js').then((m) => m.default || m)).parse(content);
+        parsed = (
+          await import(
+            "file:///Users/laithkawar/Dev/casino/node_modules/.pnpm/json5@2.2.3/node_modules/json5/lib/index.js"
+          ).then((m) => m.default || m)
+        ).parse(content);
       } else if (_id.endsWith("json")) {
         parsed = destr$1(content);
       }
@@ -3333,37 +3975,41 @@ const json = defineTransformer({
       parsed = content;
     }
     if (Array.isArray(parsed)) {
-      console.warn(`JSON array is not supported in ${_id}, moving the array into the \`body\` key`);
+      console.warn(
+        `JSON array is not supported in ${_id}, moving the array into the \`body\` key`
+      );
       parsed = {
-        body: parsed
+        body: parsed,
       };
     }
     return {
       ...parsed,
       _id,
-      _type: "json"
+      _type: "json",
     };
-  }
+  },
 });
 
-const TRANSFORMERS = [
-  csv,
-  markdown,
-  json,
-  yaml,
-  pathMeta
-];
+const TRANSFORMERS = [csv, markdown, json, yaml, pathMeta];
 function getParser(ext, additionalTransformers = []) {
-  let parser = additionalTransformers.find((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse);
+  let parser = additionalTransformers.find(
+    (p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse
+  );
   if (!parser) {
-    parser = TRANSFORMERS.find((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse);
+    parser = TRANSFORMERS.find(
+      (p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse
+    );
   }
   return parser;
 }
 function getTransformers(ext, additionalTransformers = []) {
   return [
-    ...additionalTransformers.filter((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform),
-    ...TRANSFORMERS.filter((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform)
+    ...additionalTransformers.filter(
+      (p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform
+    ),
+    ...TRANSFORMERS.filter(
+      (p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform
+    ),
   ];
 }
 async function transformContent(id, content, options = {}) {
@@ -3372,14 +4018,16 @@ async function transformContent(id, content, options = {}) {
   const ext = extname(id);
   const parser = getParser(ext, transformers);
   if (!parser) {
-    console.warn(`${ext} files are not supported, "${id}" falling back to raw content`);
+    console.warn(
+      `${ext} files are not supported, "${id}" falling back to raw content`
+    );
     return file;
   }
   const parserOptions = options[camelCase(parser.name)] || {};
   const parsed = await parser.parse(file._id, file.body, parserOptions);
   const matchedTransformers = getTransformers(ext, transformers);
   const result = await matchedTransformers.reduce(async (prev, cur) => {
-    const next = await prev || parsed;
+    const next = (await prev) || parsed;
     const transformOptions = options[camelCase(cur.name)];
     if (transformOptions === false) {
       return next;
@@ -3390,7 +4038,9 @@ async function transformContent(id, content, options = {}) {
 }
 
 function makeIgnored(ignores) {
-  const rxAll = ["/\\.", "/-", ...ignores.filter((p) => p)].map((p) => new RegExp(p));
+  const rxAll = ["/\\.", "/-", ...ignores.filter((p) => p)].map(
+    (p) => new RegExp(p)
+  );
   return function isIgnored(key) {
     const path = "/" + key.replace(/:/g, "/");
     return rxAll.some((rx) => rx.test(path));
@@ -3420,11 +4070,13 @@ function createOperators(match, operators = {}) {
     /**
      * Match if item equals condition
      **/
-    $eq: (item, condition) => condition instanceof RegExp ? condition.test(item) : item === condition,
+    $eq: (item, condition) =>
+      condition instanceof RegExp ? condition.test(item) : item === condition,
     /**
      * Match if item not equals condition
      **/
-    $ne: (item, condition) => condition instanceof RegExp ? !condition.test(item) : item !== condition,
+    $ne: (item, condition) =>
+      condition instanceof RegExp ? !condition.test(item) : item !== condition,
     /**
      * Match is condition is false
      **/
@@ -3446,9 +4098,12 @@ function createOperators(match, operators = {}) {
     /**
      * Match if item is in condition array
      **/
-    $in: (item, condition) => ensureArray(condition).some(
-      (cond) => Array.isArray(item) ? match(item, { $contains: cond }) : match(item, cond)
-    ),
+    $in: (item, condition) =>
+      ensureArray(condition).some((cond) =>
+        Array.isArray(item)
+          ? match(item, { $contains: cond })
+          : match(item, cond)
+      ),
     /**
      * Match if item contains every condition or math every rule in condition array
      **/
@@ -3461,10 +4116,14 @@ function createOperators(match, operators = {}) {
      **/
     $icontains: (item, condition) => {
       if (typeof condition !== "string") {
-        throw new TypeError("$icontains requires a string, use $contains instead");
+        throw new TypeError(
+          "$icontains requires a string, use $contains instead"
+        );
       }
       item = String(item).toLocaleLowerCase();
-      return ensureArray(condition).every((i) => item.includes(i.toLocaleLowerCase()));
+      return ensureArray(condition).every((i) =>
+        item.includes(i.toLocaleLowerCase())
+      );
     },
     /**
      * Match if item contains at least one rule from condition array
@@ -3477,7 +4136,8 @@ function createOperators(match, operators = {}) {
     /**
      * Check key existence
      */
-    $exists: (item, condition) => condition ? typeof item !== "undefined" : typeof item === "undefined",
+    $exists: (item, condition) =>
+      condition ? typeof item !== "undefined" : typeof item === "undefined",
     /**
      * Match if type of item equals condition
      */
@@ -3488,7 +4148,9 @@ function createOperators(match, operators = {}) {
     $regex: (item, condition) => {
       if (!(condition instanceof RegExp)) {
         const matched = String(condition).match(/\/(.*)\/([dgimsuy]*)$/);
-        condition = matched ? new RegExp(matched[1], matched[2] || "") : new RegExp(condition);
+        condition = matched
+          ? new RegExp(matched[1], matched[2] || "")
+          : new RegExp(condition);
       }
       return condition.test(String(item || ""));
     },
@@ -3516,7 +4178,7 @@ function createOperators(match, operators = {}) {
     $gte: (item, condition) => {
       return item >= condition;
     },
-    ...operators || {}
+    ...(operators || {}),
   };
 }
 
@@ -3528,29 +4190,41 @@ function createPipelineFetcher(getContentsList) {
     before = before ?? 1;
     after = after ?? 1;
     const slice = new Array(before + after).fill(null, 0);
-    return index === -1 ? slice : slice.map((_, i) => data[index - before + i + Number(i >= before)] || null);
+    return index === -1
+      ? slice
+      : slice.map(
+          (_, i) => data[index - before + i + Number(i >= before)] || null
+        );
   };
   const matchingPipelines = [
     // Conditions
     (state, params) => {
-      const filtered = state.result.filter((item) => ensureArray(params.where).every((matchQuery) => match(item, matchQuery)));
+      const filtered = state.result.filter((item) =>
+        ensureArray(params.where).every((matchQuery) => match(item, matchQuery))
+      );
       return {
         ...state,
         result: filtered,
-        total: filtered.length
+        total: filtered.length,
       };
     },
     // Sort data
-    (state, params) => ensureArray(params.sort).forEach((options) => sortList(state.result, options)),
+    (state, params) =>
+      ensureArray(params.sort).forEach((options) =>
+        sortList(state.result, options)
+      ),
     function fetchSurround(state, params, db) {
       if (params.surround) {
-        let _surround = surround(state.result?.length === 1 ? db : state.result, params.surround);
+        let _surround = surround(
+          state.result?.length === 1 ? db : state.result,
+          params.surround
+        );
         _surround = apply(withoutKeys(params.without))(_surround);
         _surround = apply(withKeys(params.only))(_surround);
         state.surround = _surround;
       }
       return state;
-    }
+    },
   ];
   const transformingPiples = [
     // Skip first items
@@ -3559,7 +4233,7 @@ function createPipelineFetcher(getContentsList) {
         return {
           ...state,
           result: state.result.slice(params.skip),
-          skip: params.skip
+          skip: params.skip,
         };
       }
     },
@@ -3569,17 +4243,23 @@ function createPipelineFetcher(getContentsList) {
         return {
           ...state,
           result: state.result.slice(0, params.limit),
-          limit: params.limit
+          limit: params.limit,
         };
       }
     },
     function fetchDirConfig(state, params, db) {
       if (params.dirConfig) {
-        const path = state.result[0]?._path || params.where?.find((w) => w._path)?._path;
+        const path =
+          state.result[0]?._path || params.where?.find((w) => w._path)?._path;
         if (typeof path === "string") {
-          const dirConfig = db.find((item) => item._path === joinURL(path, "_dir"));
+          const dirConfig = db.find(
+            (item) => item._path === joinURL(path, "_dir")
+          );
           if (dirConfig) {
-            state.dirConfig = { _path: dirConfig._path, ...withoutKeys(["_"])(dirConfig) };
+            state.dirConfig = {
+              _path: dirConfig._path,
+              ...withoutKeys(["_"])(dirConfig),
+            };
           }
         }
       }
@@ -3588,13 +4268,13 @@ function createPipelineFetcher(getContentsList) {
     // Remove unwanted fields
     (state, params) => ({
       ...state,
-      result: apply(withoutKeys(params.without))(state.result)
+      result: apply(withoutKeys(params.without))(state.result),
     }),
     // Select only wanted fields
     (state, params) => ({
       ...state,
-      result: apply(withKeys(params.only))(state.result)
-    })
+      result: apply(withKeys(params.only))(state.result),
+    }),
   ];
   return async (query) => {
     const db = await getContentsList();
@@ -3603,19 +4283,25 @@ function createPipelineFetcher(getContentsList) {
       result: db,
       limit: 0,
       skip: 0,
-      total: db.length
+      total: db.length,
     };
-    const matchedData = matchingPipelines.reduce(($data, pipe) => pipe($data, params, db) || $data, result1);
+    const matchedData = matchingPipelines.reduce(
+      ($data, pipe) => pipe($data, params, db) || $data,
+      result1
+    );
     if (params.count) {
       return {
-        result: matchedData.result.length
+        result: matchedData.result.length,
       };
     }
-    const result = transformingPiples.reduce(($data, pipe) => pipe($data, params, db) || $data, matchedData);
+    const result = transformingPiples.reduce(
+      ($data, pipe) => pipe($data, params, db) || $data,
+      matchedData
+    );
     if (params.first) {
       return {
         ...omit(["skip", "limit", "total"])(result),
-        result: result.result[0]
+        result: result.result[0],
       };
     }
     return result;
@@ -3623,11 +4309,13 @@ function createPipelineFetcher(getContentsList) {
 }
 
 const isPreview = (event) => {
-  const previewToken = getQuery$1(event).previewToken || getCookie(event, "previewToken");
+  const previewToken =
+    getQuery$1(event).previewToken || getCookie(event, "previewToken");
   return !!previewToken;
 };
 const getPreview = (event) => {
-  const key = getQuery$1(event).previewToken || getCookie(event, "previewToken");
+  const key =
+    getQuery$1(event).previewToken || getCookie(event, "previewToken");
   return { key };
 };
 
@@ -3652,10 +4340,19 @@ async function getContentIndex(event) {
 async function getIndexedContentsList(event, query) {
   const params = query.params();
   const path = params?.where?.find((wh) => wh._path)?._path;
-  if (!isPreview(event) && !params.surround && !params.dirConfig && (typeof path === "string" || path instanceof RegExp)) {
+  if (
+    !isPreview(event) &&
+    !params.surround &&
+    !params.dirConfig &&
+    (typeof path === "string" || path instanceof RegExp)
+  ) {
     const index = await getContentIndex(event);
-    const keys = Object.keys(index).filter((key) => path.test ? path.test(key) : key === String(path)).flatMap((key) => index[key]);
-    const contents = await Promise.all(keys.map((key) => getContent(event, key)));
+    const keys = Object.keys(index)
+      .filter((key) => (path.test ? path.test(key) : key === String(path)))
+      .flatMap((key) => index[key]);
+    const contents = await Promise.all(
+      keys.map((key) => getContent(event, key))
+    );
     return contents;
   }
   return getContentsList(event);
@@ -3674,7 +4371,11 @@ const contentIgnorePredicate = (key) => {
     return false;
   }
   if (invalidKeyCharacters.some((ik) => key.includes(ik))) {
-    console.warn(`Ignoring [${key}]. File name should not contain any of the following characters: ${invalidKeyCharacters.join(", ")}`);
+    console.warn(
+      `Ignoring [${key}]. File name should not contain any of the following characters: ${invalidKeyCharacters.join(
+        ", "
+      )}`
+    );
     return false;
   }
   return true;
@@ -3715,7 +4416,9 @@ const getContentsList = async (event, prefix) => {
   const keyChunks = [...chunksFromArray(keys, 10)];
   const contents = [];
   for (const chunk of keyChunks) {
-    const result = await Promise.all(chunk.map((key) => getContent(event, key)));
+    const result = await Promise.all(
+      chunk.map((key) => getContent(event, key))
+    );
     contents.push(...result);
   }
   return contents;
@@ -3745,7 +4448,7 @@ const getContent = async (event, id) => {
     size,
     // Add Content version to the hash, to revalidate the cache on content update
     version: contentConfig.cacheVersion,
-    integrity: contentConfig.cacheIntegrity
+    integrity: contentConfig.cacheIntegrity,
   });
   if (cached?.hash === hash$1) {
     return cached.parsed;
@@ -3757,8 +4460,9 @@ const getContent = async (event, id) => {
         return resolve({ _id: contentId, body: null });
       }
       const parsed = await parseContent(contentId, body);
-      await cacheParsedStorage.setItem(id, { parsed, hash: hash$1 }).catch(() => {
-      });
+      await cacheParsedStorage
+        .setItem(id, { parsed, hash: hash$1 })
+        .catch(() => {});
       resolve(parsed);
       delete pendingPromises[id + hash$1];
     });
@@ -3767,35 +4471,46 @@ const getContent = async (event, id) => {
 };
 const parseContent = async (id, content, opts = {}) => {
   const nitroApp = useNitroApp();
-  const options = defu(
-    opts,
-    {
-      markdown: {
-        ...contentConfig.markdown,
-        highlight: contentConfig.highlight
-      },
-      csv: contentConfig.csv,
-      yaml: contentConfig.yaml,
-      transformers: transformers,
-      pathMeta: {
-        defaultLocale: contentConfig.defaultLocale,
-        locales: contentConfig.locales,
-        respectPathCase: contentConfig.respectPathCase
-      }
-    }
-  );
-  const file = { _id: id, body: typeof content === "string" ? content.replace(/\r\n|\r/g, "\n") : content };
+  const options = defu(opts, {
+    markdown: {
+      ...contentConfig.markdown,
+      highlight: contentConfig.highlight,
+    },
+    csv: contentConfig.csv,
+    yaml: contentConfig.yaml,
+    transformers: transformers,
+    pathMeta: {
+      defaultLocale: contentConfig.defaultLocale,
+      locales: contentConfig.locales,
+      respectPathCase: contentConfig.respectPathCase,
+    },
+  });
+  const file = {
+    _id: id,
+    body:
+      typeof content === "string" ? content.replace(/\r\n|\r/g, "\n") : content,
+  };
   await nitroApp.hooks.callHook("content:file:beforeParse", file);
   const result = await transformContent(id, file.body, options);
   await nitroApp.hooks.callHook("content:file:afterParse", result);
   return result;
 };
 const createServerQueryFetch = (event) => (query) => {
-  return createPipelineFetcher(() => getIndexedContentsList(event, query))(query);
+  return createPipelineFetcher(() => getIndexedContentsList(event, query))(
+    query
+  );
 };
 function serverQueryContent$1(event, query, ...pathParts) {
   const { advanceQuery } = useRuntimeConfig().public.content.experimental;
-  const queryBuilder = advanceQuery ? createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: false }) : createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: true });
+  const queryBuilder = advanceQuery
+    ? createQuery(createServerQueryFetch(event), {
+        initialParams: typeof query !== "string" ? query || {} : {},
+        legacy: false,
+      })
+    : createQuery(createServerQueryFetch(event), {
+        initialParams: typeof query !== "string" ? query || {} : {},
+        legacy: true,
+      });
   let path;
   if (typeof query === "string") {
     path = withLeadingSlash(joinURL(query, ...pathParts));
@@ -3808,7 +4523,9 @@ function serverQueryContent$1(event, query, ...pathParts) {
       if (params.first && (params.where || []).length === 0) {
         params.where.push({ _path: withoutTrailingSlash(path) });
       } else {
-        params.where.push({ _path: new RegExp(`^${path.replace(/[-[\]{}()*+.,^$\s/]/g, "\\$&")}`) });
+        params.where.push({
+          _path: new RegExp(`^${path.replace(/[-[\]{}()*+.,^$\s/]/g, "\\$&")}`),
+        });
       }
     }
     if (!params.sort?.length) {
@@ -3834,86 +4551,112 @@ const _z6n0WF = defineEventHandler(async (e) => {
 });
 
 async function fetchDataSource(input) {
-  const context = typeof input.context === "string" ? { name: input.context } : input.context || { name: "fetch" };
+  const context =
+    typeof input.context === "string"
+      ? { name: input.context }
+      : input.context || { name: "fetch" };
   context.tips = context.tips || [];
   const url = typeof input.fetch === "string" ? input.fetch : input.fetch[0];
   const options = typeof input.fetch === "string" ? {} : input.fetch[1];
   const start = Date.now();
   const timeout = options.timeout || 5e3;
   const timeoutController = new AbortController();
-  const abortRequestTimeout = setTimeout(() => timeoutController.abort(), timeout);
+  const abortRequestTimeout = setTimeout(
+    () => timeoutController.abort(),
+    timeout
+  );
   let isHtmlResponse = false;
   try {
     const urls = await globalThis.$fetch(url, {
       responseType: "json",
       signal: timeoutController.signal,
       headers: {
-        Accept: "application/json"
+        Accept: "application/json",
       },
       // @ts-expect-error untyped
       onResponse({ response }) {
-        if (typeof response._data === "string" && response._data.startsWith("<!DOCTYPE html>"))
+        if (
+          typeof response._data === "string" &&
+          response._data.startsWith("<!DOCTYPE html>")
+        )
           isHtmlResponse = true;
-      }
+      },
     });
     const timeTakenMs = Date.now() - start;
     if (isHtmlResponse) {
-      context.tips.push("This is usually because the URL isn't correct or is throwing an error. Please check the URL");
+      context.tips.push(
+        "This is usually because the URL isn't correct or is throwing an error. Please check the URL"
+      );
       return {
         ...input,
         context,
         urls: [],
         timeTakenMs,
-        error: "Received HTML response instead of JSON"
+        error: "Received HTML response instead of JSON",
       };
     }
     return {
       ...input,
       context,
       timeTakenMs,
-      urls
+      urls,
     };
   } catch (_err) {
     const error = _err;
     if (error.message.includes("This operation was aborted"))
-      context.tips.push("The request has taken too long. Make sure app sources respond within 5 seconds or adjust the timeout fetch option.");
+      context.tips.push(
+        "The request has taken too long. Make sure app sources respond within 5 seconds or adjust the timeout fetch option."
+      );
     else
-      context.tips.push(`Response returned a status of ${error.response?.status || "unknown"}.`);
+      context.tips.push(
+        `Response returned a status of ${error.response?.status || "unknown"}.`
+      );
     console.error("[@nuxtjs/sitemap] Failed to fetch source.", { url, error });
     return {
       ...input,
       context,
       urls: [],
-      error: error.message
+      error: error.message,
     };
   } finally {
     abortRequestTimeout && clearTimeout(abortRequestTimeout);
   }
 }
 function globalSitemapSources() {
-  return Promise.resolve().then(function () { return globalSources; }).then((m) => m.sources);
+  return Promise.resolve()
+    .then(function () {
+      return globalSources;
+    })
+    .then((m) => m.sources);
 }
 function childSitemapSources(definition) {
-  return definition?._hasSourceChunk ? Promise.resolve().then(function () { return childSources; }).then((m) => m.sources[definition.sitemapName] || []) : Promise.resolve([]);
+  return definition?._hasSourceChunk
+    ? Promise.resolve()
+        .then(function () {
+          return childSources;
+        })
+        .then((m) => m.sources[definition.sitemapName] || [])
+    : Promise.resolve([]);
 }
 async function resolveSitemapSources(sources) {
-  return (await Promise.all(
-    sources.map((source) => {
-      if (typeof source === "object" && "urls" in source) {
+  return (
+    await Promise.all(
+      sources.map((source) => {
+        if (typeof source === "object" && "urls" in source) {
+          return {
+            timeTakenMs: 0,
+            ...source,
+            urls: source.urls,
+          };
+        }
+        if (source.fetch) return fetchDataSource(source);
         return {
-          timeTakenMs: 0,
           ...source,
-          urls: source.urls
+          error: "Invalid source",
         };
-      }
-      if (source.fetch)
-        return fetchDataSource(source);
-      return {
-        ...source,
-        error: "Invalid source"
-      };
-    })
-  )).flat();
+      })
+    )
+  ).flat();
 }
 
 const _7ouy9p = defineEventHandler(async (e) => {
@@ -3927,44 +4670,80 @@ const _7ouy9p = defineEventHandler(async (e) => {
   for (const s of Object.keys(_sitemaps)) {
     sitemaps[s] = {
       ..._sitemaps[s],
-      sources: await resolveSitemapSources(await childSitemapSources(_sitemaps[s]))
+      sources: await resolveSitemapSources(
+        await childSitemapSources(_sitemaps[s])
+      ),
     };
   }
   return {
     nitroOrigin,
     sitemaps,
     runtimeConfig,
-    globalSources: await resolveSitemapSources(globalSources)
+    globalSources: await resolveSitemapSources(globalSources),
   };
 });
 
 const _tJXYwZ = defineEventHandler(async (e) => {
-  const fixPath = createSitePathResolver(e, { absolute: false, withBase: true });
-  const { sitemapName: fallbackSitemapName, cacheMaxAgeSeconds, version, xslColumns, xslTips } = useSimpleSitemapRuntimeConfig();
+  const fixPath = createSitePathResolver(e, {
+    absolute: false,
+    withBase: true,
+  });
+  const {
+    sitemapName: fallbackSitemapName,
+    cacheMaxAgeSeconds,
+    version,
+    xslColumns,
+    xslTips,
+  } = useSimpleSitemapRuntimeConfig();
   setHeader(e, "Content-Type", "application/xslt+xml");
   if (cacheMaxAgeSeconds)
-    setHeader(e, "Cache-Control", `public, max-age=${cacheMaxAgeSeconds}, must-revalidate`);
-  else
-    setHeader(e, "Cache-Control", `no-cache, no-store`);
+    setHeader(
+      e,
+      "Cache-Control",
+      `public, max-age=${cacheMaxAgeSeconds}, must-revalidate`
+    );
+  else setHeader(e, "Cache-Control", `no-cache, no-store`);
   const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon" style="margin-right: 4px; font-size: 25px;" width="1em" height="1em" viewBox="0 0 32 32"><path fill="#93c5fd" d="M4 26h4v4H4zm10 0h4v4h-4zm10 0h4v4h-4zm1-10h-8v-2h-2v2H7a2.002 2.002 0 0 0-2 2v6h2v-6h8v6h2v-6h8v6h2v-6a2.002 2.002 0 0 0-2-2zM9 2v10h14V2zm2 2h2v6h-2zm10 6h-6V4h6z"></path></svg>`;
   const creditName = `<a href="https://github.com/nuxt-modules/sitemap" style="color: black; display: flex; align-items: center; font-weight: 500;" target="_blank" rel="noopener">${svgIcon} Nuxt Sitemap v${version}</a>`;
   const { name: siteName, url: siteUrl } = useSiteConfig(e);
   const referrer = getHeader(e, "Referer") || "/";
-  const isNotIndexButHasIndex = referrer !== fixPath("/sitemap.xml") && parseURL(referrer).pathname.endsWith("-sitemap.xml");
-  const sitemapName = parseURL(referrer).pathname.split("/").pop()?.split("-sitemap")[0] || fallbackSitemapName;
-  const title = `${siteName}${sitemapName !== "sitemap.xml" ? ` - ${sitemapName === "sitemap_index.xml" ? "index" : sitemapName}` : ""}`.replace(/&/g, "&amp;");
+  const isNotIndexButHasIndex =
+    referrer !== fixPath("/sitemap.xml") &&
+    parseURL(referrer).pathname.endsWith("-sitemap.xml");
+  const sitemapName =
+    parseURL(referrer).pathname.split("/").pop()?.split("-sitemap")[0] ||
+    fallbackSitemapName;
+  const title = `${siteName}${
+    sitemapName !== "sitemap.xml"
+      ? ` - ${sitemapName === "sitemap_index.xml" ? "index" : sitemapName}`
+      : ""
+  }`.replace(/&/g, "&amp;");
   const canonicalQuery = getQuery(referrer).canonical;
-  const isShowingCanonical = typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
+  const isShowingCanonical =
+    typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
   const conditionalTips = [
     'You are looking at a <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT/Transforming_XML_with_XSLT/An_Overview" style="color: #398465" target="_blank">XML stylesheet</a>. Read the <a href="https://nuxtseo.com/sitemap/guides/customising-ui" style="color: #398465" target="_blank">docs</a> to learn how to customize it. View the page source to see the raw XML.',
-    `URLs missing? Check Nuxt Devtools Sitemap tab (or the <a href="${withQuery("/__sitemap__/debug.json", { sitemap: sitemapName })}" style="color: #398465" target="_blank">debug endpoint</a>).`
+    `URLs missing? Check Nuxt Devtools Sitemap tab (or the <a href="${withQuery(
+      "/__sitemap__/debug.json",
+      { sitemap: sitemapName }
+    )}" style="color: #398465" target="_blank">debug endpoint</a>).`,
   ];
   if (!isShowingCanonical) {
     const canonicalPreviewUrl = withQuery(referrer, { canonical: "" });
-    conditionalTips.push(`Your canonical site URL is <strong>${siteUrl}</strong>.`);
-    conditionalTips.push(`You can preview your canonical sitemap by visiting <a href="${canonicalPreviewUrl}" style="color: #398465; white-space: nowrap;">${fixPath(canonicalPreviewUrl)}?canonical</a>`);
+    conditionalTips.push(
+      `Your canonical site URL is <strong>${siteUrl}</strong>.`
+    );
+    conditionalTips.push(
+      `You can preview your canonical sitemap by visiting <a href="${canonicalPreviewUrl}" style="color: #398465; white-space: nowrap;">${fixPath(
+        canonicalPreviewUrl
+      )}?canonical</a>`
+    );
   } else {
-    conditionalTips.push(`You are viewing the canonical sitemap. You can switch to using the request origin: <a href="${fixPath(referrer)}" style="color: #398465; white-space: nowrap ">${fixPath(referrer)}</a>`);
+    conditionalTips.push(
+      `You are viewing the canonical sitemap. You can switch to using the request origin: <a href="${fixPath(
+        referrer
+      )}" style="color: #398465; white-space: nowrap ">${fixPath(referrer)}</a>`
+    );
   }
   const tips = conditionalTips.map((t) => `<li><p>${t}</p></li>`).join("\n");
   const showTips = xslTips !== false;
@@ -3973,7 +4752,12 @@ const _tJXYwZ = defineEventHandler(async (e) => {
     columns = [
       { label: "URL", width: "50%" },
       { label: "Images", width: "25%", select: "count(image:image)" },
-      { label: "Last Updated", width: "25%", select: "concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))" }
+      {
+        label: "Last Updated",
+        width: "25%",
+        select:
+          "concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))",
+      },
     ];
   }
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -4088,7 +4872,13 @@ const _tJXYwZ = defineEventHandler(async (e) => {
              <div id="content">
           <h1 class="text-2xl mb-3">XML Sitemap</h1>
           <h2>${title}</h2>
-          ${isNotIndexButHasIndex ? `<p style="font-size: 12px; margin-bottom: 1rem;"><a href="${fixPath("/sitemap_index.xml")}">${fixPath("/sitemap_index.xml")}</a></p>` : ""}
+          ${
+            isNotIndexButHasIndex
+              ? `<p style="font-size: 12px; margin-bottom: 1rem;"><a href="${fixPath(
+                  "/sitemap_index.xml"
+                )}">${fixPath("/sitemap_index.xml")}</a></p>`
+              : ""
+          }
           <xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &gt; 0">
             <p class="expl" style="margin-bottom: 1rem;">
               This XML Sitemap Index file contains
@@ -4129,7 +4919,9 @@ const _tJXYwZ = defineEventHandler(async (e) => {
             <table id="sitemap" cellpadding="3">
               <thead>
                 <tr>
-                  ${columns.map((c) => `<th width="${c.width}">${c.label}</th>`).join("\n")}
+                  ${columns
+                    .map((c) => `<th width="${c.width}">${c.label}</th>`)
+                    .join("\n")}
                 </tr>
               </thead>
               <tbody>
@@ -4145,9 +4937,14 @@ const _tJXYwZ = defineEventHandler(async (e) => {
                         <xsl:value-of select="sitemap:loc"/>
                       </a>
                     </td>
-                    ${columns.filter((c) => c.label !== "URL").map((c) => `<td>
+                    ${columns
+                      .filter((c) => c.label !== "URL")
+                      .map(
+                        (c) => `<td>
 <xsl:value-of select="${c.select}"/>
-</td>`).join("\n")}
+</td>`
+                      )
+                      .join("\n")}
                   </tr>
                 </xsl:for-each>
               </tbody>
@@ -4155,7 +4952,11 @@ const _tJXYwZ = defineEventHandler(async (e) => {
           </xsl:if>
         </div>
         </div>
-                    ${showTips ? `<div class="w-30 top-2 shadow rounded p-5 right-2" style="margin: 0 auto;"><p><strong>Sitemap Tips (development only)</strong></p><ul style="margin: 1rem; padding: 0;">${tips}</ul><p style="margin-top: 1rem;">${creditName}</p></div>` : ""}
+                    ${
+                      showTips
+                        ? `<div class="w-30 top-2 shadow rounded p-5 right-2" style="margin: 0 auto;"><p><strong>Sitemap Tips (development only)</strong></p><ul style="margin: 1rem; padding: 0;">${tips}</ul><p style="margin-top: 1rem;">${creditName}</p></div>`
+                        : ""
+                    }
         </div>
       </body>
     </html>
@@ -4165,63 +4966,68 @@ const _tJXYwZ = defineEventHandler(async (e) => {
 });
 
 function resolve(s, resolvers) {
-  if (typeof s === "undefined")
-    return s;
+  if (typeof s === "undefined") return s;
   s = typeof s === "string" ? s : s.toString();
   if (hasProtocol(s, { acceptRelative: true, strict: false }))
     return resolvers.fixSlashes(s);
   return resolvers.canonicalUrlResolver(s);
 }
 function normaliseSitemapUrls(data, resolvers) {
-  const entries = data.map((e) => typeof e === "string" ? { loc: e } : e).map((e) => {
-    e = { ...e };
-    if (e.url) {
-      e.loc = e.url;
-      delete e.url;
-    }
-    e.loc = fixSlashes(false, e.loc);
-    return e;
-  }).filter(Boolean);
+  const entries = data
+    .map((e) => (typeof e === "string" ? { loc: e } : e))
+    .map((e) => {
+      e = { ...e };
+      if (e.url) {
+        e.loc = e.url;
+        delete e.url;
+      }
+      e.loc = fixSlashes(false, e.loc);
+      return e;
+    })
+    .filter(Boolean);
   function normaliseEntry(e) {
     if (e.lastmod) {
       const date = normaliseDate(e.lastmod);
-      if (date)
-        e.lastmod = date;
-      else
-        delete e.lastmod;
+      if (date) e.lastmod = date;
+      else delete e.lastmod;
     }
-    if (!e.lastmod)
-      delete e.lastmod;
+    if (!e.lastmod) delete e.lastmod;
     e.loc = resolve(e.loc, resolvers);
     if (e.alternatives) {
-      e.alternatives = mergeOnKey(e.alternatives.map((e2) => {
-        const a = { ...e2 };
-        if (typeof a.href === "string")
-          a.href = resolve(a.href, resolvers);
-        else if (typeof a.href === "object" && a.href)
-          a.href = resolve(a.href.href, resolvers);
-        return a;
-      }), "hreflang");
+      e.alternatives = mergeOnKey(
+        e.alternatives.map((e2) => {
+          const a = { ...e2 };
+          if (typeof a.href === "string") a.href = resolve(a.href, resolvers);
+          else if (typeof a.href === "object" && a.href)
+            a.href = resolve(a.href.href, resolvers);
+          return a;
+        }),
+        "hreflang"
+      );
     }
     if (e.images) {
-      e.images = mergeOnKey(e.images.map((i) => {
-        i = { ...i };
-        i.loc = resolve(i.loc, resolvers);
-        return i;
-      }), "loc");
+      e.images = mergeOnKey(
+        e.images.map((i) => {
+          i = { ...i };
+          i.loc = resolve(i.loc, resolvers);
+          return i;
+        }),
+        "loc"
+      );
     }
     if (e.videos) {
       e.videos = e.videos.map((v) => {
         v = { ...v };
-        if (v.content_loc)
-          v.content_loc = resolve(v.content_loc, resolvers);
+        if (v.content_loc) v.content_loc = resolve(v.content_loc, resolvers);
         return v;
       });
     }
     return e;
   }
   return mergeOnKey(
-    entries.map(normaliseEntry).map((e) => ({ ...e, _key: `${e._sitemap || ""}${e.loc}` })),
+    entries
+      .map(normaliseEntry)
+      .map((e) => ({ ...e, _key: `${e._sitemap || ""}${e.loc}` })),
     "_key"
   );
 }
@@ -4229,7 +5035,7 @@ const IS_VALID_W3C_DATE = [
   /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,
   /^\d{4}-[01]\d-[0-3]\d$/,
   /^\d{4}-[01]\d$/,
-  /^\d{4}$/
+  /^\d{4}$/,
 ];
 function isValidW3CDate(d) {
   return IS_VALID_W3C_DATE.some((r) => r.test(d));
@@ -4242,17 +5048,19 @@ function normaliseDate(d) {
         d += "Z";
       }
     }
-    if (!isValidW3CDate(d))
-      return false;
+    if (!isValidW3CDate(d)) return false;
     d = new Date(d);
     d.setMilliseconds(0);
-    if (Number.isNaN(d.getTime()))
-      return false;
+    if (Number.isNaN(d.getTime())) return false;
   }
   const z = (n) => `0${n}`.slice(-2);
-  const date = `${d.getUTCFullYear()}-${z(d.getUTCMonth() + 1)}-${z(d.getUTCDate())}`;
+  const date = `${d.getUTCFullYear()}-${z(d.getUTCMonth() + 1)}-${z(
+    d.getUTCDate()
+  )}`;
   if (d.getUTCHours() > 0 || d.getUTCMinutes() > 0 || d.getUTCSeconds() > 0) {
-    return `${date}T${z(d.getUTCHours())}:${z(d.getUTCMinutes())}:${z(d.getUTCSeconds())}Z`;
+    return `${date}T${z(d.getUTCHours())}:${z(d.getUTCMinutes())}:${z(
+      d.getUTCSeconds()
+    )}Z`;
   }
   return date;
 }
@@ -4260,22 +5068,24 @@ function normaliseDate(d) {
 function createFilter(options = {}) {
   const include = options.include || [];
   const exclude = options.exclude || [];
-  if (include.length === 0 && exclude.length === 0)
-    return () => true;
-  return function(path) {
-    for (const v of [{ rules: exclude, result: false }, { rules: include, result: true }]) {
+  if (include.length === 0 && exclude.length === 0) return () => true;
+  return function (path) {
+    for (const v of [
+      { rules: exclude, result: false },
+      { rules: include, result: true },
+    ]) {
       const regexRules = v.rules.filter((r) => r instanceof RegExp);
-      if (regexRules.some((r) => r.test(path)))
-        return v.result;
+      if (regexRules.some((r) => r.test(path))) return v.result;
       const stringRules = v.rules.filter((r) => typeof r === "string");
       if (stringRules.length > 0) {
         const routes = {};
         for (const r of stringRules) {
-          if (r === path)
-            return v.result;
+          if (r === path) return v.result;
           routes[r] = true;
         }
-        const routeRulesMatcher = toRouteMatcher(createRouter({ routes, strictTrailingSlash: false }));
+        const routeRulesMatcher = toRouteMatcher(
+          createRouter({ routes, strictTrailingSlash: false })
+        );
         if (routeRulesMatcher.matchAll(path).length > 0)
           return Boolean(v.result);
       }
@@ -4286,7 +5096,7 @@ function createFilter(options = {}) {
 function filterSitemapUrls(_urls, options) {
   const urlFilter = createFilter({
     include: options.include,
-    exclude: options.exclude
+    exclude: options.exclude,
   });
   return _urls.filter((e) => {
     let path = e.loc;
@@ -4295,8 +5105,7 @@ function filterSitemapUrls(_urls, options) {
     } catch {
       return false;
     }
-    if (!urlFilter(path))
-      return false;
+    if (!urlFilter(path)) return false;
     if (options.isMultiSitemap && e._sitemap && options.sitemapName)
       return e._sitemap === options.sitemapName;
     return true;
@@ -4313,43 +5122,49 @@ function normaliseI18nSources(sources, { autoI18n, isI18nMapped }) {
         return url;
       });
       s.urls = urls.map((url) => {
-        if (url._sitemap || url._i18nTransform)
-          return url;
+        if (url._sitemap || url._i18nTransform) return url;
         if (url.loc) {
-          const match = splitForLocales(url.loc, autoI18n.locales.map((l) => l.code));
+          const match = splitForLocales(
+            url.loc,
+            autoI18n.locales.map((l) => l.code)
+          );
           const localeCode = match[0] || autoI18n.defaultLocale;
           const pathWithoutPrefix = match[1];
           const locale = autoI18n.locales.find((e) => e.code === localeCode);
           if (locale) {
             if (!url.alternatives) {
-              const alternatives = urls.map((u) => {
-                if (u._sitemap || u._i18nTransform)
-                  return false;
-                if (u?.loc) {
-                  const [_localeCode, _pathWithoutPrefix] = splitForLocales(u.loc, autoI18n.locales.map((l) => l.code));
-                  if (pathWithoutPrefix === _pathWithoutPrefix) {
-                    const entries = [];
-                    if (_localeCode === autoI18n.defaultLocale) {
+              const alternatives = urls
+                .map((u) => {
+                  if (u._sitemap || u._i18nTransform) return false;
+                  if (u?.loc) {
+                    const [_localeCode, _pathWithoutPrefix] = splitForLocales(
+                      u.loc,
+                      autoI18n.locales.map((l) => l.code)
+                    );
+                    if (pathWithoutPrefix === _pathWithoutPrefix) {
+                      const entries = [];
+                      if (_localeCode === autoI18n.defaultLocale) {
+                        entries.push({
+                          href: u.loc,
+                          hreflang: "x-default",
+                        });
+                      }
                       entries.push({
                         href: u.loc,
-                        hreflang: "x-default"
+                        hreflang: _localeCode || autoI18n.defaultLocale,
                       });
+                      return entries;
                     }
-                    entries.push({
-                      href: u.loc,
-                      hreflang: _localeCode || autoI18n.defaultLocale
-                    });
-                    return entries;
                   }
-                }
-                return false;
-              }).flat().filter(Boolean);
-              if (alternatives.length)
-                url.alternatives = alternatives;
+                  return false;
+                })
+                .flat()
+                .filter(Boolean);
+              if (alternatives.length) url.alternatives = alternatives;
             }
             return {
               _sitemap: locale.iso || locale.code,
-              ...url
+              ...url,
             };
           }
         }
@@ -4362,92 +5177,115 @@ function normaliseI18nSources(sources, { autoI18n, isI18nMapped }) {
 }
 function applyI18nEnhancements(_urls, options) {
   const { autoI18n } = options;
-  return _urls.map((e) => {
-    if (!e._i18nTransform)
-      return e;
-    delete e._i18nTransform;
-    const path = withLeadingSlash(parseURL(e.loc).pathname);
-    const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
-    let pathWithoutLocale = path;
-    let locale;
-    if (match[0]) {
-      pathWithoutLocale = match[1] || "/";
-      locale = match[0];
-    }
-    if (locale && true) {
-      console.warn("You're providing a locale in the url, but the url is marked as inheritI18n. This will cause issues with the sitemap. Please remove the locale from the url.");
-      return e;
-    }
-    if (autoI18n.differentDomains) {
-      return {
-        // will force it to pass filter
-        _sitemap: options.sitemapName,
-        ...e,
-        alternatives: [
-          {
-            // apply default locale domain
-            ...autoI18n.locales.find((l) => [l.code, l.iso].includes(autoI18n.defaultLocale)),
-            code: "x-default"
-          },
-          ...autoI18n.locales.filter((l) => !!l.domain)
-        ].map((locale2) => {
-          return {
-            hreflang: locale2.iso || locale2.code,
-            href: joinURL(withHttps(locale2.domain), pathWithoutLocale)
-          };
-        })
-      };
-    }
-    return autoI18n.locales.map((l) => {
-      let loc = joinURL(`/${l.code}`, pathWithoutLocale);
-      if (autoI18n.differentDomains || ["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy) && l.code === autoI18n.defaultLocale)
-        loc = pathWithoutLocale;
-      return {
-        _sitemap: options.isI18nMapped ? l.iso || l.code : void 0,
-        ...e,
-        loc,
-        alternatives: [{ code: "x-default" }, ...autoI18n.locales].map((locale2) => {
-          const code = locale2.code === "x-default" ? autoI18n.defaultLocale : locale2.code;
-          const isDefault = locale2.code === "x-default" || locale2.code === autoI18n.defaultLocale;
-          let href = "";
-          if (autoI18n.strategy === "prefix") {
-            href = joinURL("/", code, pathWithoutLocale);
-          } else if (["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy)) {
-            if (isDefault) {
-              href = pathWithoutLocale;
-            } else {
-              href = joinURL("/", code, pathWithoutLocale);
+  return _urls
+    .map((e) => {
+      if (!e._i18nTransform) return e;
+      delete e._i18nTransform;
+      const path = withLeadingSlash(parseURL(e.loc).pathname);
+      const match = splitForLocales(
+        path,
+        autoI18n.locales.map((l) => l.code)
+      );
+      let pathWithoutLocale = path;
+      let locale;
+      if (match[0]) {
+        pathWithoutLocale = match[1] || "/";
+        locale = match[0];
+      }
+      if (locale && true) {
+        console.warn(
+          "You're providing a locale in the url, but the url is marked as inheritI18n. This will cause issues with the sitemap. Please remove the locale from the url."
+        );
+        return e;
+      }
+      if (autoI18n.differentDomains) {
+        return {
+          // will force it to pass filter
+          _sitemap: options.sitemapName,
+          ...e,
+          alternatives: [
+            {
+              // apply default locale domain
+              ...autoI18n.locales.find((l) =>
+                [l.code, l.iso].includes(autoI18n.defaultLocale)
+              ),
+              code: "x-default",
+            },
+            ...autoI18n.locales.filter((l) => !!l.domain),
+          ].map((locale2) => {
+            return {
+              hreflang: locale2.iso || locale2.code,
+              href: joinURL(withHttps(locale2.domain), pathWithoutLocale),
+            };
+          }),
+        };
+      }
+      return autoI18n.locales.map((l) => {
+        let loc = joinURL(`/${l.code}`, pathWithoutLocale);
+        if (
+          autoI18n.differentDomains ||
+          (["prefix_and_default", "prefix_except_default"].includes(
+            autoI18n.strategy
+          ) &&
+            l.code === autoI18n.defaultLocale)
+        )
+          loc = pathWithoutLocale;
+        return {
+          _sitemap: options.isI18nMapped ? l.iso || l.code : void 0,
+          ...e,
+          loc,
+          alternatives: [{ code: "x-default" }, ...autoI18n.locales].map(
+            (locale2) => {
+              const code =
+                locale2.code === "x-default"
+                  ? autoI18n.defaultLocale
+                  : locale2.code;
+              const isDefault =
+                locale2.code === "x-default" ||
+                locale2.code === autoI18n.defaultLocale;
+              let href = "";
+              if (autoI18n.strategy === "prefix") {
+                href = joinURL("/", code, pathWithoutLocale);
+              } else if (
+                ["prefix_and_default", "prefix_except_default"].includes(
+                  autoI18n.strategy
+                )
+              ) {
+                if (isDefault) {
+                  href = pathWithoutLocale;
+                } else {
+                  href = joinURL("/", code, pathWithoutLocale);
+                }
+              }
+              const hreflang = locale2.iso || locale2.code;
+              return {
+                hreflang,
+                href,
+              };
             }
-          }
-          const hreflang = locale2.iso || locale2.code;
-          return {
-            hreflang,
-            href
-          };
-        })
-      };
-    });
-  }).flat();
+          ),
+        };
+      });
+    })
+    .flat();
 }
 
 function sortSitemapUrls(urls) {
-  return urls.sort(
-    (a, b) => {
+  return urls
+    .sort((a, b) => {
       const aLoc = typeof a === "string" ? a : a.loc;
       const bLoc = typeof b === "string" ? b : b.loc;
       return aLoc.localeCompare(bLoc, void 0, { numeric: true });
-    }
-  ).sort((a, b) => {
-    const aLoc = (typeof a === "string" ? a : a.loc) || "";
-    const bLoc = (typeof b === "string" ? b : b.loc) || "";
-    const aSegments = aLoc.split("/").length;
-    const bSegments = bLoc.split("/").length;
-    if (aSegments > bSegments)
-      return 1;
-    if (aSegments < bSegments)
-      return -1;
-    return 0;
-  });
+    })
+    .sort((a, b) => {
+      const aLoc = (typeof a === "string" ? a : a.loc) || "";
+      const bLoc = (typeof b === "string" ? b : b.loc) || "";
+      const aSegments = aLoc.split("/").length;
+      const bSegments = bLoc.split("/").length;
+      if (aSegments > bSegments) return 1;
+      if (aSegments < bSegments) return -1;
+      return 0;
+    });
 }
 
 function withoutQuery(path) {
@@ -4458,15 +5296,23 @@ function createNitroRouteRuleMatcher() {
   const _routeRulesMatcher = toRouteMatcher(
     createRouter({
       routes: Object.fromEntries(
-        Object.entries(nitro?.routeRules || {}).map(([path, rules]) => [withoutTrailingSlash(path), rules])
-      )
+        Object.entries(nitro?.routeRules || {}).map(([path, rules]) => [
+          withoutTrailingSlash(path),
+          rules,
+        ])
+      ),
     })
   );
   return (path) => {
-    return defu$1({}, ..._routeRulesMatcher.matchAll(
-      // radix3 does not support trailing slashes
-      withoutBase(withoutTrailingSlash(withoutQuery(path)), app.baseURL)
-    ).reverse());
+    return defu$1(
+      {},
+      ..._routeRulesMatcher
+        .matchAll(
+          // radix3 does not support trailing slashes
+          withoutBase(withoutTrailingSlash(withoutQuery(path)), app.baseURL)
+        )
+        .reverse()
+    );
   };
 }
 
@@ -4487,71 +5333,109 @@ function handleObject(key, obj) {
     `        <${key}:${key}>`,
     ...Object.entries(obj).map(([sk, sv]) => {
       if (key === "video" && Array.isArray(sv)) {
-        return sv.map((v) => {
-          if (typeof v === "string") {
+        return sv
+          .map((v) => {
+            if (typeof v === "string") {
+              return [
+                `            `,
+                `<${key}:${sk}>`,
+                escapeValueForXml(v),
+                `</${key}:${sk}>`,
+              ].join("");
+            }
+            const attributes = Object.entries(v)
+              .filter(([ssk]) => ssk !== sk)
+              .map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`)
+              .join(" ");
             return [
-              `            `,
-              `<${key}:${sk}>`,
-              escapeValueForXml(v),
-              `</${key}:${sk}>`
+              `            <${key}:${sk} ${attributes}>`,
+              // value is the same sk
+              v[sk],
+              `</${key}:${sk}>`,
             ].join("");
-          }
-          const attributes = Object.entries(v).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
-          return [
-            `            <${key}:${sk} ${attributes}>`,
-            // value is the same sk
-            v[sk],
-            `</${key}:${sk}>`
-          ].join("");
-        }).join("\n");
+          })
+          .join("\n");
       }
       if (typeof sv === "object") {
         if (key === "video") {
-          const attributes = Object.entries(sv).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
+          const attributes = Object.entries(sv)
+            .filter(([ssk]) => ssk !== sk)
+            .map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`)
+            .join(" ");
           return [
             `            <${key}:${sk} ${attributes}>`,
             // value is the same sk
             sv[sk],
-            `</${key}:${sk}>`
+            `</${key}:${sk}>`,
           ].join("");
         }
         return [
           `            <${key}:${sk}>`,
-          ...Object.entries(sv).map(([ssk, ssv]) => `                <${key}:${ssk}>${escapeValueForXml(ssv)}</${key}:${ssk}>`),
-          `            </${key}:${sk}>`
+          ...Object.entries(sv).map(
+            ([ssk, ssv]) =>
+              `                <${key}:${ssk}>${escapeValueForXml(
+                ssv
+              )}</${key}:${ssk}>`
+          ),
+          `            </${key}:${sk}>`,
         ].join("\n");
       }
-      return `            <${key}:${sk}>${escapeValueForXml(sv)}</${key}:${sk}>`;
+      return `            <${key}:${sk}>${escapeValueForXml(
+        sv
+      )}</${key}:${sk}>`;
     }),
-    `        </${key}:${key}>`
+    `        </${key}:${key}>`,
   ].join("\n");
 }
 function handleArray(key, arr) {
-  if (arr.length === 0)
-    return false;
+  if (arr.length === 0) return false;
   key = resolveKey(key);
   if (key === "alternatives") {
-    return arr.map((obj) => [
-      `        <xhtml:link rel="alternate" ${Object.entries(obj).map(([sk, sv]) => `${sk}="${escapeValueForXml(sv)}"`).join(" ")} />`
-    ].join("\n")).join("\n");
+    return arr
+      .map((obj) =>
+        [
+          `        <xhtml:link rel="alternate" ${Object.entries(obj)
+            .map(([sk, sv]) => `${sk}="${escapeValueForXml(sv)}"`)
+            .join(" ")} />`,
+        ].join("\n")
+      )
+      .join("\n");
   }
   return arr.map((obj) => handleObject(key, obj)).join("\n");
 }
 function handleEntry(k, e) {
-  return Array.isArray(e[k]) ? handleArray(k, e[k]) : typeof e[k] === "object" ? handleObject(k, e[k]) : `        <${k}>${escapeValueForXml(e[k])}</${k}>`;
+  return Array.isArray(e[k])
+    ? handleArray(k, e[k])
+    : typeof e[k] === "object"
+    ? handleObject(k, e[k])
+    : `        <${k}>${escapeValueForXml(e[k])}</${k}>`;
 }
 function wrapSitemapXml(input, resolvers, options) {
-  const xsl = options.xsl ? resolvers.relativeBaseUrlResolver(options.xsl) : false;
+  const xsl = options.xsl
+    ? resolvers.relativeBaseUrlResolver(options.xsl)
+    : false;
   const credits = options.credits;
-  input.unshift(`<?xml version="1.0" encoding="UTF-8"?>${xsl ? `<?xml-stylesheet type="text/xsl" href="${xsl}"?>` : ""}`);
+  input.unshift(
+    `<?xml version="1.0" encoding="UTF-8"?>${
+      xsl ? `<?xml-stylesheet type="text/xsl" href="${xsl}"?>` : ""
+    }`
+  );
   if (credits)
-    input.push(`<!-- XML Sitemap generated by @nuxtjs/sitemap v${options.version} at ${(/* @__PURE__ */ new Date()).toISOString()} -->`);
+    input.push(
+      `<!-- XML Sitemap generated by @nuxtjs/sitemap v${
+        options.version
+      } at ${/* @__PURE__ */ new Date().toISOString()} -->`
+    );
   return input.join("\n");
 }
 function escapeValueForXml(value) {
-  if (value === true || value === false)
-    return value ? "yes" : "no";
-  return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  if (value === true || value === false) return value ? "yes" : "no";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
 async function buildSitemap(sitemap, resolvers, runtimeConfig) {
@@ -4568,66 +5452,97 @@ async function buildSitemap(sitemap, resolvers, runtimeConfig) {
     // xls
     version,
     xsl,
-    credits
+    credits,
   } = runtimeConfig;
-  const isChunking = typeof sitemaps.chunks !== "undefined" && !Number.isNaN(Number(sitemap.sitemapName));
+  const isChunking =
+    typeof sitemaps.chunks !== "undefined" &&
+    !Number.isNaN(Number(sitemap.sitemapName));
   function maybeSort(urls2) {
     return sortEntries ? sortSitemapUrls(urls2) : urls2;
   }
   function maybeSlice(urls2) {
     if (isChunking && defaultSitemapsChunkSize) {
       const chunk = Number(sitemap.sitemapName);
-      return urls2.slice(chunk * defaultSitemapsChunkSize, (chunk + 1) * defaultSitemapsChunkSize);
+      return urls2.slice(
+        chunk * defaultSitemapsChunkSize,
+        (chunk + 1) * defaultSitemapsChunkSize
+      );
     }
     return urls2;
   }
   if (autoI18n?.differentDomains) {
-    const domain = autoI18n.locales.find((e) => [e.iso, e.code].includes(sitemap.sitemapName))?.domain;
+    const domain = autoI18n.locales.find((e) =>
+      [e.iso, e.code].includes(sitemap.sitemapName)
+    )?.domain;
     if (domain) {
       const _tester = resolvers.canonicalUrlResolver;
-      resolvers.canonicalUrlResolver = (path) => resolveSitePath(path, {
-        absolute: true,
-        withBase: false,
-        siteUrl: withHttps(domain),
-        trailingSlash: !_tester("/test/").endsWith("/"),
-        base: "/"
-      });
+      resolvers.canonicalUrlResolver = (path) =>
+        resolveSitePath(path, {
+          absolute: true,
+          withBase: false,
+          siteUrl: withHttps(domain),
+          trailingSlash: !_tester("/test/").endsWith("/"),
+          base: "/",
+        });
     }
   }
   const sources = sitemap.includeAppSources ? await globalSitemapSources() : [];
-  sources.push(...await childSitemapSources(sitemap));
+  sources.push(...(await childSitemapSources(sitemap)));
   let resolvedSources = await resolveSitemapSources(sources);
   if (autoI18n)
-    resolvedSources = normaliseI18nSources(resolvedSources, { autoI18n, isI18nMapped });
-  const normalisedUrls = normaliseSitemapUrls(resolvedSources.map((e) => e.urls).flat(), resolvers);
+    resolvedSources = normaliseI18nSources(resolvedSources, {
+      autoI18n,
+      isI18nMapped,
+    });
+  const normalisedUrls = normaliseSitemapUrls(
+    resolvedSources.map((e) => e.urls).flat(),
+    resolvers
+  );
   const routeRuleMatcher = createNitroRouteRuleMatcher();
-  let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults)).map((e) => {
-    const path = parseURL(e.loc).pathname;
-    let routeRules = routeRuleMatcher(path);
-    if (autoI18n?.locales && autoI18n?.strategy !== "no_prefix") {
-      const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
-      const pathWithoutPrefix = match[1];
-      if (pathWithoutPrefix && pathWithoutPrefix !== path)
-        routeRules = defu$1(routeRules, routeRuleMatcher(pathWithoutPrefix));
-    }
-    if (routeRules.sitemap === false)
-      return false;
-    if (typeof routeRules.index !== "undefined" && !routeRules.index)
-      return false;
-    const hasRobotsDisabled = Object.entries(routeRules.headers || {}).some(([name, value]) => name.toLowerCase() === "x-robots-tag" && value.toLowerCase() === "noindex");
-    if (routeRules.redirect || hasRobotsDisabled)
-      return false;
-    return routeRules.sitemap ? defu$1(e, routeRules.sitemap) : e;
-  }).filter(Boolean);
+  let enhancedUrls = normalisedUrls
+    .map((e) => defu$1(e, sitemap.defaults))
+    .map((e) => {
+      const path = parseURL(e.loc).pathname;
+      let routeRules = routeRuleMatcher(path);
+      if (autoI18n?.locales && autoI18n?.strategy !== "no_prefix") {
+        const match = splitForLocales(
+          path,
+          autoI18n.locales.map((l) => l.code)
+        );
+        const pathWithoutPrefix = match[1];
+        if (pathWithoutPrefix && pathWithoutPrefix !== path)
+          routeRules = defu$1(routeRules, routeRuleMatcher(pathWithoutPrefix));
+      }
+      if (routeRules.sitemap === false) return false;
+      if (typeof routeRules.index !== "undefined" && !routeRules.index)
+        return false;
+      const hasRobotsDisabled = Object.entries(routeRules.headers || {}).some(
+        ([name, value]) =>
+          name.toLowerCase() === "x-robots-tag" &&
+          value.toLowerCase() === "noindex"
+      );
+      if (routeRules.redirect || hasRobotsDisabled) return false;
+      return routeRules.sitemap ? defu$1(e, routeRules.sitemap) : e;
+    })
+    .filter(Boolean);
   if (autoI18n?.locales)
-    enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, sitemapName: sitemap.sitemapName });
-  const filteredUrls = filterSitemapUrls(enhancedUrls, { event: resolvers.event, isMultiSitemap, autoI18n, ...sitemap });
+    enhancedUrls = applyI18nEnhancements(enhancedUrls, {
+      isI18nMapped,
+      autoI18n,
+      sitemapName: sitemap.sitemapName,
+    });
+  const filteredUrls = filterSitemapUrls(enhancedUrls, {
+    event: resolvers.event,
+    isMultiSitemap,
+    autoI18n,
+    ...sitemap,
+  });
   const sortedUrls = maybeSort(filteredUrls);
   const slicedUrls = maybeSlice(sortedUrls);
   const nitro = useNitroApp();
   const ctx = {
     urls: slicedUrls,
-    sitemapName: sitemap.sitemapName
+    sitemapName: sitemap.sitemapName,
   };
   await nitro.hooks.callHook("sitemap:resolved", ctx);
   const urls = maybeSort(normaliseSitemapUrls(ctx.urls, resolvers));
@@ -4635,15 +5550,22 @@ async function buildSitemap(sitemap, resolvers, runtimeConfig) {
     const keys = Object.keys(e).filter((k) => !k.startsWith("_"));
     return [
       "    <url>",
-      keys.map((k) => handleEntry(k, e)).filter(Boolean).join("\n"),
-      "    </url>"
+      keys
+        .map((k) => handleEntry(k, e))
+        .filter(Boolean)
+        .join("\n"),
+      "    </url>",
     ].join("\n");
   });
-  return wrapSitemapXml([
-    '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    urlset.join("\n"),
-    "</urlset>"
-  ], resolvers, { version, xsl, credits });
+  return wrapSitemapXml(
+    [
+      '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      urlset.join("\n"),
+      "</urlset>",
+    ],
+    resolvers,
+    { version, xsl, credits }
+  );
 }
 
 async function buildSitemapIndex(resolvers, runtimeConfig) {
@@ -4659,10 +5581,12 @@ async function buildSitemapIndex(resolvers, runtimeConfig) {
     // xls
     version,
     xsl,
-    credits
+    credits,
   } = runtimeConfig;
   if (!sitemaps)
-    throw new Error("Attempting to build a sitemap index without required `sitemaps` configuration.");
+    throw new Error(
+      "Attempting to build a sitemap index without required `sitemaps` configuration."
+    );
   function maybeSort(urls) {
     return sortEntries ? sortSitemapUrls(urls) : urls;
   }
@@ -4671,11 +5595,22 @@ async function buildSitemapIndex(resolvers, runtimeConfig) {
   if (isChunking) {
     const sitemap = sitemaps.chunks;
     const sources = await resolveSitemapSources(await globalSitemapSources());
-    const normalisedUrls = normaliseSitemapUrls(sources.map((e) => e.urls).flat(), resolvers);
+    const normalisedUrls = normaliseSitemapUrls(
+      sources.map((e) => e.urls).flat(),
+      resolvers
+    );
     let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults));
     if (autoI18n?.locales)
-      enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, sitemapName: sitemap.sitemapName });
-    const filteredUrls = filterSitemapUrls(enhancedUrls, { ...sitemap, autoI18n, isMultiSitemap: true });
+      enhancedUrls = applyI18nEnhancements(enhancedUrls, {
+        isI18nMapped,
+        autoI18n,
+        sitemapName: sitemap.sitemapName,
+      });
+    const filteredUrls = filterSitemapUrls(enhancedUrls, {
+      ...sitemap,
+      autoI18n,
+      isMultiSitemap: true,
+    });
     const sortedUrls = maybeSort(filteredUrls);
     sortedUrls.forEach((url, i) => {
       const chunkIndex = Math.floor(i / defaultSitemapsChunkSize);
@@ -4693,34 +5628,49 @@ async function buildSitemapIndex(resolvers, runtimeConfig) {
   for (const name in chunks) {
     const sitemap = chunks[name];
     const entry = {
-      sitemap: resolvers.canonicalUrlResolver(`${name}-sitemap.xml`)
+      sitemap: resolvers.canonicalUrlResolver(`${name}-sitemap.xml`),
     };
-    let lastmod = sitemap.urls.filter((a) => !!a?.lastmod).map((a) => typeof a.lastmod === "string" ? new Date(a.lastmod) : a.lastmod).sort((a, b) => (b?.getTime() || 0) - (a?.getTime() || 0))?.[0];
-    if (!lastmod && autoLastmod)
-      lastmod = /* @__PURE__ */ new Date();
-    if (lastmod)
-      entry.lastmod = normaliseDate(lastmod);
+    let lastmod = sitemap.urls
+      .filter((a) => !!a?.lastmod)
+      .map((a) =>
+        typeof a.lastmod === "string" ? new Date(a.lastmod) : a.lastmod
+      )
+      .sort((a, b) => (b?.getTime() || 0) - (a?.getTime() || 0))?.[0];
+    if (!lastmod && autoLastmod) lastmod = /* @__PURE__ */ new Date();
+    if (lastmod) entry.lastmod = normaliseDate(lastmod);
     entries.push(entry);
   }
-  if (sitemaps.index)
-    entries.push(...sitemaps.index.sitemaps);
-  const sitemapXml = entries.map((e) => [
-    "    <sitemap>",
-    `        <loc>${escapeValueForXml(e.sitemap)}</loc>`,
-    // lastmod is optional
-    e.lastmod ? `        <lastmod>${escapeValueForXml(e.lastmod)}</lastmod>` : false,
-    "    </sitemap>"
-  ].filter(Boolean).join("\n")).join("\n");
-  return wrapSitemapXml([
-    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    sitemapXml,
-    "</sitemapindex>"
-  ], resolvers, { version, xsl, credits });
+  if (sitemaps.index) entries.push(...sitemaps.index.sitemaps);
+  const sitemapXml = entries
+    .map((e) =>
+      [
+        "    <sitemap>",
+        `        <loc>${escapeValueForXml(e.sitemap)}</loc>`,
+        // lastmod is optional
+        e.lastmod
+          ? `        <lastmod>${escapeValueForXml(e.lastmod)}</lastmod>`
+          : false,
+        "    </sitemap>",
+      ]
+        .filter(Boolean)
+        .join("\n")
+    )
+    .join("\n");
+  return wrapSitemapXml(
+    [
+      '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      sitemapXml,
+      "</sitemapindex>",
+    ],
+    resolvers,
+    { version, xsl, credits }
+  );
 }
 
 function useNitroUrlResolvers(e) {
   const canonicalQuery = getQuery$1(e).canonical;
-  const isShowingCanonical = typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
+  const isShowingCanonical =
+    typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
   const siteConfig = useSiteConfig(e);
   return {
     event: e,
@@ -4729,23 +5679,31 @@ function useNitroUrlResolvers(e) {
     canonicalUrlResolver: createSitePathResolver(e, {
       canonical: isShowingCanonical || !true,
       absolute: true,
-      withBase: true
+      withBase: true,
     }),
-    relativeBaseUrlResolver: createSitePathResolver(e, { absolute: false, withBase: true })
+    relativeBaseUrlResolver: createSitePathResolver(e, {
+      absolute: false,
+      withBase: true,
+    }),
   };
 }
 async function createSitemap(e, definition, runtimeConfig) {
   const { sitemapName } = definition;
   const nitro = useNitroApp();
-  let sitemap = await (definition.sitemapName === "index" ? buildSitemapIndex(useNitroUrlResolvers(e), runtimeConfig) : buildSitemap(definition, useNitroUrlResolvers(e), runtimeConfig));
+  let sitemap = await (definition.sitemapName === "index"
+    ? buildSitemapIndex(useNitroUrlResolvers(e), runtimeConfig)
+    : buildSitemap(definition, useNitroUrlResolvers(e), runtimeConfig));
   const ctx = { sitemap, sitemapName };
   await nitro.hooks.callHook("sitemap:output", ctx);
   sitemap = ctx.sitemap;
   setHeader(e, "Content-Type", "text/xml; charset=UTF-8");
   if (runtimeConfig.cacheMaxAgeSeconds)
-    setHeader(e, "Cache-Control", `public, max-age=${runtimeConfig.cacheMaxAgeSeconds}, must-revalidate`);
-  else
-    setHeader(e, "Cache-Control", `no-cache, no-store`);
+    setHeader(
+      e,
+      "Cache-Control",
+      `public, max-age=${runtimeConfig.cacheMaxAgeSeconds}, must-revalidate`
+    );
+  else setHeader(e, "Cache-Control", `no-cache, no-store`);
   e.context._isSitemap = true;
   return sitemap;
 }
@@ -4754,7 +5712,11 @@ const _OeL6xX = defineEventHandler(async (e) => {
   const runtimeConfig = useSimpleSitemapRuntimeConfig();
   const { sitemaps } = runtimeConfig;
   if ("index" in sitemaps) {
-    return sendRedirect(e, withBase("/sitemap_index.xml", useRuntimeConfig().app.baseURL), 302 );
+    return sendRedirect(
+      e,
+      withBase("/sitemap_index.xml", useRuntimeConfig().app.baseURL),
+      302
+    );
   }
   return createSitemap(e, Object.values(sitemaps)[0], runtimeConfig);
 });
@@ -4763,7 +5725,8 @@ function jsonParse(value) {
   return JSON.parse(value, regExpReviver);
 }
 function regExpReviver(_key, value) {
-  const withOperator = typeof value === "string" && value.match(/^--([A-Z]+) (.+)$/) || [];
+  const withOperator =
+    (typeof value === "string" && value.match(/^--([A-Z]+) (.+)$/)) || [];
   if (withOperator[1] === "REGEX") {
     const regex = withOperator[2].match(/\/(.*)\/([dgimsuy]*)$/);
     return regex ? new RegExp(regex[1], regex[2] || "") : value;
@@ -4781,8 +5744,15 @@ const parseJSONQueryParams = (body) => {
 const decodeQueryParams = (encoded) => {
   encoded = encoded.replace(/\//g, "");
   encoded = encoded.replace(/-/g, "+").replace(/_/g, "/");
-  encoded = encoded.padEnd(encoded.length + (4 - encoded.length % 4) % 4, "=");
-  return parseJSONQueryParams(typeof Buffer !== "undefined" ? Buffer.from(encoded, "base64").toString() : atob(encoded));
+  encoded = encoded.padEnd(
+    encoded.length + ((4 - (encoded.length % 4)) % 4),
+    "="
+  );
+  return parseJSONQueryParams(
+    typeof Buffer !== "undefined"
+      ? Buffer.from(encoded, "base64").toString()
+      : atob(encoded)
+  );
 };
 const memory = {};
 const getContentQuery = (event) => {
@@ -4819,12 +5789,23 @@ const getContentQuery = (event) => {
     }
   }
   if (query.sort) {
-    query.sort = String(query.sort).split(",").map((s) => {
-      const [key, order] = s.split(":");
-      return [key, +order];
-    });
+    query.sort = String(query.sort)
+      .split(",")
+      .map((s) => {
+        const [key, order] = s.split(":");
+        return [key, +order];
+      });
   }
-  const reservedKeys = ["partial", "draft", "only", "without", "where", "sort", "limit", "skip"];
+  const reservedKeys = [
+    "partial",
+    "draft",
+    "only",
+    "without",
+    "where",
+    "sort",
+    "limit",
+    "skip",
+  ];
   for (const key of Object.keys(query)) {
     if (reservedKeys.includes(key)) {
       continue;
@@ -4840,37 +5821,43 @@ const getContentQuery = (event) => {
   return query;
 };
 
-const _0EhEdS = cachedEventHandler(async (event) => {
-  const query = getContentQuery(event);
-  const { advanceQuery } = useRuntimeConfig().public.content.experimental;
-  if (query.first) {
-    let contentQuery = serverQueryContent$1(event, query);
-    if (!advanceQuery) {
-      contentQuery = contentQuery.withDirConfig();
+const _0EhEdS = cachedEventHandler(
+  async (event) => {
+    const query = getContentQuery(event);
+    const { advanceQuery } = useRuntimeConfig().public.content.experimental;
+    if (query.first) {
+      let contentQuery = serverQueryContent$1(event, query);
+      if (!advanceQuery) {
+        contentQuery = contentQuery.withDirConfig();
+      }
+      const content = await contentQuery.findOne();
+      const _result = advanceQuery ? content?.result : content;
+      const missing =
+        !_result &&
+        !content?.dirConfig?.navigation?.redirect &&
+        !content?._dir?.navigation?.redirect;
+      if (missing) {
+        throw createError({
+          statusMessage: "Document not found!",
+          statusCode: 404,
+          data: {
+            description: "Could not find document for the given query.",
+            query,
+          },
+        });
+      }
+      return content;
     }
-    const content = await contentQuery.findOne();
-    const _result = advanceQuery ? content?.result : content;
-    const missing = !_result && !content?.dirConfig?.navigation?.redirect && !content?._dir?.navigation?.redirect;
-    if (missing) {
-      throw createError({
-        statusMessage: "Document not found!",
-        statusCode: 404,
-        data: {
-          description: "Could not find document for the given query.",
-          query
-        }
-      });
+    if (query.count) {
+      return serverQueryContent$1(event, query).count();
     }
-    return content;
+    return serverQueryContent$1(event, query).find();
+  },
+  {
+    maxAge: 31536e3,
+    shouldBypassCache: () => !!true,
   }
-  if (query.count) {
-    return serverQueryContent$1(event, query).count();
-  }
-  return serverQueryContent$1(event, query).find();
-}, {
-  maxAge: 31536e3,
-  shouldBypassCache: () => !!true
-});
+);
 
 const _squ2Qj = defineEventHandler(async (event) => {
   const { content } = useRuntimeConfig();
@@ -4883,7 +5870,7 @@ const _squ2Qj = defineEventHandler(async (event) => {
     generatedAt: now,
     generateTime: Date.now() - now,
     contents: content.experimental.cacheContents ? contents : [],
-    navigation
+    navigation,
   };
 });
 
@@ -4894,64 +5881,71 @@ function createNav(contents, configs) {
   }
   const pickNavigationFields = (content) => ({
     ...pick(["title", ...navigation.fields])(content),
-    ...isObject(content?.navigation) ? content.navigation : {}
+    ...(isObject(content?.navigation) ? content.navigation : {}),
   });
-  const nav = contents.sort((a, b) => a._path.localeCompare(b._path)).reduce((nav2, content) => {
-    const parts = content._path.substring(1).split("/");
-    const idParts = content._id.split(":").slice(1);
-    const isIndex = !!idParts[idParts.length - 1].match(/([1-9][0-9]*\.)?index.md/g);
-    const getNavItem = (content2) => ({
-      title: content2.title,
-      _path: content2._path,
-      _file: content2._file,
-      children: [],
-      ...pickNavigationFields(content2),
-      ...content2._draft ? { _draft: true } : {}
-    });
-    const navItem = getNavItem(content);
-    if (isIndex) {
-      const dirConfig = configs[navItem._path];
-      if (typeof dirConfig?.navigation !== "undefined" && !dirConfig?.navigation) {
+  const nav = contents
+    .sort((a, b) => a._path.localeCompare(b._path))
+    .reduce((nav2, content) => {
+      const parts = content._path.substring(1).split("/");
+      const idParts = content._id.split(":").slice(1);
+      const isIndex = !!idParts[idParts.length - 1].match(
+        /([1-9][0-9]*\.)?index.md/g
+      );
+      const getNavItem = (content2) => ({
+        title: content2.title,
+        _path: content2._path,
+        _file: content2._file,
+        children: [],
+        ...pickNavigationFields(content2),
+        ...(content2._draft ? { _draft: true } : {}),
+      });
+      const navItem = getNavItem(content);
+      if (isIndex) {
+        const dirConfig = configs[navItem._path];
+        if (
+          typeof dirConfig?.navigation !== "undefined" &&
+          !dirConfig?.navigation
+        ) {
+          return nav2;
+        }
+        if (content._path !== "/") {
+          const indexItem = getNavItem(content);
+          navItem.children.push(indexItem);
+        }
+        Object.assign(navItem, pickNavigationFields(dirConfig));
+      }
+      if (parts.length === 1) {
+        nav2.push(navItem);
         return nav2;
       }
-      if (content._path !== "/") {
-        const indexItem = getNavItem(content);
-        navItem.children.push(indexItem);
-      }
-      Object.assign(
-        navItem,
-        pickNavigationFields(dirConfig)
-      );
-    }
-    if (parts.length === 1) {
-      nav2.push(navItem);
+      const siblings = parts.slice(0, -1).reduce((nodes, part, i) => {
+        const currentPathPart = "/" + parts.slice(0, i + 1).join("/");
+        const conf = configs[currentPathPart];
+        if (typeof conf?.navigation !== "undefined" && !conf.navigation) {
+          return [];
+        }
+        let parent = nodes.find((n) => n._path === currentPathPart);
+        if (!parent) {
+          parent = {
+            title: generateTitle(part),
+            _path: currentPathPart,
+            _file: content._file,
+            children: [],
+            ...pickNavigationFields(conf),
+          };
+          nodes.push(parent);
+        }
+        return parent.children;
+      }, nav2);
+      siblings.push(navItem);
       return nav2;
-    }
-    const siblings = parts.slice(0, -1).reduce((nodes, part, i) => {
-      const currentPathPart = "/" + parts.slice(0, i + 1).join("/");
-      const conf = configs[currentPathPart];
-      if (typeof conf?.navigation !== "undefined" && !conf.navigation) {
-        return [];
-      }
-      let parent = nodes.find((n) => n._path === currentPathPart);
-      if (!parent) {
-        parent = {
-          title: generateTitle(part),
-          _path: currentPathPart,
-          _file: content._file,
-          children: [],
-          ...pickNavigationFields(conf)
-        };
-        nodes.push(parent);
-      }
-      return parent.children;
-    }, nav2);
-    siblings.push(navItem);
-    return nav2;
-  }, []);
+    }, []);
   return sortAndClear(nav);
 }
-const collator = new Intl.Collator(void 0, { numeric: true, sensitivity: "base" });
+const collator = new Intl.Collator(void 0, {
+  numeric: true,
+  sensitivity: "base",
+});
 function sortAndClear(nav) {
   const sorted = nav.sort((a, b) => collator.compare(a._file, b._file));
   for (const item of sorted) {
@@ -4968,7 +5962,12 @@ function pick(keys) {
   return (obj) => {
     obj = obj || {};
     if (keys && keys.length) {
-      return keys.filter((key) => typeof obj[key] !== "undefined").reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
+      return keys
+        .filter((key) => typeof obj[key] !== "undefined")
+        .reduce(
+          (newObj, key) => Object.assign(newObj, { [key]: obj[key] }),
+          {}
+        );
     }
     return obj;
   };
@@ -4977,94 +5976,225 @@ function isObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
 
-const _ogO7xa = cachedEventHandler(async (event) => {
-  const query = getContentQuery(event);
-  if (!isPreview(event) && Object.keys(query).length === 0) {
-    const cache = await cacheStorage.getItem("content-navigation.json");
-    if (cache) {
-      return cache;
+const _ogO7xa = cachedEventHandler(
+  async (event) => {
+    const query = getContentQuery(event);
+    if (!isPreview(event) && Object.keys(query).length === 0) {
+      const cache = await cacheStorage.getItem("content-navigation.json");
+      if (cache) {
+        return cache;
+      }
     }
+    const contents = await serverQueryContent$1(event, query)
+      .where({
+        /**
+         * Partial contents are not included in the navigation
+         * A partial content is a content that has `_` prefix in its path
+         */
+        _partial: false,
+        /**
+         * Exclude any pages which have opted out of navigation via frontmatter.
+         */
+        navigation: {
+          $ne: false,
+        },
+      })
+      .find();
+    const dirConfigs = await serverQueryContent$1(event)
+      .where({ _path: /\/_dir$/i, _partial: true })
+      .find();
+    const configs = (dirConfigs?.result || dirConfigs).reduce(
+      (configs2, conf) => {
+        if (conf.title?.toLowerCase() === "dir") {
+          conf.title = void 0;
+        }
+        const key = conf._path.split("/").slice(0, -1).join("/") || "/";
+        configs2[key] = {
+          ...conf,
+          // Extract meta from body. (non MD files)
+          ...conf.body,
+        };
+        return configs2;
+      },
+      {}
+    );
+    return createNav(contents?.result || contents, configs);
+  },
+  {
+    maxAge: 31536e3,
+    shouldBypassCache: () => !!true,
   }
-  const contents = await serverQueryContent$1(event, query).where({
-    /**
-     * Partial contents are not included in the navigation
-     * A partial content is a content that has `_` prefix in its path
-     */
-    _partial: false,
-    /**
-     * Exclude any pages which have opted out of navigation via frontmatter.
-     */
-    navigation: {
-      $ne: false
-    }
-  }).find();
-  const dirConfigs = await serverQueryContent$1(event).where({ _path: /\/_dir$/i, _partial: true }).find();
-  const configs = (dirConfigs?.result || dirConfigs).reduce((configs2, conf) => {
-    if (conf.title?.toLowerCase() === "dir") {
-      conf.title = void 0;
-    }
-    const key = conf._path.split("/").slice(0, -1).join("/") || "/";
-    configs2[key] = {
-      ...conf,
-      // Extract meta from body. (non MD files)
-      ...conf.body
-    };
-    return configs2;
-  }, {});
-  return createNav(contents?.result || contents, configs);
-}, {
-  maxAge: 31536e3,
-  shouldBypassCache: () => !!true
-});
+);
 
 const _06ZQ30 = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
-  const fsDir = opts.fs?.dir ? isAbsolute(opts.fs.dir) ? opts.fs.dir : fileURLToPath(new URL(opts.fs.dir, globalThis._importMeta_.url)) : void 0;
-  const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
-  const httpStorage = opts.http?.domains ? ipxHttpStorage({ ...opts.http }) : void 0;
+  const fsDir = opts.fs?.dir
+    ? isAbsolute(opts.fs.dir)
+      ? opts.fs.dir
+      : fileURLToPath(new URL(opts.fs.dir, globalThis._importMeta_.url))
+    : void 0;
+  const fsStorage = opts.fs?.dir
+    ? ipxFSStorage({ ...opts.fs, dir: fsDir })
+    : void 0;
+  const httpStorage = opts.http?.domains
+    ? ipxHttpStorage({ ...opts.http })
+    : void 0;
   if (!fsStorage && !httpStorage) {
     throw new Error("IPX storage is not configured!");
   }
   const ipxOptions = {
     ...opts,
     storage: fsStorage || httpStorage,
-    httpStorage
+    httpStorage,
   };
   const ipx = createIPX(ipxOptions);
   const ipxHandler = createIPXH3Handler(ipx);
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_dWsG9x = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_dWsG9x = () =>
+  Promise.resolve().then(function () {
+    return renderer$1;
+  });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_dWsG9x, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_mdc/highlight', handler: _f9rY9O, lazy: false, middleware: false, method: undefined },
-  { route: '/robots.txt', handler: _AC3p6p, lazy: false, middleware: false, method: undefined },
-  { route: '', handler: _GnJobB, lazy: false, middleware: true, method: undefined },
-  { route: '/__site-config__/debug.json', handler: _zyh2uX, lazy: false, middleware: false, method: undefined },
-  { route: '/__sitemap__/nuxt-content-urls.json', handler: _z6n0WF, lazy: false, middleware: false, method: undefined },
-  { route: '/__sitemap__/debug.json', handler: _7ouy9p, lazy: false, middleware: false, method: undefined },
-  { route: '/__sitemap__/style.xsl', handler: _tJXYwZ, lazy: false, middleware: false, method: undefined },
-  { route: '/sitemap.xml', handler: _OeL6xX, lazy: false, middleware: false, method: undefined },
-  { route: '/api/_content/query/:qid/**:params', handler: _0EhEdS, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query/:qid', handler: _0EhEdS, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query', handler: _0EhEdS, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/cache.json', handler: _squ2Qj, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid/**:params', handler: _ogO7xa, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid', handler: _ogO7xa, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation', handler: _ogO7xa, lazy: false, middleware: false, method: "get" },
-  { route: '/_ipx/**', handler: _06ZQ30, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_dWsG9x, lazy: true, middleware: false, method: undefined }
+  {
+    route: "/__nuxt_error",
+    handler: _lazy_dWsG9x,
+    lazy: true,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/api/_mdc/highlight",
+    handler: _f9rY9O,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/robots.txt",
+    handler: _AC3p6p,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "",
+    handler: _GnJobB,
+    lazy: false,
+    middleware: true,
+    method: undefined,
+  },
+  {
+    route: "/__site-config__/debug.json",
+    handler: _zyh2uX,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/__sitemap__/nuxt-content-urls.json",
+    handler: _z6n0WF,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/__sitemap__/debug.json",
+    handler: _7ouy9p,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/__sitemap__/style.xsl",
+    handler: _tJXYwZ,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/sitemap.xml",
+    handler: _OeL6xX,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/api/_content/query/:qid/**:params",
+    handler: _0EhEdS,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/query/:qid",
+    handler: _0EhEdS,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/query",
+    handler: _0EhEdS,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/cache.json",
+    handler: _squ2Qj,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/navigation/:qid/**:params",
+    handler: _ogO7xa,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/navigation/:qid",
+    handler: _ogO7xa,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/api/_content/navigation",
+    handler: _ogO7xa,
+    lazy: false,
+    middleware: false,
+    method: "get",
+  },
+  {
+    route: "/_ipx/**",
+    handler: _06ZQ30,
+    lazy: false,
+    middleware: false,
+    method: undefined,
+  },
+  {
+    route: "/**",
+    handler: _lazy_dWsG9x,
+    lazy: true,
+    middleware: false,
+    method: undefined,
+  },
 ];
 
 function createNitroApp() {
   const config = useRuntimeConfig();
   const hooks = createHooks();
   const captureError = (error, context = {}) => {
-    const promise = hooks.callHookParallel("error", error, context).catch((_err) => {
-      console.error("Error while capturing another error", _err);
-    });
+    const promise = hooks
+      .callHookParallel("error", error, context)
+      .catch((_err) => {
+        console.error("Error while capturing another error", _err);
+      });
     if (context.event && isEvent(context.event)) {
       const errors = context.event.context.nitro?.errors;
       if (errors) {
@@ -5087,28 +6217,33 @@ function createNitroApp() {
       });
     },
     onBeforeResponse: async (event, response) => {
-      await nitroApp.hooks.callHook("beforeResponse", event, response).catch((error) => {
-        captureError(error, { event, tags: ["request", "response"] });
-      });
+      await nitroApp.hooks
+        .callHook("beforeResponse", event, response)
+        .catch((error) => {
+          captureError(error, { event, tags: ["request", "response"] });
+        });
     },
     onAfterResponse: async (event, response) => {
-      await nitroApp.hooks.callHook("afterResponse", event, response).catch((error) => {
-        captureError(error, { event, tags: ["request", "response"] });
-      });
-    }
+      await nitroApp.hooks
+        .callHook("afterResponse", event, response)
+        .catch((error) => {
+          captureError(error, { event, tags: ["request", "response"] });
+        });
+    },
   });
   const router = createRouter$1({
-    preemptive: true
+    preemptive: true,
   });
   const localCall = createCall(toNodeListener(h3App));
   const _localFetch = createFetch(localCall, globalThis.fetch);
-  const localFetch = (input, init) => _localFetch(input, init).then(
-    (response) => normalizeFetchResponse(response)
-  );
+  const localFetch = (input, init) =>
+    _localFetch(input, init).then((response) =>
+      normalizeFetchResponse(response)
+    );
   const $fetch = createFetch$1({
     fetch: localFetch,
     Headers: Headers$1,
-    defaults: { baseURL: config.app.baseURL }
+    defaults: { baseURL: config.app.baseURL },
   });
   globalThis.$fetch = $fetch;
   h3App.use(createRouteRulesHandler({ localFetch }));
@@ -5119,10 +6254,12 @@ function createNitroApp() {
       if (envContext) {
         Object.assign(event.context, envContext);
       }
-      event.fetch = (req, init) => fetchWithEvent(event, req, init, { fetch: localFetch });
-      event.$fetch = (req, init) => fetchWithEvent(event, req, init, {
-        fetch: $fetch
-      });
+      event.fetch = (req, init) =>
+        fetchWithEvent(event, req, init, { fetch: localFetch });
+      event.$fetch = (req, init) =>
+        fetchWithEvent(event, req, init, {
+          fetch: $fetch,
+        });
       event.waitUntil = (promise) => {
         if (!event.context.nitro._waitUntilPromises) {
           event.context.nitro._waitUntilPromises = [];
@@ -5152,7 +6289,7 @@ function createNitroApp() {
       if (routeRules.cache) {
         handler = cachedEventHandler(handler, {
           group: "nitro/routes",
-          ...routeRules.cache
+          ...routeRules.cache,
         });
       }
       router.use(h.route, handler, h.method);
@@ -5165,7 +6302,7 @@ function createNitroApp() {
     router,
     localCall,
     localFetch,
-    captureError
+    captureError,
   };
   for (const plugin of plugins) {
     try {
@@ -5182,7 +6319,11 @@ const useNitroApp = () => nitroApp;
 
 const server = new Server(toNodeListener(nitroApp.h3App));
 function getAddress() {
-  if (d === "stackblitz" || process.env.NITRO_NO_UNIX_SOCKET || process.versions.bun) {
+  if (
+    d === "stackblitz" ||
+    process.env.NITRO_NO_UNIX_SOCKET ||
+    process.versions.bun
+  ) {
     return 0;
   }
   const socketName = `worker-${process.pid}-${threadId}.sock`;
@@ -5199,7 +6340,10 @@ server.listen(listenAddress, () => {
   const _address = server.address();
   parentPort.postMessage({
     event: "listen",
-    address: typeof _address === "string" ? { socketPath: _address } : { host: "localhost", port: _address.port }
+    address:
+      typeof _address === "string"
+        ? { socketPath: _address }
+        : { host: "localhost", port: _address.port },
   });
 });
 trapUnhandledNodeErrors();
@@ -5213,105 +6357,112 @@ parentPort.on("message", async (msg) => {
   }
 });
 
-const _messages = {"appName":"Nuxt","version":"","statusCode":500,"statusMessage":"Server error","description":"An error occurred in the application and the page could not be served. If you are the application owner, check your server logs for details.","stack":""};
-const _render = function({ messages }) {
-var __t, __p = '';
-__p += '<!DOCTYPE html><html><head><title>' +
-((__t = ( messages.statusCode )) == null ? '' : __t) +
-' - ' +
-((__t = ( messages.statusMessage )) == null ? '' : __t) +
-' | ' +
-((__t = ( messages.appName )) == null ? '' : __t) +
-'</title><meta charset="utf-8"><meta content="width=device-width,initial-scale=1,minimum-scale=1" name="viewport"><style>.spotlight{background:linear-gradient(45deg, #00DC82 0%, #36E4DA 50%, #0047E1 100%);opacity:0.8;filter:blur(30vh);height:60vh;bottom:-40vh}*,:before,:after{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e0e0e0}*{--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(14, 165, 233, .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";line-height:1.5}h1,p,pre{margin:0}h1{font-size:inherit;font-weight:inherit}pre{font-size:1em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.bg-black\\/5{--tw-bg-opacity:.05;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.rounded-t-md{border-top-left-radius:.375rem;border-top-right-radius:.375rem}.flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.flex-col{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column}.flex-1{-webkit-box-flex:1;-ms-flex:1 1 0%;-webkit-flex:1 1 0%;flex:1 1 0%}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.font-medium{font-weight:500}.font-light{font-weight:300}.h-auto{height:auto}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-6xl{font-size:3.75rem;line-height:1}.leading-tight{line-height:1.25}.mb-8{margin-bottom:2rem}.mb-6{margin-bottom:1.5rem}.min-h-screen{min-height:100vh}.overflow-y-auto{overflow-y:auto}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.pt-14{padding-top:3.5rem}.fixed{position:fixed}.left-0{left:0}.right-0{right:0}.text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.z-10{z-index:10}@media (min-width: 640px){.sm\\:text-8xl{font-size:6rem;line-height:1}.sm\\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (prefers-color-scheme: dark){.dark\\:bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.dark\\:bg-white\\/10{--tw-bg-opacity:.1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.dark\\:text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}}</style><script>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll(\'link[rel="modulepreload"]\'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();</script></head><body class="font-sans antialiased bg-white px-10 pt-14 dark:bg-black text-black dark:text-white min-h-screen flex flex-col"><div class="fixed left-0 right-0 spotlight"></div><h1 class="text-6xl sm:text-8xl font-medium mb-6">' +
-((__t = ( messages.statusCode )) == null ? '' : __t) +
-'</h1><p class="text-xl sm:text-2xl font-light mb-8 leading-tight">' +
-((__t = ( messages.description )) == null ? '' : __t) +
-'</p><div class="bg-white rounded-t-md bg-black/5 dark:bg-white/10 flex-1 overflow-y-auto h-auto"><pre class="text-xl font-light leading-tight z-10 p-8">' +
-((__t = ( messages.stack )) == null ? '' : __t) +
-'</pre></div></body></html>';
-return __p
+const _messages = {
+  appName: "Nuxt",
+  version: "",
+  statusCode: 500,
+  statusMessage: "Server error",
+  description:
+    "An error occurred in the application and the page could not be served. If you are the application owner, check your server logs for details.",
+  stack: "",
 };
-const _template = (messages) => _render({ messages: { ..._messages, ...messages } });
+const _render = function ({ messages }) {
+  var __t,
+    __p = "";
+  __p +=
+    "<!DOCTYPE html><html><head><title>" +
+    ((__t = messages.statusCode) == null ? "" : __t) +
+    " - " +
+    ((__t = messages.statusMessage) == null ? "" : __t) +
+    " | " +
+    ((__t = messages.appName) == null ? "" : __t) +
+    '</title><meta charset="utf-8"><meta content="width=device-width,initial-scale=1,minimum-scale=1" name="viewport"><style>.spotlight{background:linear-gradient(45deg, #00DC82 0%, #36E4DA 50%, #0047E1 100%);opacity:0.8;filter:blur(30vh);height:60vh;bottom:-40vh}*,:before,:after{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e0e0e0}*{--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(14, 165, 233, .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";line-height:1.5}h1,p,pre{margin:0}h1{font-size:inherit;font-weight:inherit}pre{font-size:1em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.bg-black\\/5{--tw-bg-opacity:.05;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.rounded-t-md{border-top-left-radius:.375rem;border-top-right-radius:.375rem}.flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.flex-col{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column}.flex-1{-webkit-box-flex:1;-ms-flex:1 1 0%;-webkit-flex:1 1 0%;flex:1 1 0%}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.font-medium{font-weight:500}.font-light{font-weight:300}.h-auto{height:auto}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-6xl{font-size:3.75rem;line-height:1}.leading-tight{line-height:1.25}.mb-8{margin-bottom:2rem}.mb-6{margin-bottom:1.5rem}.min-h-screen{min-height:100vh}.overflow-y-auto{overflow-y:auto}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.pt-14{padding-top:3.5rem}.fixed{position:fixed}.left-0{left:0}.right-0{right:0}.text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.z-10{z-index:10}@media (min-width: 640px){.sm\\:text-8xl{font-size:6rem;line-height:1}.sm\\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (prefers-color-scheme: dark){.dark\\:bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.dark\\:bg-white\\/10{--tw-bg-opacity:.1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.dark\\:text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}}</style><script>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll(\'link[rel="modulepreload"]\'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();</script></head><body class="font-sans antialiased bg-white px-10 pt-14 dark:bg-black text-black dark:text-white min-h-screen flex flex-col"><div class="fixed left-0 right-0 spotlight"></div><h1 class="text-6xl sm:text-8xl font-medium mb-6">' +
+    ((__t = messages.statusCode) == null ? "" : __t) +
+    '</h1><p class="text-xl sm:text-2xl font-light mb-8 leading-tight">' +
+    ((__t = messages.description) == null ? "" : __t) +
+    '</p><div class="bg-white rounded-t-md bg-black/5 dark:bg-white/10 flex-1 overflow-y-auto h-auto"><pre class="text-xl font-light leading-tight z-10 p-8">' +
+    ((__t = messages.stack) == null ? "" : __t) +
+    "</pre></div></body></html>";
+  return __p;
+};
+const _template = (messages) =>
+  _render({ messages: { ..._messages, ...messages } });
 const template$1 = _template;
 
-const errorDev = /*#__PURE__*/Object.freeze({
+const errorDev = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  template: template$1
+  template: template$1,
 });
 
 const sources$1 = [
-    {
-        "context": {
-            "name": "sitemap:urls",
-            "description": "Set with the `sitemap.urls` config."
-        },
-        "urls": [],
-        "sourceType": "user"
+  {
+    context: {
+      name: "sitemap:urls",
+      description: "Set with the `sitemap.urls` config.",
     },
-    {
-        "context": {
-            "name": "@nuxt/content:urls",
-            "description": "Generated from your markdown files.",
-            "tips": [
-                "Enabled because you've set `config.strictNuxtContentPaths: true`."
-            ]
-        },
-        "fetch": "/__sitemap__/nuxt-content-urls.json",
-        "sourceType": "app"
+    urls: [],
+    sourceType: "user",
+  },
+  {
+    context: {
+      name: "@nuxt/content:urls",
+      description: "Generated from your markdown files.",
+      tips: [
+        "Enabled because you've set `config.strictNuxtContentPaths: true`.",
+      ],
     },
-    {
-        "context": {
-            "name": "nuxt:pages",
-            "description": "Generated from your static page files.",
-            "tips": [
-                "Can be disabled with `{ excludeAppSources: ['nuxt:pages'] }`."
-            ]
-        },
-        "urls": [
-            {
-                "loc": "/articles",
-                "lastmod": "2024-06-05T12:22:20.939Z"
-            },
-            {
-                "loc": "/contact-success",
-                "lastmod": "2024-06-15T12:31:28.728Z"
-            },
-            {
-                "loc": "/contact",
-                "lastmod": "2024-06-15T12:31:28.729Z"
-            },
-            {
-                "loc": "/",
-                "lastmod": "2024-06-15T14:20:09.697Z"
-            }
-        ],
-        "sourceType": "app"
+    fetch: "/__sitemap__/nuxt-content-urls.json",
+    sourceType: "app",
+  },
+  {
+    context: {
+      name: "nuxt:pages",
+      description: "Generated from your static page files.",
+      tips: ["Can be disabled with `{ excludeAppSources: ['nuxt:pages'] }`."],
     },
-    {
-        "context": {
-            "name": "nuxt:prerender",
-            "description": "Generated at build time when prerendering.",
-            "tips": [
-                "Can be disabled with `{ excludeAppSources: ['nuxt:prerender'] }`."
-            ]
-        },
-        "urls": [
-            "/"
-        ],
-        "sourceType": "app"
-    }
+    urls: [
+      {
+        loc: "/articles",
+        lastmod: "2024-06-05T12:22:20.939Z",
+      },
+      {
+        loc: "/contact-success",
+        lastmod: "2024-06-15T12:31:28.728Z",
+      },
+      {
+        loc: "/contact",
+        lastmod: "2024-06-15T12:31:28.729Z",
+      },
+      {
+        loc: "/",
+        lastmod: "2024-06-15T14:20:09.697Z",
+      },
+    ],
+    sourceType: "app",
+  },
+  {
+    context: {
+      name: "nuxt:prerender",
+      description: "Generated at build time when prerendering.",
+      tips: [
+        "Can be disabled with `{ excludeAppSources: ['nuxt:prerender'] }`.",
+      ],
+    },
+    urls: ["/"],
+    sourceType: "app",
+  },
 ];
 
-const globalSources = /*#__PURE__*/Object.freeze({
+const globalSources = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  sources: sources$1
+  sources: sources$1,
 });
 
 const sources = {};
 
-const childSources = /*#__PURE__*/Object.freeze({
+const childSources = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  sources: sources
+  sources: sources,
 });
 
 const Vue3 = version.startsWith("3");
@@ -5320,18 +6471,15 @@ function resolveUnref(r) {
   return typeof r === "function" ? r() : unref(r);
 }
 function resolveUnrefHeadInput(ref, lastKey = "") {
-  if (ref instanceof Promise)
-    return ref;
+  if (ref instanceof Promise) return ref;
   const root = resolveUnref(ref);
-  if (!ref || !root)
-    return root;
+  if (!ref || !root) return root;
   if (Array.isArray(root))
     return root.map((r) => resolveUnrefHeadInput(r, lastKey));
   if (typeof root === "object") {
     return Object.fromEntries(
       Object.entries(root).map(([k, v]) => {
-        if (k === "titleTemplate" || k.startsWith("on"))
-          return [k, unref(v)];
+        if (k === "titleTemplate" || k.startsWith("on")) return [k, unref(v)];
         return [k, resolveUnrefHeadInput(v, k)];
       })
     );
@@ -5341,11 +6489,11 @@ function resolveUnrefHeadInput(ref, lastKey = "") {
 
 const VueReactivityPlugin = defineHeadPlugin({
   hooks: {
-    "entries:resolve": function(ctx) {
+    "entries:resolve": function (ctx) {
       for (const entry of ctx.entries)
         entry.resolvedInput = resolveUnrefHeadInput(entry.input);
-    }
-  }
+    },
+  },
 });
 
 const headSymbol = "usehead";
@@ -5357,7 +6505,7 @@ function vueInstall(head) {
         app.config.globalProperties.$head = head;
         app.provide(headSymbol, head);
       }
-    }
+    },
   };
   return plugin.install;
 }
@@ -5370,7 +6518,45 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width,initial-scale=1"},{"charset":"utf-16"},{"name":"apple-mobile-web-app-title","content":"theturkbet"},{"name":"application-name","content":"theturkbet"},{"name":"msapplication-TileColor","content":"#2b67bb"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"manifest","href":"/site.webmanifest"},{"rel":"mask-icon","href":"/safari-pinned-tab.svg","color":"#5bbad5"}],"style":[],"script":[],"noscript":[],"charset":"utf-16","htmlAttrs":{"lang":"en-US"},"viewport":"width=device-width,initial-scale=1","title":"theturkbet","titleTemplate":"%s - theturkbet.com"};
+const appHead = {
+  meta: [
+    { name: "viewport", content: "width=device-width,initial-scale=1" },
+    { charset: "utf-16" },
+    { name: "apple-mobile-web-app-title", content: "theturkbet" },
+    { name: "application-name", content: "theturkbet" },
+    { name: "msapplication-TileColor", content: "#2b67bb" },
+    { name: "theme-color", content: "#ffffff" },
+  ],
+  link: [
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: "/favicon-32x32.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      href: "/favicon-16x16.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
+    { rel: "manifest", href: "/site.webmanifest" },
+    { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#5bbad5" },
+  ],
+  style: [],
+  script: [],
+  noscript: [],
+  charset: "utf-16",
+  htmlAttrs: { lang: "ar-SA", dir: "rtl" },
+  viewport: "width=device-width,initial-scale=1",
+  title: "theturkbet",
+  titleTemplate: "%s - theturkbet.com",
+};
 
 const appRootId = "__nuxt";
 
@@ -5378,9 +6564,23 @@ const appRootTag = "div";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Users/laithkawar/Dev/casino/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Users/laithkawar/Dev/casino/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
-const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
+const getClientManifest = () =>
+  import(
+    "file:///Users/laithkawar/Dev/casino/.nuxt/dist/server/client.manifest.mjs"
+  )
+    .then((r) => r.default || r)
+    .then((r) => (typeof r === "function" ? r() : r));
+const getServerEntry = () =>
+  import(
+    "file:///Users/laithkawar/Dev/casino/.nuxt/dist/server/server.mjs"
+  ).then((r) => r.default || r);
+const getSSRStyles = lazyCachedFunction(() =>
+  Promise.resolve()
+    .then(function () {
+      return styles$1;
+    })
+    .then((r) => r.default || r)
+);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -5393,7 +6593,7 @@ const getSSRRenderer = lazyCachedFunction(async () => {
   const options = {
     manifest,
     renderToString: renderToString$1,
-    buildAssetsURL
+    buildAssetsURL,
   };
   const renderer = createRenderer(createSSRApp, options);
   async function renderToString$1(input, context) {
@@ -5401,20 +6601,25 @@ const getSSRRenderer = lazyCachedFunction(async () => {
     if (process.env.NUXT_VITE_NODE_OPTIONS) {
       renderer.rendererContext.updateManifest(await getClientManifest());
     }
-    return `<${appRootTag}${` id="${appRootId}"` }>${html}</${appRootTag}>`;
+    return `<${appRootTag}${` id="${appRootId}"`}>${html}</${appRootTag}>`;
   }
   return renderer;
 });
 const getSPARenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
-  const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "");
+  const spaTemplate = await Promise.resolve()
+    .then(function () {
+      return _virtual__spaTemplate;
+    })
+    .then((r) => r.template)
+    .catch(() => "");
   const options = {
     manifest,
-    renderToString: () => `<${appRootTag}${` id="${appRootId}"` }>${spaTemplate}</${appRootTag}>`,
-    buildAssetsURL
+    renderToString: () =>
+      `<${appRootTag}${` id="${appRootId}"`}>${spaTemplate}</${appRootTag}>`,
+    buildAssetsURL,
   };
-  const renderer = createRenderer(() => () => {
-  }, options);
+  const renderer = createRenderer(() => () => {}, options);
   const result = await renderer.renderToString({});
   const renderToString = (ssrContext) => {
     const config = useRuntimeConfig();
@@ -5424,30 +6629,32 @@ const getSPARenderer = lazyCachedFunction(async () => {
       serverRendered: false,
       data: {},
       state: {},
-      once: /* @__PURE__ */ new Set()
+      once: /* @__PURE__ */ new Set(),
     };
     ssrContext.config = {
       public: config.public,
-      app: config.app
+      app: config.app,
     };
     return Promise.resolve(result);
   };
   return {
     rendererContext: renderer.rendererContext,
-    renderToString
+    renderToString,
   };
 });
-const PAYLOAD_URL_RE = /\/_payload(\.[a-zA-Z0-9]+)?.json(\?.*)?$/ ;
+const PAYLOAD_URL_RE = /\/_payload(\.[a-zA-Z0-9]+)?.json(\?.*)?$/;
 const renderer = defineRenderHandler(async (event) => {
   const nitroApp = useNitroApp();
-  const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
+  const ssrError = event.path.startsWith("/__nuxt_error")
+    ? getQuery$1(event)
+    : null;
   if (ssrError && ssrError.statusCode) {
     ssrError.statusCode = parseInt(ssrError.statusCode);
   }
   if (ssrError && !("__unenv__" in event.node.req)) {
     throw createError({
       statusCode: 404,
-      statusMessage: "Page Not Found: /__nuxt_error"
+      statusMessage: "Page Not Found: /__nuxt_error",
     });
   }
   const islandContext = void 0;
@@ -5460,7 +6667,7 @@ const renderer = defineRenderHandler(async (event) => {
   }
   const routeOptions = getRouteRules(event);
   const head = createServerHead({
-    plugins: unheadPlugins
+    plugins: unheadPlugins,
   });
   const headEntryOptions = { mode: "server" };
   head.push(appHead, headEntryOptions);
@@ -5468,25 +6675,35 @@ const renderer = defineRenderHandler(async (event) => {
     url,
     event,
     runtimeConfig: useRuntimeConfig(),
-    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false && !islandContext || (false),
+    noSSR:
+      event.context.nuxt?.noSSR ||
+      (routeOptions.ssr === false && !islandContext) ||
+      false,
     head,
     error: !!ssrError,
     nuxt: void 0,
     /* NuxtApp */
     payload: ssrError ? { error: ssrError } : {},
     _payloadReducers: {},
-    islandContext
+    islandContext,
   };
-  const renderer = ssrContext.noSSR ? await getSPARenderer() : await getSSRRenderer();
-  const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
-    if (ssrContext._renderResponse && error.message === "skipping render") {
-      return {};
-    }
-    const _err = !ssrError && ssrContext.payload?.error || error;
-    await ssrContext.nuxt?.hooks.callHook("app:error", _err);
-    throw _err;
+  const renderer = ssrContext.noSSR
+    ? await getSPARenderer()
+    : await getSSRRenderer();
+  const _rendered = await renderer
+    .renderToString(ssrContext)
+    .catch(async (error) => {
+      if (ssrContext._renderResponse && error.message === "skipping render") {
+        return {};
+      }
+      const _err = (!ssrError && ssrContext.payload?.error) || error;
+      await ssrContext.nuxt?.hooks.callHook("app:error", _err);
+      throw _err;
+    });
+  await ssrContext.nuxt?.hooks.callHook("app:rendered", {
+    ssrContext,
+    renderResult: _rendered,
   });
-  await ssrContext.nuxt?.hooks.callHook("app:rendered", { ssrContext, renderResult: _rendered });
   if (ssrContext._renderResponse) {
     return ssrContext._renderResponse;
   }
@@ -5497,42 +6714,70 @@ const renderer = defineRenderHandler(async (event) => {
     const response2 = renderPayloadResponse(ssrContext);
     return response2;
   }
-  const inlinedStyles = Boolean(islandContext) ? await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) : [];
+  const inlinedStyles = Boolean(islandContext)
+    ? await renderInlineStyles(
+        ssrContext.modules ?? ssrContext._registeredComponents ?? []
+      )
+    : [];
   const NO_SCRIPTS = routeOptions.experimentalNoScripts;
-  const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
+  const { styles, scripts } = getRequestDependencies(
+    ssrContext,
+    renderer.rendererContext
+  );
   head.push({ style: inlinedStyles });
-  head.push({
-    link: Object.values(styles).map(
-      (resource) => ({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file) })
-    )
-  }, headEntryOptions);
+  head.push(
+    {
+      link: Object.values(styles).map((resource) => ({
+        rel: "stylesheet",
+        href: renderer.rendererContext.buildAssetsURL(resource.file),
+      })),
+    },
+    headEntryOptions
+  );
   if (!NO_SCRIPTS) {
-    head.push({
-      link: getPreloadLinks(ssrContext, renderer.rendererContext)
-    }, headEntryOptions);
-    head.push({
-      link: getPrefetchLinks(ssrContext, renderer.rendererContext)
-    }, headEntryOptions);
-    head.push({
-      script: renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: ssrContext.payload }) 
-    }, {
-      ...headEntryOptions,
-      // this should come before another end of body scripts
-      tagPosition: "bodyClose",
-      tagPriority: "high"
-    });
+    head.push(
+      {
+        link: getPreloadLinks(ssrContext, renderer.rendererContext),
+      },
+      headEntryOptions
+    );
+    head.push(
+      {
+        link: getPrefetchLinks(ssrContext, renderer.rendererContext),
+      },
+      headEntryOptions
+    );
+    head.push(
+      {
+        script: renderPayloadJsonScript({
+          id: "__NUXT_DATA__",
+          ssrContext,
+          data: ssrContext.payload,
+        }),
+      },
+      {
+        ...headEntryOptions,
+        // this should come before another end of body scripts
+        tagPosition: "bodyClose",
+        tagPriority: "high",
+      }
+    );
   }
   if (!routeOptions.experimentalNoScripts) {
-    head.push({
-      script: Object.values(scripts).map((resource) => ({
-        type: resource.module ? "module" : null,
-        src: renderer.rendererContext.buildAssetsURL(resource.file),
-        defer: resource.module ? null : true,
-        crossorigin: ""
-      }))
-    }, headEntryOptions);
+    head.push(
+      {
+        script: Object.values(scripts).map((resource) => ({
+          type: resource.module ? "module" : null,
+          src: renderer.rendererContext.buildAssetsURL(resource.file),
+          defer: resource.module ? null : true,
+          crossorigin: "",
+        })),
+      },
+      headEntryOptions
+    );
   }
-  const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } = await renderSSRHead(head);
+  const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } =
+    await renderSSRHead(head);
   const htmlContext = {
     island: Boolean(islandContext),
     htmlAttrs: htmlAttrs ? [htmlAttrs] : [],
@@ -5540,7 +6785,7 @@ const renderer = defineRenderHandler(async (event) => {
     bodyAttrs: bodyAttrs ? [bodyAttrs] : [],
     bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
     body: [_rendered.html],
-    bodyAppend: [bodyTags]
+    bodyAppend: [bodyTags],
   };
   await nitroApp.hooks.callHook("render:html", htmlContext, { event });
   const response = {
@@ -5549,8 +6794,8 @@ const renderer = defineRenderHandler(async (event) => {
     statusMessage: getResponseStatusText(event),
     headers: {
       "content-type": "text/html;charset=utf-8",
-      "x-powered-by": "Nuxt"
-    }
+      "x-powered-by": "Nuxt",
+    },
   };
   return response;
 });
@@ -5576,7 +6821,11 @@ function joinAttrs(chunks) {
   return chunks.join(" ");
 }
 function renderHTMLDocument(html) {
-  return `<!DOCTYPE html><html${joinAttrs(html.htmlAttrs)}><head>${joinTags(html.head)}</head><body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body></html>`;
+  return `<!DOCTYPE html><html${joinAttrs(html.htmlAttrs)}><head>${joinTags(
+    html.head
+  )}</head><body${joinAttrs(html.bodyAttrs)}>${joinTags(
+    html.bodyPrepend
+  )}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body></html>`;
 }
 async function renderInlineStyles(usedModules) {
   const styleMap = await getSSRStyles();
@@ -5592,22 +6841,27 @@ async function renderInlineStyles(usedModules) {
 }
 function renderPayloadResponse(ssrContext) {
   return {
-    body: stringify(splitPayload(ssrContext).payload, ssrContext._payloadReducers) ,
+    body: stringify(
+      splitPayload(ssrContext).payload,
+      ssrContext._payloadReducers
+    ),
     statusCode: getResponseStatus(ssrContext.event),
     statusMessage: getResponseStatusText(ssrContext.event),
     headers: {
-      "content-type": "application/json;charset=utf-8" ,
-      "x-powered-by": "Nuxt"
-    }
+      "content-type": "application/json;charset=utf-8",
+      "x-powered-by": "Nuxt",
+    },
   };
 }
 function renderPayloadJsonScript(opts) {
-  const contents = opts.data ? stringify(opts.data, opts.ssrContext._payloadReducers) : "";
+  const contents = opts.data
+    ? stringify(opts.data, opts.ssrContext._payloadReducers)
+    : "";
   const payload = {
     type: "application/json",
     id: opts.id,
     innerHTML: contents,
-    "data-ssr": !(opts.ssrContext.noSSR)
+    "data-ssr": !opts.ssrContext.noSSR,
   };
   if (opts.src) {
     payload["data-src"] = opts.src;
@@ -5615,34 +6869,36 @@ function renderPayloadJsonScript(opts) {
   return [
     payload,
     {
-      innerHTML: `window.__NUXT__={};window.__NUXT__.config=${uneval(opts.ssrContext.config)}`
-    }
+      innerHTML: `window.__NUXT__={};window.__NUXT__.config=${uneval(
+        opts.ssrContext.config
+      )}`,
+    },
   ];
 }
 function splitPayload(ssrContext) {
   const { data, prerenderedAt, ...initial } = ssrContext.payload;
   return {
     initial: { ...initial, prerenderedAt },
-    payload: { data, prerenderedAt }
+    payload: { data, prerenderedAt },
   };
 }
 
-const renderer$1 = /*#__PURE__*/Object.freeze({
+const renderer$1 = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  default: renderer
+  default: renderer,
 });
 
 const styles = {};
 
-const styles$1 = /*#__PURE__*/Object.freeze({
+const styles$1 = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  default: styles
+  default: styles,
 });
 
 const template = "";
 
-const _virtual__spaTemplate = /*#__PURE__*/Object.freeze({
+const _virtual__spaTemplate = /*#__PURE__*/ Object.freeze({
   __proto__: null,
-  template: template
+  template: template,
 });
 //# sourceMappingURL=index.mjs.map
