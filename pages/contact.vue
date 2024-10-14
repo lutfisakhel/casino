@@ -99,13 +99,11 @@
           <h2
             class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
           >
-            Get in touch
+            تواصل بنا
           </h2>
           <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            We love hearing from our readers! Whether you have a question,
-            suggestion, or just want to share your AI-driven content creation
-            journey, we're here for you. Drop us a message, and we'll get back
-            to you as soon as we can.
+            نحن نحب ان نسمع من قرائنا! سواء كان لديك سؤال أو اقتراح فنحن هنا من
+            أجلك. أرسل لنا رسالة، وسنقوم بالرد عليك في أقرب وقت ممكن.
           </p>
 
           <!-- <dl
@@ -145,8 +143,8 @@
               <dd>
                 <a
                   class="hover:text-gray-900 dark:hover:text-white"
-                  href="mailto:support@theturkbet.com"
-                  >support@theturkbet.com</a
+                  href="mailto:support@aividpro.com"
+                  >support@aividpro.com</a
                 >
               </dd>
             </div>
@@ -169,7 +167,7 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 useHead(
   metaFromNuxtContent({
     title: "Contact Us",
-    description: "Contact theturkbet. We'd love to hear from you!",
+    description: "Contact Albashra. We'd love to hear from you!",
   })
 );
 </script>

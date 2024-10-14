@@ -5,7 +5,7 @@
         <h2
           class="text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-zinc-300"
         >
-          Frequently asked questions
+          الأسئلة الشائعة
         </h2>
         <dl
           class="mt-10 space-y-6 divide-y dark:text-zinc-300 divide-gray-900/10"

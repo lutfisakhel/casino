@@ -1,7 +1,7 @@
 <template>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="px-6 mx-auto max-w-7xl lg:px-8">
     <div
-      class="mt-20 py-20 px-8 md:p-20 bg-white dark:bg-slate-800 rounded-xl max-w-4xl mx-auto"
+      class="max-w-4xl px-8 py-20 mx-auto mt-20 bg-white md:p-20 dark:bg-slate-800 rounded-xl"
     >
       <div class="max-w-lg mx-auto lg:max-w-none">
         <div class="text-center">
@@ -33,8 +33,8 @@ import { metaFromNuxtContent } from "~/utils/sn-utils-meta";
 
 useHead(
   metaFromNuxtContent({
-    title: "Thank you for contacting us",
-    description: "Thank you for contacting theturkbet!",
+    title: "نشكرك على الاتصال بنا",
+    description: "شكرًا لك على أخذ  الوقت لااتصال بنا مباشرة!!",
   })
 );
 </script>

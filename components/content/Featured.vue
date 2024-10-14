@@ -55,7 +55,7 @@
                 <Icon
                   name="material-symbols:arrow-forward-rounded"
                   size="1.5em"
-                  class="mr-2 duration-500 transform md:mr-2 group-hover:translate-x-1"
+                  class="ml-2 duration-500 transform md:ml-2 group-hover:translate-x-1"
                 />
                 {{ button.text }}
               </a>

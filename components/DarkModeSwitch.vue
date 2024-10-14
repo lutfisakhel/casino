@@ -3,7 +3,7 @@
     <label
       v-if="isShowLabel"
       for="colorToggle"
-      class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mr-3 whitespace-nowrap"
+      class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 ml-3 whitespace-nowrap"
     >
       Color Mode
     </label>
@@ -15,8 +15,16 @@
         v-on:click="toggleColorMode"
         class="p-2 rounded-xl focus:outline-none text-gray-800 bg-gray-200 hover:bg-gray-300 dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 flex shrink-0 items-center"
       >
-        <Icon v-if="colorMode.preference === 'light'" name="lucide:sun" class="w-5 h-5" />
-        <Icon v-else-if="colorMode.preference === 'dark'" name="lucide:moon" class="w-5 h-5" />
+        <Icon
+          v-if="colorMode.preference === 'light'"
+          name="lucide:sun"
+          class="w-5 h-5"
+        />
+        <Icon
+          v-else-if="colorMode.preference === 'dark'"
+          name="lucide:moon"
+          class="w-5 h-5"
+        />
         <Icon v-else name="lucide:sun-moon" class="w-5 h-5" />
       </button>
     </ClientOnly>

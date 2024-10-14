@@ -7,7 +7,7 @@
         class="text-black dark:text-zinc-300"
       />
       <h2 class="text-4xl font-semibold text-black dark:text-zinc-300">
-        Recent Post
+        أحدث المقالات
       </h2>
     </div>
 
