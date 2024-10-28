@@ -52,24 +52,24 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/vue/24/outline";
 
 const faqs = [
   {
-    question: "هل اللعب في الكازينوهات على الإنترنت آمن؟",
+    question: "Çevrimiçi casinolar oynamak güvenli mi?",
     answer:
-      "نعم، اللعب في الكازينوهات المرخصة والمنظمة أون لاين عادة ما يكون آمنًا. تأكد من أن الكازينو يستخدم تشفير SSL وأنه يتمتع بتقييمات جيدة.",
+      "Evet, lisanslı ve düzenlenmiş çevrimiçi casinolarda oynamak genellikle güvenlidir. Casinonun SSL şifreleme kullandığından ve iyi yorumlar aldığından emin olun.",
   },
   {
-    question: "هل يمكنك ربح المال الحقيقي في ألعاب الكازينو أون لاين؟",
+    question: "Çevrimiçi casinolarda gerçek para kazanabilir misiniz?",
     answer:
-      "نعم، يمكنك ربح المال الحقيقي في الكازينوهات عبر الإنترنت. ومع ذلك، من المهم اللعب بمسؤولية وأن تكون على دراية بالمخاطر المتعلقة بذلك.",
+      "Evet, çevrimiçi casinolarda gerçek para kazanabilirsiniz. Ancak, sorumlu bir şekilde oynamak ve ilgili risklerin farkında olmak önemlidir.",
   },
   {
-    question: "ما هي أفضل الكازينوهات أون لاين؟",
+    question: "En iyi çevrimiçi casinolar hangileridir?",
     answer:
-      "أفضل الكازينوهات على الإنترنت هي تلك التي تمتلك تراخيص موثوقة، وتقدم مجموعة واسعة من الألعاب، وتوفر طرق دفع آمنة، ولها تقييمات إيجابية من المستخدمين.",
+      "En iyi çevrimiçi casinolar, uygun lisanslara sahip, geniş oyun yelpazesi sunan, güvenli ödeme yöntemleri olan ve olumlu kullanıcı yorumlarına sahip olanlardır.",
   },
   {
-    question: "كيف تعمل مكافآت الكازينو على الإنترنت؟",
+    question: "Çevrimiçi casino bonusları nasıl çalışır?",
     answer:
-      "مكافآت الكازينو أون لاين هي عروض ترويجية مصممة لجذب اللاعبين الجدد، مثل الدورات المجانية أو مطابقة الودائع. تأكد دائمًا من قراءة الشروط والأحكام.",
+      "Çevrimiçi casino bonusları, yeni oyuncuları çekmek için tasarlanmış promosyon teklifleri, örneğin ücretsiz döndürmeler veya depozito eşleşmeleri gibi, tekliflerdir. Her zaman şartlar ve koşulları okuyun.",
   },
   // More questions...
 ];
