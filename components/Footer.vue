@@ -35,7 +35,7 @@
       <p
         class="mt-8 text-xs leading-5 text-center text-gray-500 dark:text-gray-300"
       >
-        &copy; 2024 theturkbet &ndash; All rights reserved.
+        &copy; 2024 theturkbet.com &ndash; All rights reserved.
       </p>
     </div>
   </footer>
@@ -46,9 +46,11 @@ import { defineComponent, h } from "vue";
 
 const navigation = {
   main: [
-    { name: "الصفحة الرئيسية", href: "/" },
-    { name: "مقالات", href: "/articles" },
-    { name: "تواصل بنا", href: "/contact" },
+    { name: "Home", href: "/" },
+    { name: "Articles", href: "/articles" },
+    { name: "About", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
   ],
   social: [
     // {

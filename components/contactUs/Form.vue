@@ -16,7 +16,7 @@
           <label
             for="name"
             class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
-            >أدخل إسمك</label
+            >Your name</label
           >
           <div class="mt-2.5">
             <Field
@@ -29,7 +29,7 @@
               maxlength="40"
             ></Field>
             <ErrorMessage name="name" v-if="meta.touched" v-slot="{ message }">
-              <span role="alert"> من فضلك أدخل إسمك </span>
+              <span role="alert"> Please enter your name </span>
             </ErrorMessage>
           </div>
         </div>
@@ -37,7 +37,7 @@
           <label
             for="email"
             class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
-            >بريدك الإلكتروني</label
+            >Email</label
           >
           <div class="mt-2.5">
             <Field
@@ -49,7 +49,7 @@
               v-model="formData.email"
             />
             <ErrorMessage name="email" v-if="meta.touched" v-slot="{ message }">
-              <span role="alert">من فضلك أدخال بريدك الإلكتروني </span>
+              <span role="alert"> Please enter your email </span>
             </ErrorMessage>
           </div>
         </div>
@@ -58,7 +58,7 @@
           <label
             for="message"
             class="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
-            >أدخل رسالتك</label
+            >Message</label
           >
           <div class="mt-2.5">
             <Field
@@ -73,7 +73,7 @@
               v-if="meta.touched"
               v-slot="{ message }"
             >
-              <span role="alert">من فضلك إدخال رسالتك</span>
+              <span role="alert"> Please enter your message </span>
             </ErrorMessage>
           </div>
         </div>
@@ -85,7 +85,7 @@
         >
           <ul>
             <li>
-              شيء ما حدث بشكل خاطئ. يرجى مراسلتنا عبر البريد الإلكتروني على
+              Oops, something went wrong. Please email us at
               <a href="mailto:theturkbet@protonmail.com">
                 theturkbet@protonmail.com </a
               >.
@@ -99,7 +99,7 @@
           class="!mb-0 sm:col-span-3"
         >
           <ul>
-            <li>نجاح! شكرا لإتصالك بنا.</li>
+            <li>Success! Thanks for contacting us.</li>
           </ul>
         </BaseAlert>
       </div>
@@ -114,7 +114,7 @@
           "
           :disabled="isSubmitting || !meta.valid || !meta.touched"
         >
-          أرسل رسالة
+          Send message
           <Icon
             name="lucide:loader-2"
             class="inline w-5 h-5 ml-1 animate-spin opacity-95"

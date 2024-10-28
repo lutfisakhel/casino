@@ -1,14 +1,14 @@
 <template>
   <Disclosure
     as="nav"
-    class="border-b bg-slate-900 dark:bg-slate-950 border-slate-800"
+    class="bg-slate-900 dark:bg-slate-950 border-b border-slate-800"
     v-slot="{ open }"
   >
-    <div class="px-6 mx-auto max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex items-stretch justify-between py-4">
         <nuxt-link
           to="/"
-          class="flex items-center flex-shrink-0"
+          class="flex flex-shrink-0 items-center"
           aria-label="theturkbet Home"
           no-prefetch
         >
@@ -25,7 +25,7 @@
                 $route.path.includes(item.url)
                   ? 'bg-slate-800 text-white hover:text-white'
                   : 'text-gray-300 hover:bg-slate-600 hover:text-white',
-                'rounded-md px-3 py-2 last:-ml-2',
+                'rounded-md px-3 py-2 last:-mr-2',
               ]"
               :aria-current="
                 $route.path.includes(item.url) ? 'page' : undefined
@@ -36,21 +36,21 @@
           </div>
         </div>
 
-        <div class="flex items-center -ml-3 lg:hidden">
+        <div class="flex items-center lg:hidden -mr-3">
           <!-- Mobile menu button-->
           <DisclosureButton
-            class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           >
             <span class="sr-only">Open main menu</span>
-            <Bars3Icon v-if="!open" class="block w-6 h-6" aria-hidden="true" />
-            <XMarkIcon v-else class="block w-6 h-6" aria-hidden="true" />
+            <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
+            <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
           </DisclosureButton>
         </div>
       </div>
     </div>
 
     <DisclosurePanel class="lg:hidden" v-slot="{ close }">
-      <div class="px-3 pt-2 pb-3 space-y-1">
+      <div class="space-y-1 px-3 pt-2 pb-3">
         <DisclosureButton
           v-for="item in navigation"
           as="template"
@@ -81,7 +81,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const navigation = [
-  { label: "تواصل بنا", url: "/تواصل بنا" },
-  { label: "مقالات", url: "/مقالات" },
+  { label: "About", url: "/about" },
+  { label: "Contact", url: "/contact" },
+  { label: "Articles", url: "/articles" },
 ];
 </script>
