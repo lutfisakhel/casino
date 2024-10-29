@@ -1,3 +1,7 @@
+<!-- NOTE: this is to view old files on the _backup branch - diffed with current main version -->
+<!-- cmd + shft + p -->
+<!-- type diff and enter view branch diff -->
+<!-- choose the _backup branch to check files reverted back RTL -->
 <template>
   <div class="container mx-auto mb-12 text-zinc-600 max-w-7xl">
     <MainHero class="pt-8 pb-12 md:pt-0 md:pb-24" />
