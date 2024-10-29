@@ -31,7 +31,7 @@
               >
                 {{ product.rating }}
                 <StarIcon
-                  class="text-yellow-400 h-6 w-6 ml-1 mt-1 flex-shrink-0"
+                  class="flex-shrink-0 w-6 h-6 mt-1 ml-1 text-yellow-400"
                 />
               </span>
             </div>
@@ -55,7 +55,7 @@
                 <Icon
                   name="material-symbols:arrow-forward-rounded"
                   size="1.5em"
-                  class="mr-2 duration-500 transform md:mr-2 group-hover:translate-x-1"
+                  class="ml-2 duration-500 transform md:ml-2 group-hover:translate-x-1"
                 />
                 {{ button.text }}
               </a>
