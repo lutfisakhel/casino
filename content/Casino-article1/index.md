@@ -2,9 +2,9 @@
 title: أفضل الكازينوهات على الإنترنت 2024
 updatedAt: 2024-10-01
 description: نظرة على أفضل الكازينوهات على الإنترنت لعام 2024، مع التركيز على الأمان، خيارات الدفع، المكافآت، وتجربة المستخدم. دليل مثالي لاختيار الكازينو الأنسب لتجربة لعب ممتعة ومربحة.
-image: /assets/svgs/image1.svg
+image: /imgs/Article1/pic1.jpg
 alt:  أفضل الكازينوهات على الإنترنت 2024
-ogImage: /assets/svgs/image1.svg
+ogImage: /imgs/Article1/pic1.jpg
 products:
   - id: 1
     feature: 'Best Offer'
