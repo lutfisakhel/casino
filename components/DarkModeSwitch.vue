@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex items-center justify-center">
     <label
       v-if="isShowLabel"
       for="colorToggle"
-      class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mr-3 whitespace-nowrap"
+      class="ml-3 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400 whitespace-nowrap"
     >
       Color Mode
     </label>
@@ -13,10 +13,18 @@
         id="colorToggle"
         name="colorToggle"
         v-on:click="toggleColorMode"
-        class="p-2 rounded-xl focus:outline-none text-gray-800 bg-gray-200 hover:bg-gray-300 dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 flex shrink-0 items-center"
+        class="flex items-center p-2 text-gray-800 bg-gray-200 rounded-xl focus:outline-none hover:bg-gray-300 dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 shrink-0"
       >
-        <Icon v-if="colorMode.preference === 'light'" name="lucide:sun" class="w-5 h-5" />
-        <Icon v-else-if="colorMode.preference === 'dark'" name="lucide:moon" class="w-5 h-5" />
+        <Icon
+          v-if="colorMode.preference === 'light'"
+          name="lucide:sun"
+          class="w-5 h-5"
+        />
+        <Icon
+          v-else-if="colorMode.preference === 'dark'"
+          name="lucide:moon"
+          class="w-5 h-5"
+        />
         <Icon v-else name="lucide:sun-moon" class="w-5 h-5" />
       </button>
     </ClientOnly>
